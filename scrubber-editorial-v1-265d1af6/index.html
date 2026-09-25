@@ -193,6 +193,32 @@ footer img{height:14px;width:auto;margin-bottom:12px;opacity:.8}
 
 /* review notes for Joe (remove before handoff) */
 .note{font-family:ui-monospace,Menlo,monospace;font-size:12px;line-height:1.5;color:#7a5a00;background:#FFF7D6;border:1px dashed #E3C35A;border-radius:8px;padding:8px 10px;margin:10px 0}
+.mk{width:24px;height:24px;border-radius:50%;display:inline-grid;place-items:center;font-size:13px;font-weight:700;flex:none}
+.mk.yes{background:var(--teal-btn);color:#fff}
+.mk.no{background:#EDEFF3;color:#9a9cb2}
+.mk.some{background:#F2EEE2;color:#9a8a5a}
+.disc.lg{width:56px;height:56px}.disc.lg svg{width:28px;height:28px}
+
+/* B */
+.band{background:var(--ink);color:#fff;padding:56px 0;margin:56px 0 34px;position:relative;overflow:hidden}
+.band::before{content:"";position:absolute;inset:0;background:radial-gradient(80% 90% at 90% 0%,rgba(80,180,180,.25),transparent 60%)}
+.band .wide{position:relative}
+.band-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:20px}
+.band .big{font-size:clamp(40px,6vw,64px);font-weight:700;letter-spacing:-.04em;line-height:1;color:#fff;margin-bottom:14px}
+.band-grid > div{border-top:2px solid var(--teal);padding-top:20px}
+.band p{color:#C9DADA;font-size:16.5px;line-height:1.6;margin:0}
+@media(max-width:760px){.band-grid{grid-template-columns:1fr;gap:26px}}
+.checks{max-width:760px;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.ch-row{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;border-bottom:1px solid var(--line)}
+.ch-row:last-child{border-bottom:0}
+.ch-row > div{padding:14px 12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-align:center}
+.ch-row small{font-size:12.5px;color:var(--slate);line-height:1.25}
+.ch-row .ch-q{align-items:flex-start;text-align:left;font-weight:600;font-size:15px;line-height:1.35}
+.ch-row .win{background:var(--mint)}
+.ch-head > div{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);background:var(--wash)}
+.ch-head .win{background:var(--ink);color:#fff}
+@media(max-width:520px){.ch-row{grid-template-columns:1.3fr 1fr 1fr 1fr}.ch-row > div{padding:12px 6px}.ch-head > div{font-size:10.5px;letter-spacing:.04em}.ch-row .ch-q{font-size:13.5px}}
+
 </style>
 </head>
 <body>
@@ -242,24 +268,26 @@ footer img{height:14px;width:auto;margin-bottom:12px;opacity:.8}
   </div>
 </div>
 
+<div class="band">
+    <div class="wide">
+      <div class="eyebrow" style="color:var(--teal)">What makes an air scrubber</div>
+      <div class="band-grid">
+        <div><div class="big">Airflow</div><p>Enough to cycle a whole room through its filters several times an hour.</p></div>
+        <div><div class="big">3 stages</div><p>Big particles, fine particles, and gases, each with its own filter stage, including activated carbon.</p></div>
+        <div><div class="big">24/7</div><p>Metal housings and heavy-duty motors, made to run nonstop for weeks.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="wide">
+    <div class="checks">
+      <div class="ch-row ch-head"><div></div><div>Air filter</div><div>Air purifier</div><div class="win">Air scrubber</div></div>
+      <div class="ch-row"><div class="ch-q">Moves its own air</div><div><span class="mk no">✕</span></div><div><span class="mk some">–</span><small>Not much</small></div><div class="win"><span class="mk yes">✓</span><small>A lot</small></div></div>
+      <div class="ch-row"><div class="ch-q">Handles odors and fumes</div><div><span class="mk no">✕</span></div><div><span class="mk some">–</span><small>Thin layer</small></div><div class="win"><span class="mk yes">✓</span><small>Carbon stage</small></div></div>
+      <div class="ch-row"><div class="ch-q">Runs 24/7</div><div><span class="mk no">✕</span><small>With HVAC only</small></div><div><span class="mk some">–</span><small>Varies</small></div><div class="win"><span class="mk yes">✓</span></div></div>
+      <div class="ch-row"><div class="ch-q">Used by mold, fire, and flood pros</div><div><span class="mk no">✕</span></div><div><span class="mk no">✕</span></div><div class="win"><span class="mk yes">✓</span></div></div>
+    </div>
+  </div>
 <div class="col">
-  <p style="margin-top:28px">An air scrubber is defined by three things:</p>
-  <ul class="traits">
-    <li><span class="disc"><svg viewBox="0 0 24 24"><path d="M3 8h11a3 3 0 1 0-3-3"/><path d="M3 12h15a3 3 0 1 1-3 3"/><path d="M3 16h8"/></svg></span><div><b>Serious airflow</b><span>Enough to cycle a whole room through its filters several times an hour.</span></div></li>
-    <li><span class="disc"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="4" rx="1"/><rect x="4" y="10" width="16" height="4" rx="1"/><rect x="4" y="17" width="16" height="4" rx="1"/></svg></span><div><b>Multi-stage filtration</b><span>Big particles, fine particles, and gases each get their own stage, including a bed of activated carbon for odors and chemical fumes.</span></div></li>
-    <li><span class="disc"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><b>Built to run constantly</b><span>Metal housings and heavy-duty motors, made to run 24/7 for weeks at a time.</span></div></li>
-  </ul>
-
-  <div class="tbl"><table>
-    <thead><tr><th></th><th>Air filter</th><th>Air purifier</th><th class="win">Air scrubber</th></tr></thead>
-    <tbody>
-      <tr><th>What it is</th><td>A part inside your HVAC</td><td>A small consumer appliance</td><td class="win">A room-cleaning machine</td></tr>
-      <tr><th>Moves its own air?</th><td>No</td><td>Yes, usually not much</td><td class="win"><span class="yes">Yes, a lot</span></td></tr>
-      <tr><th>Odors and fumes</th><td>Rarely</td><td>Sometimes, thin carbon layer</td><td class="win"><span class="yes">Dedicated carbon stage</span></td></tr>
-      <tr><th>Runs 24/7?</th><td>Only when HVAC runs</td><td>Varies</td><td class="win"><span class="yes">Yes</span></td></tr>
-      <tr><th>Who relies on it</th><td>Every home</td><td>Big-box shoppers</td><td class="win">Mold, fire, and flood pros</td></tr>
-    </tbody>
-  </table></div>
 
   <h2>Why the scrubber is the one you actually want</h2>
   <p>Clean air comes down to one question: how many times an hour does the air in your room go through a good filter? Professionals call this <b>air changes per hour</b>. Everything else, from filter grades to fancy features, only counts once you have enough airflow.</p>
