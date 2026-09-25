@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Air Scrubber Editorial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: light;
+  --ink:#072F30; --teal:#50B4B4; --teal-btn:#31B8BC; --teal-deep:#0E7A82;
+  --mint:#EEFBFA; --slate:#676986; --line:#DBE7E7; --paper:#FFFFFF; --wash:#F6FBFB;
+  --linen:#F3F0E8; --forest:#33473C; --gold:#FFCF2A; --night:#0B1717;
+  --font:"Mont","Outfit",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:18px;line-height:1.75;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+h1,h2,h3{font-weight:700;letter-spacing:-.02em;line-height:1.12;text-wrap:balance;margin:0}
+p{margin:0 0 1.1em}
+a{color:var(--teal-deep)}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-deep)}
+.col{max-width:700px;margin:0 auto;padding-inline:20px}
+.wide{max-width:1080px;margin:0 auto;padding-inline:20px}
+@media(max-width:600px){.col,.wide{padding-inline:16px} body{font-size:17px}}
+
+/* disclosure + bar */
+.disclose{background:var(--wash);border-bottom:1px solid var(--line);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);text-align:center;padding:6px 16px}
+.bar{border-bottom:1px solid var(--line);background:#fff}
+.bar .wide{display:flex;align-items:center;justify-content:space-between;min-height:60px}
+.bar img{height:18px;width:auto}
+.bar a.shop{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);text-decoration:none;border:1.5px solid var(--ink);border-radius:60px;padding:7px 16px}
+
+/* header */
+header.lead{padding:56px 0 28px}
+header.lead h1{font-size:clamp(34px,6vw,56px);letter-spacing:-.035em;margin:14px 0 18px}
+header.lead .dek{font-size:clamp(19px,2.4vw,22px);font-weight:300;line-height:1.5;color:#26494a;margin:0 0 22px}
+.byline{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px;color:var(--slate)}
+.byline b{color:var(--ink);font-weight:600}
+.hero-img{margin:8px auto 0;max-width:1080px;padding-inline:20px}
+.hero-img img{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:50% 80%;border-radius:18px}
+.hero-img figcaption,figure figcaption{font-size:13px;color:var(--slate);margin-top:10px;line-height:1.5}
+@media(max-width:600px){.hero-img{padding-inline:0}.hero-img img{border-radius:0;aspect-ratio:4/3}.hero-img figcaption{padding-inline:16px}}
+
+article{padding:36px 0 40px}
+article h2{font-size:clamp(27px,3.6vw,38px);margin:64px 0 18px}
+article h3{font-size:21px;margin:0 0 8px}
+.dropcap::first-letter{float:left;font-size:4.1em;line-height:.82;font-weight:700;margin:.08em .1em 0 0;color:var(--teal-deep)}
+.pull{font-size:clamp(22px,3vw,28px);font-weight:600;line-height:1.35;letter-spacing:-.015em;border-left:4px solid var(--teal);padding:4px 0 4px 22px;margin:36px 0}
+
+/* three terms */
+.terms{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:28px 0 8px}
+.term{background:var(--wash);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.term .body{padding:18px 20px 22px}
+.term .tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--slate);margin-bottom:6px}
+.term.star{background:var(--ink);color:#fff;border-color:var(--ink)}
+.term.star .tag{color:var(--teal)}
+.term p{font-size:16px;line-height:1.6;margin:0}
+.term.star p{color:#C9DADA}
+@media(max-width:820px){.terms{grid-template-columns:1fr}}
+
+/* image placeholder for AI-generated images */
+.gen{aspect-ratio:3/2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-align:center;padding:14px;
+  background:repeating-linear-gradient(135deg,#E8F1F1 0 12px,#F2F8F8 12px 24px);color:var(--teal-deep);font-size:13px;line-height:1.35;border-bottom:1px solid var(--line)}
+.gen b{font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.card-img{width:100%;aspect-ratio:3/2;object-fit:cover;border-bottom:1px solid var(--line)}
+.wide-img{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:62% 60%;border-radius:16px}
+.term.star .gen{background:repeating-linear-gradient(135deg,#123c3d 0 12px,#0d3334 12px 24px);color:var(--teal);border-color:#1b4a4b}
+
+/* scrubber traits */
+.traits{list-style:none;padding:0;margin:22px 0 26px;display:grid;gap:14px}
+.traits li{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start}
+.disc{width:44px;height:44px;border-radius:50%;background:var(--mint);display:grid;place-items:center}
+.disc svg{width:22px;height:22px;stroke:var(--teal-deep);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.traits b{display:block;font-size:17px}
+.traits div span{display:block;font-size:16px;color:#335556;line-height:1.55}
+
+/* tables */
+.tbl{overflow-x:auto;margin:26px 0 8px;border:1px solid var(--line);border-radius:14px;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;min-width:600px;font-size:15px;line-height:1.45}
+th,td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+thead th{background:var(--wash);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);font-weight:700}
+tbody th{font-weight:600;color:var(--ink);white-space:nowrap}
+tr:last-child th,tr:last-child td{border-bottom:0}
+td.win,th.win{background:var(--mint)}
+thead th.win{background:var(--ink);color:#fff}
+.yes{color:var(--teal-deep);font-weight:600}
+.tbl-note{font-size:13px;color:var(--slate)}
+
+/* problem cards */
+.problems{display:grid;gap:18px;margin:26px 0}
+.problem{display:grid;grid-template-columns:56px 1fr;gap:18px;padding:22px;border:1px solid var(--line);border-radius:16px;background:#fff}
+.problem .n{width:56px;height:56px;border-radius:50%;border:1.5px solid var(--ink);display:grid;place-items:center;font-weight:700;font-size:20px}
+.problem h3{margin-bottom:6px}
+.problem p{font-size:16.5px;line-height:1.65;margin:0}
+.problem .stat{display:inline-block;margin-top:10px;font-size:13px;font-weight:600;letter-spacing:.04em;background:var(--wash);border:1px solid var(--line);border-radius:60px;padding:4px 12px;color:var(--slate)}
+@media(max-width:520px){.problem{grid-template-columns:1fr}}
+.wide-fig{margin:30px 0}
+.wide-fig .gen{border-radius:16px;border:1px solid var(--line);aspect-ratio:16/9}
+
+/* imagine */
+.imagine{position:relative;background:var(--night);color:#fff;margin:72px 0;overflow:hidden}
+.imagine .bg{position:absolute;inset:0;background:radial-gradient(120% 70% at 85% 0%,rgba(80,180,180,.22),transparent 60%),radial-gradient(90% 60% at 0% 100%,rgba(49,184,188,.12),transparent 60%)}
+.imagine .reveal{margin:34px 0 0}
+.imagine .reveal img{width:100%;border-radius:16px;aspect-ratio:2/1;object-fit:cover;object-position:50% 100%}
+.imagine .reveal figcaption{color:#9FBABA;font-size:13px;margin-top:10px}
+.imagine .col{position:relative;padding-block:84px}
+.imagine .eyebrow{color:var(--teal)}
+.imagine h2{font-size:clamp(30px,4.4vw,46px);margin:12px 0 30px;color:#fff}
+.imagine p{font-size:clamp(19px,2.2vw,22px);font-weight:300;line-height:1.7;color:#DDEBEB}
+.imagine .want{list-style:none;padding:0;margin:34px 0;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.imagine .want li{border:1px solid rgba(80,180,180,.45);border-radius:12px;padding:14px 12px;font-size:14.5px;font-weight:500;line-height:1.35;color:#fff;text-align:center}
+@media(max-width:640px){.imagine .want{grid-template-columns:1fr 1fr}}
+.imagine .turn{font-size:clamp(26px,3.4vw,34px);font-weight:700;color:#fff;letter-spacing:-.02em;margin:10px 0 0}
+
+/* founder */
+.founder{display:grid;grid-template-columns:160px 1fr;gap:24px;align-items:center;background:var(--linen);border-radius:18px;padding:22px;margin:24px 0 30px}
+.founder img{width:160px;height:160px;object-fit:cover;border-radius:12px}
+.founder p{margin:0;font-size:17px;line-height:1.65}
+.founder small{display:block;margin-top:10px;font-size:13px;color:var(--slate)}
+@media(max-width:560px){.founder{grid-template-columns:1fr}.founder img{width:100%;height:220px}}
+
+/* fixed blocks */
+.fixed{border-top:1px solid var(--line);padding-top:34px;margin-top:40px}
+.fixed .label{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-deep);margin-bottom:10px}
+.fixed .label i{width:22px;height:22px;border-radius:50%;background:var(--teal-btn);display:grid;place-items:center}
+.fixed .label i svg{width:12px;height:12px;stroke:#fff;stroke-width:3;fill:none}
+.fixed h3{font-size:clamp(24px,3vw,30px);margin-bottom:14px}
+
+.viz{background:var(--wash);border:1px solid var(--line);border-radius:16px;padding:22px;margin:22px 0 26px}
+.viz-title{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--slate);margin-bottom:14px}
+.scale svg{width:100%;height:auto;max-height:340px}
+.scale text{font-family:var(--font)}
+
+.meter{display:grid;gap:12px}
+.meter .row{display:grid;grid-template-columns:150px 1fr 64px;gap:12px;align-items:center;font-size:14.5px}
+.meter .track{height:14px;background:#E3EEEE;border-radius:10px;overflow:hidden}
+.meter .fill{height:100%;border-radius:10px;background:var(--slate)}
+.meter .fill.j{background:var(--teal-btn)}
+.meter .fill.c{background:linear-gradient(90deg,#8a8ca6,#4b4d68)}
+.meter .v{font-weight:700;text-align:right;white-space:nowrap}
+.meter .row b{font-weight:600}
+@media(max-width:520px){.meter .row{grid-template-columns:1fr 56px}.meter .track{grid-column:1/-1;grid-row:2}}
+.callout{margin-top:16px;padding:14px 16px;background:#fff;border-radius:12px;border:1px solid var(--line);font-size:16px;line-height:1.55}
+.callout b{color:var(--teal-deep)}
+
+.ach{display:flex;flex-wrap:wrap;gap:22px;align-items:center}
+.ach .dots{display:flex;gap:8px}
+.ach .dots span{width:34px;height:34px;border-radius:50%;border:2px solid var(--teal-btn);display:grid;place-items:center;font-size:13px;font-weight:700;color:var(--teal-deep)}
+.ach p{margin:0;font-size:16px;line-height:1.55;flex:1;min-width:220px}
+
+.perks{list-style:none;padding:0;margin:20px 0;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.perks li{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:start;font-size:16px;line-height:1.55}
+.perks li b{display:block;font-size:16.5px}
+@media(max-width:640px){.perks{grid-template-columns:1fr}}
+
+/* proof */
+.proof{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:26px 0}
+.proof figure{margin:0}
+.proof img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:14px}
+@media(max-width:560px){.proof{grid-template-columns:1fr}}
+blockquote.review{margin:26px 0;padding:22px 24px;background:var(--wash);border-radius:16px;border:1px solid var(--line)}
+blockquote.review .stars{color:var(--gold);letter-spacing:2px;font-size:16px}
+blockquote.review p{font-size:18px;line-height:1.6;margin:8px 0 10px}
+blockquote.review cite{font-style:normal;font-size:14px;color:var(--slate)}
+.rating{display:flex;flex-wrap:wrap;gap:8px 28px;font-size:15px;color:var(--slate)}
+.rating b{color:var(--ink);font-size:22px;display:block;letter-spacing:-.01em}
+
+/* CTA */
+.cta{background:var(--ink);color:#fff;border-radius:22px;padding:44px 28px;text-align:center;margin:56px 0 12px}
+.cta h2{color:#fff;margin:0 0 12px;font-size:clamp(28px,4vw,40px)}
+.cta p{color:#C9DADA;max-width:32em;margin:0 auto 26px;font-size:17px}
+.btn{display:inline-block;background:var(--teal-btn);color:var(--ink);text-decoration:none;font-weight:700;font-size:16px;letter-spacing:.06em;text-transform:uppercase;border-radius:60px;padding:16px 34px}
+.cta .fine{margin:16px 0 0;font-size:13px;color:#9FBABA}
+.guar{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 22px;margin-top:22px;font-size:14px;color:#C9DADA}
+.guar span::before{content:"✓ ";color:var(--teal)}
+
+footer{border-top:1px solid var(--line);padding:28px 0 110px;font-size:12.5px;color:var(--slate);line-height:1.6}
+footer img{height:14px;width:auto;margin-bottom:12px;opacity:.8}
+
+/* sticky mobile CTA */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:none;align-items:center;justify-content:space-between;gap:12px}
+.sticky small{font-size:12.5px;line-height:1.35;color:var(--slate)}
+.sticky small b{color:var(--ink);display:block;font-size:14px}
+.sticky .btn{padding:12px 20px;font-size:13.5px}
+@media(max-width:820px){.sticky{display:flex}}
+
+/* review notes for Joe (remove before handoff) */
+.note{font-family:ui-monospace,Menlo,monospace;font-size:12px;line-height:1.5;color:#7a5a00;background:#FFF7D6;border:1px dashed #E3C35A;border-radius:8px;padding:8px 10px;margin:10px 0}
+</style>
+</head>
+<body>
+
+<div class="disclose">Advertisement · Presented by Jaspr</div>
+<div class="bar"><div class="wide">
+  <img src="assets/logo-black.png" alt="Jaspr">
+  <a class="shop" href="#try">Shop Jaspr</a>
+</div></div>
+
+<header class="lead"><div class="col">
+  <div class="eyebrow">Clean air, explained</div>
+  <h1>Air filter, air purifier, or air scrubber? Why the pros use only one of them.</h1>
+  <p class="dek">Restoration crews don't bring air purifiers to a smoke-damaged house. They bring air scrubbers. Here's the difference, why it matters in your home, and why the scrubber built for a bedroom looks nothing like the ones on a job site.</p>
+  <div class="byline"><span>By <b>The Jaspr Team</b></span><span>6 min read</span></div>
+</div></header>
+
+<figure class="hero-img">
+  <img src="assets/photo-1.jpg" alt="Jaspr Air Scrubber standing between two potted plants in warm window light">
+  <figcaption>An air scrubber, built for the home.</figcaption>
+</figure>
+
+<article>
+<div class="col">
+  <p class="dropcap">When a house floods, burns, or grows mold, the cleanup crew shows up with a few big, boxy machines, rolls them into the worst rooms, and runs them around the clock. Those machines aren't air purifiers. They're <b>air scrubbers</b>, and they're the reason a damaged house can be livable again in days.</p>
+  <p>Most people have never heard the term. They've heard "air filter" and "air purifier" and assume all three mean the same thing. They don't. Knowing the difference is how you tell a machine that <i>does something</i> to your air from one that just sits in the corner.</p>
+
+  <h2>First, the three terms</h2>
+</div>
+
+<div class="wide">
+  <div class="terms">
+    <div class="term">
+      <img class="card-img" src="assets/img-b-dusty-hvac-filter.webp" alt="A dusty pleated filter sliding out of a basement furnace">
+      <div class="body"><span class="tag">01 · Air filter</span><h3>A part, not a machine</h3>
+      <p>The pleated sheet inside your furnace or AC. It catches dust only while your HVAC is running, and only from air that reaches the return vent. When the system shuts off, filtering stops.</p></div>
+    </div>
+    <div class="term">
+      <img class="card-img" src="assets/img-c-generic-plastic-purifier.webp" alt="A small white plastic air purifier on a bookshelf in a sunny living room">
+      <div class="body"><span class="tag">02 · Air purifier</span><h3>A compromise in a plastic box</h3>
+      <p>A small fan pushing room air through a filter, built to be small, quiet, and cheap. Airflow is what usually gets cut to hit those goals, and a purifier that can't move much air can't clean much air.</p></div>
+    </div>
+    <div class="term star">
+      <img class="card-img" src="assets/img-a-commercial-scrubber-jobsite.webp" alt="A boxy commercial air scrubber on a dolly in a room stripped to the studs">
+      <div class="body"><span class="tag">03 · Air scrubber</span><h3>What the professionals use</h3>
+      <p>A machine built to clean the air in a room fast and keep it clean. It comes from the restoration industry, where "pretty good" isn't an option.</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="col">
+  <p style="margin-top:28px">An air scrubber is defined by three things:</p>
+  <ul class="traits">
+    <li><span class="disc"><svg viewBox="0 0 24 24"><path d="M3 8h11a3 3 0 1 0-3-3"/><path d="M3 12h15a3 3 0 1 1-3 3"/><path d="M3 16h8"/></svg></span><div><b>Serious airflow</b><span>Enough to cycle a whole room through its filters several times an hour.</span></div></li>
+    <li><span class="disc"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="4" rx="1"/><rect x="4" y="10" width="16" height="4" rx="1"/><rect x="4" y="17" width="16" height="4" rx="1"/></svg></span><div><b>Multi-stage filtration</b><span>Big particles, fine particles, and gases each get their own stage, including a bed of activated carbon for odors and chemical fumes.</span></div></li>
+    <li><span class="disc"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><b>Built to run constantly</b><span>Metal housings and heavy-duty motors, made to run 24/7 for weeks at a time.</span></div></li>
+  </ul>
+
+  <div class="tbl"><table>
+    <thead><tr><th></th><th>Air filter</th><th>Air purifier</th><th class="win">Air scrubber</th></tr></thead>
+    <tbody>
+      <tr><th>What it is</th><td>A part inside your HVAC</td><td>A small consumer appliance</td><td class="win">A room-cleaning machine</td></tr>
+      <tr><th>Moves its own air?</th><td>No</td><td>Yes, usually not much</td><td class="win"><span class="yes">Yes, a lot</span></td></tr>
+      <tr><th>Odors and fumes</th><td>Rarely</td><td>Sometimes, thin carbon layer</td><td class="win"><span class="yes">Dedicated carbon stage</span></td></tr>
+      <tr><th>Runs 24/7?</th><td>Only when HVAC runs</td><td>Varies</td><td class="win"><span class="yes">Yes</span></td></tr>
+      <tr><th>Who relies on it</th><td>Every home</td><td>Big-box shoppers</td><td class="win">Mold, fire, and flood pros</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>Why the scrubber is the one you actually want</h2>
+  <p>Clean air comes down to one question: how many times an hour does the air in your room go through a good filter? Professionals call this <b>air changes per hour</b>. Everything else, from filter grades to fancy features, only counts once you have enough airflow.</p>
+  <p class="pull">Clean air comes down to one number: how many times an hour your room's air passes through a good filter.</p>
+  <p>Scrubbers are built around that number. That's why remediation crews trust them against the worst indoor air there is. If a machine can clear a damaged room, a bedroom with a dusty closet, a shedding dog, and a gas stove down the hall is well within its range.</p>
+  <p>So why doesn't everyone have one?</p>
+
+  <h2>The catch: commercial scrubbers were built for job sites, not homes</h2>
+  <p>Spend five minutes near a commercial air scrubber and you'll understand. It does an excellent job, and you'd never want one in your bedroom.</p>
+</div>
+
+<div class="wide"><figure class="wide-fig">
+  <img class="wide-img" src="assets/img-a-commercial-scrubber-jobsite.webp" alt="A commercial air scrubber on a job site, with drywall cut away and plastic sheeting over a doorway"><figcaption>A commercial air scrubber on a restoration job. Built to be wheeled in, run hard, and wheeled out.</figcaption>
+</figure></div>
+
+<div class="col">
+  <div class="problems">
+    <div class="problem"><div class="n">1</div><div>
+      <h3>They're huge and heavy</h3>
+      <p>A popular professional model, the Abatement Technologies HEPA-AIRE PAS1200, stands 39 inches tall, 22 inches wide, and weighs 85 pounds with filters. It rides on a built-in dolly because nobody wants to lift it. They're sized for gutted basements, not the spot between the nightstand and the window.</p>
+      <span class="stat">44–85 lb · dolly-mounted</span></div></div>
+    <div class="problem"><div class="n">2</div><div>
+      <h3>They're loud</h3>
+      <p>Commercial scrubbers typically run at 65 to 80+ decibels, and the biggest pass 85. That's vacuum-cleaner loud, all day and all night. The crews that run them leave at 5 p.m. You'd be trying to sleep next to one.</p>
+      <span class="stat">65–80+ dB</span></div></div>
+    <div class="problem"><div class="n">3</div><div>
+      <h3>They cost more than the sticker</h3>
+      <p>Name-brand units run roughly $1,000 to $2,500 before a single replacement filter, and each filter stage is sold separately through trade suppliers. There are no sensors, no automatic mode, and no warranty built around a homeowner. You're buying contractor equipment and getting contractor support.</p>
+      <span class="stat">$1,000–$2,500 + filters</span></div></div>
+  </div>
+</div>
+
+<section class="imagine" aria-labelledby="imagine-h">
+  <div class="bg" aria-hidden="true"></div>
+  <div class="col">
+    <div class="eyebrow">Now imagine</div>
+    <h2 id="imagine-h">What if you didn't have to choose?</h2>
+    <p>Picture the air in your home the way it could be.</p>
+    <p>You walk into your bedroom at the end of a long day, and the air feels different: light, clean, like the first breath outside after a rainstorm. There's no stale smell hanging around from dinner, no film of dust on the nightstand a day after you wiped it, and no heaviness in the room.</p>
+    <p>Somewhere in the corner, a machine with the power of the equipment the professionals use is cleaning every breath you take. But you can't hear it. You'd have to stop and listen to know it's even on. It's slim enough to tuck beside your nightstand, not a bulky box you have to walk around. It looks like it was designed for your home, because it was.</p>
+    <p>You don't manage it. When someone burns the toast or lights a candle, it notices before you do, speeds up, clears the air, and goes quiet again on its own. Twice a year a new filter shows up at your door, and swapping it takes less time than making your coffee.</p>
+    <p>And tonight you fall asleep in the cleanest air you've ever slept in, and you wake up feeling it.</p>
+    <ul class="want">
+      <li>Professional power</li><li>Whisper-quiet</li><li>Sized for a bedroom</li><li>No hassle</li>
+    </ul>
+    <p>For years you had to pick one. You could have power, or you could have something you'd actually live with.</p>
+    <p class="turn">Not anymore.</p>
+    <figure class="reveal"><img src="assets/photo-10.jpg" alt="Jaspr standing beside a crib in a dimly lit nursery"><figcaption>Jaspr in a nursery, dark mode on.</figcaption></figure>
+  </div>
+</section>
+
+<div class="col">
+  <div class="eyebrow">Meet Jaspr</div>
+  <h2 style="margin-top:10px">An air scrubber built for the home</h2>
+  <p>That machine exists, and it came from someone who knew exactly what was missing.</p>
+  <div class="founder">
+    <div class="gen" style="aspect-ratio:1;border-radius:12px;border:1px solid var(--line)"><b>Real photo</b>Michael Feldstein<br>(request from client)</div>
+    <div><p>Jaspr was created by Michael Feldstein, an air quality and restoration expert who spent years watching commercial scrubbers clean up houses that families couldn't live in. His question was simple: why should people only get air this clean <i>after</i> something goes wrong?</p>
+    <small>Michael Feldstein, founder of Jaspr</small></div>
+  </div>
+  <p>Jaspr keeps what makes a scrubber a scrubber: real airflow, dedicated stages for particles and gases, and a steel body built to run constantly. Then it fixes each of the three problems above.</p>
+
+  <!-- SIZE -->
+  <div class="fixed">
+    <div class="label"><i><svg viewBox="0 0 12 12"><path d="M2 6.5l2.5 2.5L10 3.5"/></svg></i>Size: fixed</div>
+    <h3>31.5 inches tall. 11.5 inches wide. 25 pounds.</h3>
+    <p>That's less than a third of the PAS1200's weight and about half its width. It stands upright like a floor lamp instead of squatting like a shop vac. The housing is cold-rolled steel, not cheap plastic, and it's finished to sit in a bedroom or living room like it belongs there, because it does.</p>
+    <div class="viz scale">
+      <div class="viz-title">Drawn to scale</div>
+      <svg viewBox="0 0 520 300" role="img" aria-label="Scale drawing: commercial scrubber 39 by 22 inches, 85 pounds, next to Jaspr 31.5 by 11.5 inches, 25 pounds">
+        <line x1="10" y1="262" x2="510" y2="262" stroke="#DBE7E7" stroke-width="2"/>
+        <!-- commercial: 22w x 39h @ 6px/in = 132 x 234 -->
+        <g transform="translate(70,28)">
+          <rect x="0" y="0" width="132" height="222" rx="6" fill="#8A8CA6"/>
+          <rect x="14" y="16" width="104" height="70" rx="4" fill="#6F7190"/>
+          <g stroke="#5E607D" stroke-width="2">
+            <line x1="22" y1="30" x2="110" y2="30"/><line x1="22" y1="44" x2="110" y2="44"/><line x1="22" y1="58" x2="110" y2="58"/><line x1="22" y1="72" x2="110" y2="72"/>
+          </g>
+          <rect x="-10" y="-10" width="8" height="120" rx="3" fill="#5E607D"/>
+          <circle cx="22" cy="224" r="10" fill="#30302E"/><circle cx="110" cy="224" r="10" fill="#30302E"/>
+        </g>
+        <text x="136" y="284" text-anchor="middle" font-size="14" font-weight="600" fill="#676986">Commercial · 85 lb</text>
+        <!-- jaspr: 11.5w x 31.5h = 69 x 189 -->
+        <g transform="translate(330,73)">
+          <rect x="0" y="0" width="69" height="189" rx="22" fill="#E9E2D2" stroke="#CFC6B2"/>
+          <ellipse cx="34.5" cy="16" rx="24" ry="6" fill="none" stroke="#31B8BC" stroke-width="3"/>
+          <g stroke="#D8CFBB" stroke-width="1.5">
+            <line x1="12" y1="60" x2="12" y2="176"/><line x1="23" y1="60" x2="23" y2="176"/><line x1="34.5" y1="60" x2="34.5" y2="176"/><line x1="46" y1="60" x2="46" y2="176"/><line x1="57" y1="60" x2="57" y2="176"/>
+          </g>
+        </g>
+        <text x="364" y="284" text-anchor="middle" font-size="14" font-weight="700" fill="#072F30">Jaspr · 25 lb</text>
+        <g font-size="12" fill="#676986">
+          <text x="48" y="140" text-anchor="end">39"</text>
+          <text x="420" y="172">31.5"</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <!-- SOUND -->
+  <div class="fixed">
+    <div class="label"><i><svg viewBox="0 0 12 12"><path d="M2 6.5l2.5 2.5L10 3.5"/></svg></i>Sound: fixed</div>
+    <h3>33 decibels, about a whisper</h3>
+    <p>On its lowest setting, where Jaspr runs <b>about 99% of the time</b>, it measures 33 decibels. Even at full power it tops out at 58 dB, quieter than a normal conversation and far below the 65 to 80+ dB of a job-site unit.</p>
+    <div class="viz">
+      <div class="viz-title">How loud, side by side</div>
+      <div class="meter">
+        <div class="row"><b>Jaspr, everyday</b><div class="track"><div class="fill j" style="width:37%"></div></div><span class="v">33 dB</span></div>
+        <div class="row"><span>Jaspr, full power</span><div class="track"><div class="fill j" style="width:64%;opacity:.6"></div></div><span class="v">58 dB</span></div>
+        <div class="row"><span>Commercial scrubber</span><div class="track"><div class="fill c" style="width:89%"></div></div><span class="v">65–80+ dB</span></div>
+      </div>
+      <div class="callout">Here's what that gap means. Every time a sound goes up by 10 decibels, your ear hears it as twice as loud. A commercial scrubber at 65 dB sounds about <b>eight times louder</b> than Jaspr on its everyday setting.</div>
+    </div>
+    <p>And it goes dark at night, so there are no glowing lights by your bed.</p>
+    <p>Quiet doesn't mean weak. On that whisper-quiet setting Jaspr still moves <b>114 CFM</b>.</p>
+    <div class="viz ach">
+      <div class="dots" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+      <p><b>About five full air changes every hour</b> in a typical 12 × 14 ft bedroom, on the quietest setting, while you sleep.</p>
+    </div>
+  </div>
+
+  <!-- COST -->
+  <div class="fixed">
+    <div class="label"><i><svg viewBox="0 0 12 12"><path d="M2 6.5l2.5 2.5L10 3.5"/></svg></i>Cost and hassle: fixed</div>
+    <h3>Priced like one commercial unit. Built for living with.</h3>
+    <p>Jaspr costs about what a single commercial unit does, and its price covers things no job-site machine offers:</p>
+    <ul class="perks">
+      <li><span class="disc"><svg viewBox="0 0 24 24"><path d="M3 12h3l3-7 4 14 3-7h5"/></svg></span><div><b>Built-in air sensors</b>Fine particles and chemical fumes, watched around the clock. It speeds up on its own, then settles back down.</div></li>
+      <li><span class="disc"><svg viewBox="0 0 24 24"><path d="M4 4v6h6"/><path d="M20 20v-6h-6"/><path d="M5 15a8 8 0 0 0 14 2M19 9A8 8 0 0 0 5 7"/></svg></span><div><b>One filter, every six months</b>Media filter plus a full pound of activated carbon, delivered automatically. The swap takes about 30 seconds.</div></li>
+      <li><span class="disc"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></span><div><b>Lifetime warranty</b>With the filter subscription, including free shipping both ways.</div></li>
+      <li><span class="disc"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg></span><div><b>73 watts at full speed</b>About what an old incandescent bulb draws.</div></li>
+    </ul>
+  </div>
+
+  <h2>Side by side</h2>
+  <div class="tbl"><table>
+    <thead><tr><th></th><th>Typical air purifier</th><th>Commercial scrubber</th><th class="win">Jaspr</th></tr></thead>
+    <tbody>
+      <tr><th>Built for</th><td>Small rooms, light dust</td><td>Mold, fire, and flood jobs</td><td class="win">Bedrooms and living spaces</td></tr>
+      <tr><th>Airflow</th><td>Often limited to stay quiet</td><td>Very high</td><td class="win">114 CFM whisper-quiet, up to 340 CFM (smoke)</td></tr>
+      <tr><th>Odors and VOCs</th><td>Thin carbon layer, if any</td><td>Separate carbon stage</td><td class="win">1 lb activated carbon, built in</td></tr>
+      <tr><th>Noise</th><td>Quiet</td><td>65–80+ dB</td><td class="win">33 dB everyday, 58 dB max</td></tr>
+      <tr><th>Size and weight</th><td>Small, light</td><td>44–85 lb, dolly-mounted</td><td class="win">31.5 × 11.5 in, 25 lb</td></tr>
+      <tr><th>Housing</th><td>Plastic</td><td>Metal</td><td class="win">Cold-rolled steel</td></tr>
+      <tr><th>Smart sensors</th><td>Sometimes</td><td>No</td><td class="win">PM2.5 + VOC, automatic</td></tr>
+      <tr><th>Filter upkeep</th><td>Varies</td><td>Multiple stages, sold separately</td><td class="win">One filter every 6 months, delivered</td></tr>
+      <tr><th>Warranty</th><td>Usually 1–2 years</td><td>Contractor terms</td><td class="win">Lifetime, with filter subscription</td></tr>
+    </tbody>
+  </table></div>
+  <p class="tbl-note">Commercial figures from manufacturer and dealer specs for the Abatement PAS1200 and Dri-Eaz HEPA 500. Noise range from industry buyer guides.</p>
+
+  <h2>What owners notice</h2>
+  <p>In a lab study of airborne mold, Jaspr removed <b>97.1% in one hour and 99.8% in two hours</b>. The figure owners talk about more is what happens in a normal week.</p>
+  <div class="proof">
+    <figure><img style="object-position:50% 100%;aspect-ratio:4/3" src="assets/photo-6.jpg" alt="A hand lifting a used filter out of Jaspr in a kitchen"><figcaption>Six months of what the air was carrying.</figcaption></figure>
+    <figure><img style="aspect-ratio:4/3;object-position:50% 20%" src="assets/photo-3.jpg" alt="Two petri dishes showing airborne mold at 0 and 60 minutes"><figcaption>Airborne mold lab plates, before and after one hour.</figcaption></figure>
+  </div>
+  <blockquote class="review">
+    <div class="stars" aria-label="5 stars">★★★★★</div>
+    <p>"A few weeks later I was cooking in the kitchen and all of the sudden the Jaspr in my bedroom (around the corner from the kitchen) started to go into high power mode."</p>
+    <cite>Lisa S., verified owner</cite>
+  </blockquote>
+  <div class="rating">
+    <div><b>4.9 ★</b>average rating</div>
+    <div><b>1,156</b>owner reviews</div>
+    <div><b>50,000+</b>Jasprs sold</div>
+  </div>
+
+  <h2>The bottom line</h2>
+  <p>An air filter is a part. An air purifier is a compromise. An air scrubber is the real thing, and until recently the real thing only came in a size, volume, and format built for a job site.</p>
+  <p class="pull">Jaspr is the air scrubber professionals trust, rebuilt to live in your home.</p>
+
+  <div class="cta" id="try">
+    <h2>You've got to breathe it to believe it</h2>
+    <p>Live with Jaspr for 30 days. If your home doesn't feel noticeably better, we'll buy it back for the full price you paid.</p>
+    <a class="btn" href="#try">Try Jaspr risk-free</a>
+    <div class="guar"><span>30-day buy-back</span><span>Free shipping</span><span>Lifetime warranty with filter plan</span></div>
+  </div>
+</div>
+</article>
+
+<footer><div class="col">
+  <img src="assets/logo-black.png" alt="Jaspr">
+  <p>This is an advertisement for Jaspr. Air scrubbers are not a substitute for mold remediation. Lab results describe airborne mold in a controlled test room. Commercial product names are trademarks of their owners and are used for comparison only.</p>
+</div></footer>
+
+<div class="sticky">
+  <small><b>Try Jaspr for 30 days</b>Full buy-back if it's not for you</small>
+  <a class="btn" href="#try">Try Jaspr</a>
+</div>
+
+</body>
+</html>
