@@ -220,19 +220,19 @@ footer img{height:14px;width:auto;margin-bottom:12px;opacity:.8}
 @media(max-width:520px){.ch-row{grid-template-columns:1.3fr 1fr 1fr 1fr}.ch-row > div{padding:12px 6px}.ch-head > div{font-size:10.5px;letter-spacing:.04em}.ch-row .ch-q{font-size:13.5px}}
 
 
-.sound-row{display:grid;grid-template-columns:minmax(0,700px) minmax(0,1fr);gap:28px;align-items:start;margin:22px 0 26px}
+.sound-row{display:grid;grid-template-columns:minmax(0,700px) minmax(0,1fr);gap:20px;align-items:stretch;margin:22px 0 26px}
 .sound-row .viz{margin:0}
-.ladder{padding:22px 4px 0}
+.ladder{background:var(--wash);border:1px solid var(--line);border-radius:16px;padding:22px}
 .ladder ol{list-style:none;margin:0;padding:0;position:relative}
 .ladder ol::before{content:"";position:absolute;left:30px;top:10px;bottom:10px;width:2px;background:var(--line)}
 .ladder li{display:grid;grid-template-columns:62px 1fr;column-gap:14px;align-items:baseline;padding:8px 0;position:relative;font-size:15.5px;line-height:1.35}
-.ladder li b{font-size:14px;font-weight:700;color:var(--ink);background:#fff;position:relative;z-index:1;padding:2px 0;text-align:center;border:1.5px solid var(--line);border-radius:60px}
+.ladder li b{font-size:14px;font-weight:700;color:var(--ink);background:#fff;white-space:nowrap;position:relative;z-index:1;padding:2px 0;text-align:center;border:1.5px solid var(--line);border-radius:60px}
 .ladder li em{grid-column:2;font-style:normal;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-top:4px}
 .ladder em.j{color:var(--teal-deep)}
 .ladder em.j2{color:#3f9ea2}
 .ladder em.c{color:#4b4d68}
 .ladder .src{font-size:12.5px;color:var(--slate);margin:12px 0 0;line-height:1.45}
-@media(max-width:900px){.sound-row{grid-template-columns:1fr}.ladder{padding-top:0}}
+@media(max-width:900px){.sound-row{grid-template-columns:1fr}}
 
 .achx{display:grid;grid-template-columns:60% 40%;margin:26px 0 30px;border-radius:18px;overflow:hidden;background:#0B1717;color:#fff}
 .achx-pic{position:relative;aspect-ratio:1.45}
@@ -439,6 +439,7 @@ footer img{height:14px;width:auto;margin-bottom:12px;opacity:.8}
           <li><b>50 dB</b><span>Moderate rainfall</span></li>
           <li><b>60 dB</b><span>Typical conversation, a dishwasher</span><em class="j2">Jaspr, full power</em></li>
           <li><b>70 dB</b><span>A vacuum cleaner</span><em class="c">Commercial scrubber</em></li>
+          <li><b>91 dB</b><span>A gas lawn mower</span></li>
         </ol>
         <p class="src">Everyday levels from the American Speech-Language-Hearing Association.</p>
       </aside>
