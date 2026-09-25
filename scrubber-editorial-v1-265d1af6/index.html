@@ -219,6 +219,20 @@ footer img{height:14px;width:auto;margin-bottom:12px;opacity:.8}
 .ch-head .win{background:var(--ink);color:#fff}
 @media(max-width:520px){.ch-row{grid-template-columns:1.3fr 1fr 1fr 1fr}.ch-row > div{padding:12px 6px}.ch-head > div{font-size:10.5px;letter-spacing:.04em}.ch-row .ch-q{font-size:13.5px}}
 
+
+.sound-row{display:grid;grid-template-columns:minmax(0,700px) minmax(0,1fr);gap:28px;align-items:start;margin:22px 0 26px}
+.sound-row .viz{margin:0}
+.ladder{padding:22px 4px 0}
+.ladder ol{list-style:none;margin:0;padding:0;position:relative}
+.ladder ol::before{content:"";position:absolute;left:30px;top:10px;bottom:10px;width:2px;background:var(--line)}
+.ladder li{display:grid;grid-template-columns:62px 1fr;column-gap:14px;align-items:baseline;padding:8px 0;position:relative;font-size:15.5px;line-height:1.35}
+.ladder li b{font-size:14px;font-weight:700;color:var(--ink);background:#fff;position:relative;z-index:1;padding:2px 0;text-align:center;border:1.5px solid var(--line);border-radius:60px}
+.ladder li em{grid-column:2;font-style:normal;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-top:4px}
+.ladder em.j{color:var(--teal-deep)}
+.ladder em.j2{color:#3f9ea2}
+.ladder em.c{color:#4b4d68}
+.ladder .src{font-size:12.5px;color:var(--slate);margin:12px 0 0;line-height:1.45}
+@media(max-width:900px){.sound-row{grid-template-columns:1fr}.ladder{padding-top:0}}
 </style>
 </head>
 <body>
@@ -392,6 +406,7 @@ footer img{height:14px;width:auto;margin-bottom:12px;opacity:.8}
     <div class="label"><i><svg viewBox="0 0 12 12"><path d="M2 6.5l2.5 2.5L10 3.5"/></svg></i>Sound: fixed</div>
     <h3>33 decibels, about a whisper</h3>
     <p>On its lowest setting, where Jaspr runs <b>about 99% of the time</b>, it measures 33 decibels. Even at full power it tops out at 58 dB, quieter than a normal conversation and far below the 65 to 80+ dB of a job-site unit.</p>
+    <div class="sound-row">
     <div class="viz">
       <div class="viz-title">How loud, side by side</div>
       <div class="meter">
@@ -400,6 +415,18 @@ footer img{height:14px;width:auto;margin-bottom:12px;opacity:.8}
         <div class="row"><span>Commercial scrubber</span><div class="track"><div class="fill c" style="width:89%"></div></div><span class="v">65–80+ dB</span></div>
       </div>
       <div class="callout">Here's what that gap means. Every time a sound goes up by 10 decibels, your ear hears it as twice as loud. A commercial scrubber at 65 dB sounds about <b>eight times louder</b> than Jaspr on its everyday setting.</div>
+    </div>
+      <aside class="ladder" aria-label="Everyday sounds for comparison">
+        <div class="viz-title">What those numbers sound like</div>
+        <ol>
+          <li><b>30 dB</b><span>A whisper</span><em class="j">Jaspr, everyday</em></li>
+          <li><b>40 dB</b><span>A quiet room</span></li>
+          <li><b>50 dB</b><span>Moderate rainfall</span></li>
+          <li><b>60 dB</b><span>Typical conversation, a dishwasher</span><em class="j2">Jaspr, full power</em></li>
+          <li><b>70 dB</b><span>A vacuum cleaner</span><em class="c">Commercial scrubber</em></li>
+        </ol>
+        <p class="src">Everyday levels from the American Speech-Language-Hearing Association.</p>
+      </aside>
     </div>
     <p>And it goes dark at night, so there are no glowing lights by your bed.</p>
     <p>Quiet doesn't mean weak. On that whisper-quiet setting Jaspr still moves <b>114 CFM</b>.</p>
