@@ -290,6 +290,31 @@ footer img{height:14px;width:auto;margin-bottom:12px;opacity:.8}
 .imagine .feat-list li{color:#C9DADA}
 .imagine .feat-list li b{color:#fff}
 .imagine .feat-list li::before{border-color:#7FE3E3;color:#fff}
+
+.tcar{margin:26px 0 30px}
+.tcar-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:16px}
+.tcar-count{font-size:15px;color:var(--slate)}.tcar-count b{color:var(--ink);font-size:18px;margin-right:4px}
+.tcar-nav{display:flex;gap:10px}
+.tcar-nav button{width:46px;height:46px;border-radius:50%;border:1.5px solid var(--ink);background:#fff;color:var(--ink);font-size:19px;cursor:pointer;display:grid;place-items:center;transition:background .2s,color .2s,opacity .2s}
+.tcar-nav button:hover{background:var(--ink);color:#fff}
+.tcar-nav button:disabled{opacity:.3;cursor:default;background:#fff;color:var(--ink)}
+.ttrack{list-style:none;margin:0;padding:4px 2px 18px;display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 40px)/3.25);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.ttrack::-webkit-scrollbar{display:none}
+.tcard{scroll-snap-align:start;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 12px 28px -20px rgba(7,47,48,.35);transition:transform .25s ease,box-shadow .25s ease}
+.tcard:hover{transform:translateY(-4px);box-shadow:0 18px 34px -20px rgba(7,47,48,.45)}
+.tcard figure{margin:0;aspect-ratio:4/4;overflow:hidden;background:var(--wash)}
+.tcard img{width:100%;height:100%;object-fit:cover}
+.tbody{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
+.tbody .stars{color:var(--gold);letter-spacing:2px;font-size:15px}
+.tbody h3{font-size:18px;margin:6px 0 6px}
+.tbody p{font-size:15.5px;line-height:1.55;color:#335556;margin:0 0 16px}
+.who{margin-top:auto;display:flex;align-items:center;gap:8px;font-size:14px}
+.who b{color:var(--ink)}
+.who span{font-size:12px;color:var(--teal-deep);background:var(--mint);border-radius:60px;padding:2px 9px;font-weight:600}
+.tprog{height:3px;background:var(--line);border-radius:3px;overflow:hidden;max-width:260px;margin:4px auto 0}
+.tprog span{display:block;height:100%;width:30%;background:var(--teal-btn);border-radius:3px;transition:transform .2s ease}
+@media(max-width:860px){.ttrack{grid-auto-columns:calc((100% - 20px)/1.6)}}
+@media(max-width:560px){.ttrack{grid-auto-columns:82%;gap:14px}.tcar-nav{display:none}}
 </style>
 </head>
 <body>
@@ -539,19 +564,39 @@ footer img{height:14px;width:auto;margin-bottom:12px;opacity:.8}
 
   <h2>What owners notice</h2>
   <p>In a lab study of airborne mold, Jaspr removed <b>97.1% in one hour and 99.8% in two hours</b>. The figure owners talk about more is what happens in a normal week.</p>
-  <div class="proof">
-    <figure><img style="object-position:50% 100%;aspect-ratio:4/3" src="assets/photo-6.jpg" alt="A hand lifting a used filter out of Jaspr in a kitchen"></figure>
-    <figure><img style="aspect-ratio:4/3;object-position:50% 20%" src="assets/photo-3.jpg" alt="Two petri dishes showing airborne mold at 0 and 60 minutes"></figure>
-  </div>
-  <blockquote class="review">
-    <div class="stars" aria-label="5 stars">★★★★★</div>
-    <p>"A few weeks later I was cooking in the kitchen and all of the sudden the Jaspr in my bedroom (around the corner from the kitchen) started to go into high power mode."</p>
-    <cite>Lisa S., verified owner</cite>
-  </blockquote>
-  <div class="rating">
-    <div><b>4.9 ★</b>average rating</div>
-    <div><b>1,156</b>owner reviews</div>
-    <div><b>50,000+</b>Jasprs sold</div>
+  <div class="tcar" aria-roledescription="carousel" aria-label="Owner reviews">
+    <div class="tcar-top"><div class="tcar-count"><b>4.9 ★</b> from 1,156 owner reviews · 50,000+ Jasprs sold</div>
+      <div class="tcar-nav"><button class="tprev" aria-label="Previous reviews">&#8592;</button><button class="tnext" aria-label="Next reviews">&#8594;</button></div></div>
+    <ul class="ttrack" tabindex="0">
+        <li class="tcard"><figure><img src="assets/reviews/607fa867.jpg" alt="A burnt-oven spike on the display" loading="lazy"></figure>
+          <div class="tbody"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><h3>Definitely works!</h3><p>“It normally reads at about a 4, but I recently had food burn in the bottom of the oven &amp; it jumped up to 23! It turned on turbo mode &amp; cleaned the air right away!”</p>
+          <div class="who"><b>Sara H.</b><span>Verified buyer</span></div></div></li>
+        <li class="tcard"><figure><img src="assets/reviews/c27c5643.jpg" alt="Jaspr standing by a bedroom mirror" loading="lazy"></figure>
+          <div class="tbody"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><h3>Quiet!</h3><p>“Love the sleek design, the touchscreen that doesn’t require Bluetooth or Wi-Fi, and mostly how quiet it is.”</p>
+          <div class="who"><b>Lisa S.</b><span>Verified buyer</span></div></div></li>
+        <li class="tcard"><figure><img src="assets/reviews/8ab6869d.jpg" alt="A used filter next to a new one" loading="lazy"></figure>
+          <div class="tbody"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><h3>Highly effective</h3><p>“When I spray deodorant in my bathroom it kicks on in high gear. It detects anything and everything. I replaced my filter and cleaned it for the 1st time and couldn’t believe the difference.”</p>
+          <div class="who"><b>KK</b><span>Verified buyer</span></div></div></li>
+        <li class="tcard"><figure><img src="assets/reviews/1a0b08a1.jpg" alt="Jaspr in a hallway beside a plant" loading="lazy"></figure>
+          <div class="tbody"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><h3>I love the look!</h3><p>“I like the fact that the screen can go black with just one small light on. It has a sturdy feel to it and a nice design and looks good anywhere you place it.”</p>
+          <div class="who"><b>Barbara A.</b><span>Verified buyer</span></div></div></li>
+        <li class="tcard"><figure><img src="assets/reviews/31363da7.jpg" alt="The display reading high while cooking" loading="lazy"></figure>
+          <div class="tbody"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><h3>Cooking smell</h3><p>“It takes cooking smells and smoke out of my house a lot faster then opening a few windows. Love it!!”</p>
+          <div class="who"><b>Jennifer H.</b><span>Verified buyer</span></div></div></li>
+        <li class="tcard"><figure><img src="assets/reviews/72ec5cb2.jpg" alt="An owner holding a used and a new filter" loading="lazy"></figure>
+          <div class="tbody"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><h3>Cleaner house</h3><p>“We have a golden retriever (10/10 good boy, 10/10 shedder). Since purchasing a Jaspr, we’ve noticed significantly less dog hair around the house as well as dust floating around.”</p>
+          <div class="who"><b>Parker D.</b><span>Verified buyer</span></div></div></li>
+        <li class="tcard"><figure><img src="assets/reviews/53144fb2.jpg" alt="Jaspr beside a bookshelf and floor lamp" loading="lazy"></figure>
+          <div class="tbody"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><h3>Love my indoor fresh air!</h3><p>“I’m amazed at how well this air scrubber works and how quiet it is at the same time. The night mode is great- I sleep in total darkness.”</p>
+          <div class="who"><b>Maria Q.</b><span>Verified buyer</span></div></div></li>
+        <li class="tcard"><figure><img src="assets/reviews/5b417896.jpg" alt="Jaspr in a living room corner by an armchair" loading="lazy"></figure>
+          <div class="tbody"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><h3>My Jaspr</h3><p>“It looks great in my living room. I don’t mind having it out in clear view. It’s quiet.”</p>
+          <div class="who"><b>Pegi S.</b><span>Verified buyer</span></div></div></li>
+        <li class="tcard"><figure><img src="assets/reviews/3244e018.jpg" alt="Jaspr with its green light ring, by a dresser" loading="lazy"></figure>
+          <div class="tbody"><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><h3>Love it!</h3><p>“I cooked some bacon this morning, and there was a little bit of smoke in the house and the Jaspr ramped up and cleared the air quickly.”</p>
+          <div class="who"><b>Tamara H.</b><span>Verified buyer</span></div></div></li>
+    </ul>
+    <div class="tprog" aria-hidden="true"><span></span></div>
   </div>
 
   <h2>The bottom line</h2>
@@ -582,6 +627,11 @@ document.documentElement.classList.add('js');
 (function(){var els=document.querySelectorAll('.fx');if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:0.45});
 els.forEach(function(e){io.observe(e)});})();
+(function(){document.querySelectorAll('.tcar').forEach(function(c){var t=c.querySelector('.ttrack'),pv=c.querySelector('.tprev'),nx=c.querySelector('.tnext'),bar=c.querySelector('.tprog span');
+function step(){var card=t.querySelector('.tcard');return card?card.getBoundingClientRect().width+20:300}
+function upd(){var max=t.scrollWidth-t.clientWidth;var f=max>0?t.scrollLeft/max:0;var w=t.clientWidth/t.scrollWidth;bar.style.width=(w*100)+'%';bar.style.transform='translateX('+(f*(1/w-1)*100)+'%)';pv.disabled=t.scrollLeft<4;nx.disabled=t.scrollLeft>max-4;}
+pv.addEventListener('click',function(){t.scrollBy({left:-step()})});nx.addEventListener('click',function(){t.scrollBy({left:step()})});
+t.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();});})();
 window.addEventListener('load',function(){if(location.hash){var t=document.querySelector(location.hash);if(t){t.scrollIntoView({block:'center'});}}});
 </script>
 </body>
