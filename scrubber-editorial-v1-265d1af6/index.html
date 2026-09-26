@@ -316,6 +316,21 @@ footer img{height:14px;width:auto;margin-bottom:12px;opacity:.8}
 @media(max-width:860px){.ttrack{grid-auto-columns:calc((100% - 20px)/1.6)}}
 @media(max-width:560px){.ttrack{grid-auto-columns:82%;gap:14px}.tcar-nav{display:none}}
 .btn:hover{background:#FFD84D;transform:translateY(-1px)}
+/* C */
+.ic-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:44px;align-items:center}
+.ic-list{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.ic-list li{display:grid;grid-template-columns:34px 1fr;gap:14px;align-items:start;background:rgba(255,255,255,.05);border:1px solid rgba(127,227,227,.22);border-radius:14px;padding:16px 18px;font-size:15.5px;line-height:1.5;color:#C9DADA}
+.ic-list i{font-style:normal;width:34px;height:34px;border-radius:50%;background:var(--teal-btn);color:var(--ink);font-weight:700;display:grid;place-items:center}
+.ic-list b{display:block;color:#fff;font-size:17px}
+@media(max-width:820px){.ic-grid{grid-template-columns:1fr;gap:24px}}
+
+.imagine .ia-end{margin-top:26px}
+.imagine .ic-story .turn{margin-bottom:0}
+
+.ic-grid{grid-template-areas:"story list" "end list";grid-template-rows:auto auto;row-gap:0}
+.ic-story{grid-area:story}.ic-end{grid-area:end}.ic-list{grid-area:list;align-self:center}
+@media(max-width:820px){.ic-grid{grid-template-areas:"story" "list" "end";row-gap:24px}}
+.imagine .ic-end .ia-end{margin-top:6px}
 </style>
 </head>
 <body>
@@ -411,18 +426,24 @@ footer img{height:14px;width:auto;margin-bottom:12px;opacity:.8}
 <section class="imagine" aria-labelledby="imagine-h">
   <div class="bg" aria-hidden="true"></div>
   <div class="col">
-    <div class="eyebrow">Now imagine</div>
-    <h2 id="imagine-h">What if you didn't have to choose?</h2>
-    <p>Picture the air in your home the way it could be.</p>
-    <p>You walk into your bedroom at the end of a long day, and the air feels different: light, clean, like the first breath outside after a rainstorm. There's no stale smell hanging around from dinner, no film of dust on the nightstand a day after you wiped it, and no heaviness in the room.</p>
-    <p>Somewhere in the corner, a machine with the power of the equipment the professionals use is cleaning every breath you take. But you can't hear it. You'd have to stop and listen to know it's even on. It's slim enough to tuck beside your nightstand, not a bulky box you have to walk around. It looks like it was designed for your home, because it was.</p>
-    <p>You don't manage it. When someone burns the toast or lights a candle, it notices before you do, speeds up, clears the air, and goes quiet again on its own. Twice a year a new filter shows up at your door, and swapping it takes less time than making your coffee.</p>
-    <p>And tonight you fall asleep in the cleanest air you've ever slept in, and you wake up feeling it.</p>
-    <ul class="want">
-      <li>Professional power</li><li>Whisper-quiet</li><li>Sized for a bedroom</li><li>No hassle</li>
-    </ul>
-    <p>For years you had to pick one. You could have power, or you could have something you'd actually live with.</p>
-    <p class="turn">Not anymore.</p>
+    <div class="ic-grid">
+      <div class="ic-story">
+        <div class="eyebrow">Now imagine</div>
+        <h2 id="imagine-h">What if you didn't have to choose?</h2>
+        <p>You walk into your bedroom at the end of a long day, and the air feels different: light, clean, like the first breath outside after a rainstorm.</p>
+        <p>Somewhere in the corner, something is cleaning every breath you take. You just can't hear it.</p>
+      </div>
+      <div class="ic-end">
+        <p class="ia-end">For years you had to pick just one of these.</p>
+        <p class="turn">Not anymore.</p>
+      </div>
+      <ul class="ic-list">
+        <li><i>✓</i><div><b>Professional power</b>The same kind of air cleaning restoration crews rely on.</div></li>
+        <li><i>✓</i><div><b>Whisper-quiet</b>You'd have to stop and listen to know it's on.</div></li>
+        <li><i>✓</i><div><b>Sized for a bedroom</b>Slim enough to tuck beside the nightstand.</div></li>
+        <li><i>✓</i><div><b>No hassle</b>It adjusts on its own. A new filter arrives twice a year.</div></li>
+      </ul>
+    </div>
   <div class="feat fx" id="features">
       <div class="feat-pic">
         <img src="assets/jaspr-features.jpg" alt="The Jaspr air scrubber standing between two plants in warm afternoon light">
