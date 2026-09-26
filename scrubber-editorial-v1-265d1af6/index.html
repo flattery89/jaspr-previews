@@ -285,6 +285,11 @@ footer img{height:14px;width:auto;margin-bottom:12px;opacity:.8}
   .feat-list li::before{content:counter(f);grid-row:span 2;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--ink);color:var(--ink);font-weight:700;font-size:14px;display:grid;place-items:center}
   .feat-list li b{color:var(--ink);font-size:16.5px}
 }
+
+.imagine .feat{margin:34px 0 0}
+.imagine .feat-list li{color:#C9DADA}
+.imagine .feat-list li b{color:#fff}
+.imagine .feat-list li::before{border-color:#7FE3E3;color:#fff}
 </style>
 </head>
 <body>
@@ -392,7 +397,15 @@ footer img{height:14px;width:auto;margin-bottom:12px;opacity:.8}
     </ul>
     <p>For years you had to pick one. You could have power, or you could have something you'd actually live with.</p>
     <p class="turn">Not anymore.</p>
-    <figure class="reveal"><img src="assets/photo-8.jpg" alt="Jaspr standing in a bright, modern living room"></figure>
+  <div class="feat fx" id="features">
+      <div class="feat-pic">
+        <img src="assets/jaspr-features.jpg" alt="The Jaspr air scrubber standing between two plants in warm afternoon light">
+        <svg class="feat-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><g class="ln" style="--d:0.00s"><path d="M46.9 13.2 L33 10"/><circle cx="46.9" cy="13.2" r="0.7"/></g><g class="ln" style="--d:0.35s"><path d="M53 7.5 L66 7"/><circle cx="53" cy="7.5" r="0.9"/></g><g class="ln" style="--d:0.70s"><path d="M60.2 28 L66 30"/><circle cx="60.2" cy="28" r="0.9"/></g><g class="ln" style="--d:1.05s"><path d="M39 58 L33 55"/><circle cx="39" cy="58" r="0.9"/></g><g class="ln" style="--d:1.40s"><path d="M57 80 L66 75"/><circle cx="57" cy="80" r="0.9"/></g></svg>
+        <div class="fnote L" style="right:67%;top:5%;--d:0.25s"><b>Indicator light</b><span>Glows to show your air quality at a glance. Goes fully dark at night.</span></div><div class="fnote R" style="left:66%;top:2%;--d:0.60s"><b>Built-in sensors</b><span>PM2.5 and VOC sensors watch fine particles and chemical fumes around the clock.</span></div><div class="fnote R" style="left:66%;top:25%;--d:0.95s"><b>Adjusts on its own</b><span>Smart mode speeds the fan up when the air changes, then settles back down.</span></div><div class="fnote L" style="right:67%;top:50%;--d:1.30s"><b>Quiet, powerful motor</b><span>33 dB on its everyday setting. Up to 340 CFM when it's needed.</span></div><div class="fnote R" style="left:66%;top:70%;--d:1.65s"><b>Clean, minimal design</b><span>Cold-rolled steel, no cheap plastic. Made to look like it belongs in your home.</span></div>
+        <span class="fpin" style="left:46%;top:15%;--d:0.00s">1</span><span class="fpin" style="left:61%;top:5%;--d:0.25s">2</span><span class="fpin" style="left:60.2%;top:28%;--d:0.50s">3</span><span class="fpin" style="left:39%;top:58%;--d:0.75s">4</span><span class="fpin" style="left:57%;top:80%;--d:1.00s">5</span>
+      </div>
+      <ol class="feat-list"><li><b>Indicator light</b>Glows to show your air quality at a glance. Goes fully dark at night.</li><li><b>Built-in sensors</b>PM2.5 and VOC sensors watch fine particles and chemical fumes around the clock.</li><li><b>Adjusts on its own</b>Smart mode speeds the fan up when the air changes, then settles back down.</li><li><b>Quiet, powerful motor</b>33 dB on its everyday setting. Up to 340 CFM when it's needed.</li><li><b>Clean, minimal design</b>Cold-rolled steel, no cheap plastic. Made to look like it belongs in your home.</li></ol>
+    </div>
   </div>
 </section>
 
@@ -406,15 +419,6 @@ footer img{height:14px;width:auto;margin-bottom:12px;opacity:.8}
     <small>Michael and Rachel Feldstein and their three kids. Jaspr is a family company based in Austin, Texas.</small></div>
   </div>
 
-  <div class="feat fx" id="features">
-    <div class="feat-pic">
-      <img src="assets/jaspr-features.jpg" alt="The Jaspr air scrubber standing between two plants in warm afternoon light">
-      <svg class="feat-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><g class="ln" style="--d:0.00s"><path d="M46.9 13.2 L33 10"/><circle cx="46.9" cy="13.2" r="0.7"/></g><g class="ln" style="--d:0.35s"><path d="M53 7.5 L66 7"/><circle cx="53" cy="7.5" r="0.9"/></g><g class="ln" style="--d:0.70s"><path d="M60.2 28 L66 30"/><circle cx="60.2" cy="28" r="0.9"/></g><g class="ln" style="--d:1.05s"><path d="M39 58 L33 55"/><circle cx="39" cy="58" r="0.9"/></g><g class="ln" style="--d:1.40s"><path d="M57 80 L66 75"/><circle cx="57" cy="80" r="0.9"/></g></svg>
-      <div class="fnote L" style="right:67%;top:5%;--d:0.25s"><b>Indicator light</b><span>Glows to show your air quality at a glance. Goes fully dark at night.</span></div><div class="fnote R" style="left:66%;top:2%;--d:0.60s"><b>Built-in sensors</b><span>PM2.5 and VOC sensors watch fine particles and chemical fumes around the clock.</span></div><div class="fnote R" style="left:66%;top:25%;--d:0.95s"><b>Adjusts on its own</b><span>Smart mode speeds the fan up when the air changes, then settles back down.</span></div><div class="fnote L" style="right:67%;top:50%;--d:1.30s"><b>Quiet, powerful motor</b><span>33 dB on its everyday setting. Up to 340 CFM when it's needed.</span></div><div class="fnote R" style="left:66%;top:70%;--d:1.65s"><b>Clean, minimal design</b><span>Cold-rolled steel, no cheap plastic. Made to look like it belongs in your home.</span></div>
-      <span class="fpin" style="left:46%;top:15%;--d:0.00s">1</span><span class="fpin" style="left:61%;top:5%;--d:0.25s">2</span><span class="fpin" style="left:60.2%;top:28%;--d:0.50s">3</span><span class="fpin" style="left:39%;top:58%;--d:0.75s">4</span><span class="fpin" style="left:57%;top:80%;--d:1.00s">5</span>
-    </div>
-    <ol class="feat-list"><li><b>Indicator light</b>Glows to show your air quality at a glance. Goes fully dark at night.</li><li><b>Built-in sensors</b>PM2.5 and VOC sensors watch fine particles and chemical fumes around the clock.</li><li><b>Adjusts on its own</b>Smart mode speeds the fan up when the air changes, then settles back down.</li><li><b>Quiet, powerful motor</b>33 dB on its everyday setting. Up to 340 CFM when it's needed.</li><li><b>Clean, minimal design</b>Cold-rolled steel, no cheap plastic. Made to look like it belongs in your home.</li></ol>
-  </div>
   <p>Jaspr keeps what makes a scrubber a scrubber: real airflow, dedicated stages for particles and gases, and a steel body built to run constantly. Then it fixes each of the three problems above.</p>
 
   <!-- SIZE -->
