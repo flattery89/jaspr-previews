@@ -248,6 +248,15 @@ footer img{height:14px;width:auto;margin-bottom:12px;opacity:.8}
 @media (prefers-reduced-motion:no-preference){.achx .arc{stroke-dasharray:520;animation:flow 3.6s ease-in-out infinite}.achx .a2{animation-delay:1.2s}.achx .a3{animation-delay:2.4s}
 @keyframes flow{0%{stroke-dashoffset:520;opacity:.2}35%{stroke-dashoffset:0;opacity:1}80%{opacity:1}100%{opacity:.35;stroke-dashoffset:0}}}
 @media(max-width:700px){.achx{grid-template-columns:1fr}.achx-pic::after{background:linear-gradient(180deg,transparent 65%,rgba(11,23,23,.9))}.achx-copy{padding:6px 22px 26px}.achx-big{font-size:96px}}
+/* 5 */
+.p5{display:grid;grid-template-columns:repeat(3,1fr);border-top:2px solid var(--ink);margin:34px 0 10px}
+.p5-col{padding:26px 28px 8px 0}
+.p5-col + .p5-col{padding-left:28px;border-left:1px solid var(--line)}
+.p5-n{font-size:13px;font-weight:700;letter-spacing:.14em;color:var(--slate)}
+.p5-w{font-size:clamp(48px,6.5vw,80px);font-weight:700;letter-spacing:-.05em;line-height:1;margin:10px 0 16px}
+.p5-col p{font-size:16.5px;line-height:1.6;color:#335556;margin:0 0 14px}
+.p5-s{display:inline-block;font-size:13px;font-weight:600;background:var(--wash);border:1px solid var(--line);border-radius:60px;padding:4px 12px;color:var(--slate)}
+@media(max-width:760px){.p5{grid-template-columns:1fr}.p5-col,.p5-col + .p5-col{padding:24px 0;border-left:0;border-top:1px solid var(--line)}}
 </style>
 </head>
 <body>
@@ -333,19 +342,10 @@ footer img{height:14px;width:auto;margin-bottom:12px;opacity:.8}
 </figure></div>
 
 <div class="col">
-  <div class="problems">
-    <div class="problem"><div class="n">1</div><div>
-      <h3>They're huge and heavy</h3>
-      <p>A popular professional model, the Abatement Technologies HEPA-AIRE PAS1200, stands 39 inches tall, 22 inches wide, and weighs 85 pounds with filters. It rides on a built-in dolly because nobody wants to lift it. They're sized for gutted basements, not the spot between the nightstand and the window.</p>
-      <span class="stat">44–85 lb · dolly-mounted</span></div></div>
-    <div class="problem"><div class="n">2</div><div>
-      <h3>They're loud</h3>
-      <p>Commercial scrubbers typically run at 65 to 80+ decibels, and the biggest pass 85. That's vacuum-cleaner loud, all day and all night. The crews that run them leave at 5 p.m. You'd be trying to sleep next to one.</p>
-      <span class="stat">65–80+ dB</span></div></div>
-    <div class="problem"><div class="n">3</div><div>
-      <h3>They cost more than the sticker</h3>
-      <p>Name-brand units run roughly $1,000 to $2,500 before a single replacement filter, and each filter stage is sold separately through trade suppliers. There are no sensors, no automatic mode, and no warranty built around a homeowner. You're buying contractor equipment and getting contractor support.</p>
-      <span class="stat">$1,000–$2,500 + filters</span></div></div>
+  <div class="p5">
+    <div class="p5-col"><div class="p5-n">01</div><div class="p5-w">Heavy.</div><p>A popular professional model, the Abatement PAS1200, stands 39 inches tall and weighs 85 pounds. It rides on a dolly because nobody wants to lift it. Sized for gutted basements, not bedrooms.</p><div class="p5-s">44–85 lb</div></div>
+    <div class="p5-col"><div class="p5-n">02</div><div class="p5-w">Loud.</div><p>65 to 80+ decibels, vacuum-cleaner loud, all day and all night. The crew goes home at 5 p.m. You'd be sleeping next to it.</p><div class="p5-s">65–80+ dB</div></div>
+    <div class="p5-col"><div class="p5-n">03</div><div class="p5-w">Pricey.</div><p>$1,000 to $2,500 before filters, with each stage sold separately. No sensors, no auto mode, and contractor support instead of a homeowner warranty.</p><div class="p5-s">$1,000–$2,500 + filters</div></div>
   </div>
 </div>
 
