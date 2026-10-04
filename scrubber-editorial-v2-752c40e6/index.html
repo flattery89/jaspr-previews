@@ -432,6 +432,25 @@ header.lead .heard{margin-top:20px;border-top:1px solid var(--line);border-botto
 @media(max-width:820px){.story{padding:56px 0}.story-grid{grid-template-columns:1fr;gap:28px}.story-pic{position:static}.story-pic img{width:230px;height:230px}}
 .heard-covers{max-width:100%;min-width:0}
 @media(max-width:600px){.heard{align-items:stretch}}
+
+.sizecmp{margin:24px 0 28px}
+.sc-pic{position:relative;border-radius:18px;overflow:hidden}
+.sc-pic img{width:100%;display:block;aspect-ratio:3/2;object-fit:cover}
+.sc-lines{position:absolute;inset:0;width:100%;height:100%}
+.sc-lines path{fill:none;stroke:#fff;stroke-width:2;vector-effect:non-scaling-stroke;filter:drop-shadow(0 1px 2px rgba(0,0,0,.45))}
+.sc-h{position:absolute;transform:translate(-50%,-50%);background:#fff;color:var(--ink);font-size:13px;font-weight:700;padding:4px 10px;border-radius:60px;box-shadow:0 4px 12px -4px rgba(0,0,0,.35);white-space:nowrap}
+.sc-tag{position:absolute;transform:translate(-50%,-50%);background:rgba(7,47,48,.82);backdrop-filter:blur(4px);color:#fff;font-size:13px;padding:7px 14px;border-radius:12px;text-align:center;line-height:1.35;white-space:nowrap}
+.sc-tag b{display:block;font-size:14px}
+.sc-tag.j{background:var(--teal-btn);color:var(--ink)}
+.sc-mob{display:none}
+@media(max-width:640px){
+ .sc-tag{display:none}
+ .sc-h{font-size:11px;padding:3px 7px}
+ .sc-mob{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+ .sc-mob span{background:var(--wash);border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:13px;line-height:1.4;color:#335556}
+ .sc-mob span b{display:block;font-size:14px;color:var(--ink)}
+ .sc-mob span.j{background:var(--mint);border-color:var(--teal-btn)}
+}
 </style>
 </head>
 <body>
@@ -598,36 +617,20 @@ header.lead .heard{margin-top:20px;border-top:1px solid var(--line);border-botto
     <div class="label"><i><svg viewBox="0 0 12 12"><path d="M2 6.5l2.5 2.5L10 3.5"/></svg></i>Size, solved</div>
     <h3>Built like pro equipment. Styled like furniture.</h3>
     <p>At 31.5 inches tall, 11.5 inches wide, and 25 pounds, it's less than a third of the PAS1200's weight and about half its width. It stands upright like a floor lamp instead of squatting like a shop vac. The housing is cold-rolled steel, not cheap plastic, and it's finished to sit in a bedroom or living room like it belongs there, because it does.</p>
-    <div class="viz scale">
-      <div class="viz-title">Drawn to scale</div>
-      <svg viewBox="0 0 520 300" role="img" aria-label="Scale drawing: commercial scrubber 39 by 22 inches, 85 pounds, next to Jaspr 31.5 by 11.5 inches, 25 pounds">
-        <line x1="10" y1="262" x2="510" y2="262" stroke="#DBE7E7" stroke-width="2"/>
-        <!-- commercial: 22w x 39h @ 6px/in = 132 x 234 -->
-        <g transform="translate(70,28)">
-          <rect x="0" y="0" width="132" height="222" rx="6" fill="#8A8CA6"/>
-          <rect x="14" y="16" width="104" height="70" rx="4" fill="#6F7190"/>
-          <g stroke="#5E607D" stroke-width="2">
-            <line x1="22" y1="30" x2="110" y2="30"/><line x1="22" y1="44" x2="110" y2="44"/><line x1="22" y1="58" x2="110" y2="58"/><line x1="22" y1="72" x2="110" y2="72"/>
-          </g>
-          <rect x="-10" y="-10" width="8" height="120" rx="3" fill="#5E607D"/>
-          <circle cx="22" cy="224" r="10" fill="#30302E"/><circle cx="110" cy="224" r="10" fill="#30302E"/>
-        </g>
-        <text x="136" y="284" text-anchor="middle" font-size="14" font-weight="600" fill="#676986">Commercial · 85 lb</text>
-        <!-- jaspr: 11.5w x 31.5h = 69 x 189 -->
-        <g transform="translate(330,73)">
-          <rect x="0" y="0" width="69" height="189" rx="22" fill="#E9E2D2" stroke="#CFC6B2"/>
-          <ellipse cx="34.5" cy="16" rx="24" ry="6" fill="none" stroke="#31B8BC" stroke-width="3"/>
-          <g stroke="#D8CFBB" stroke-width="1.5">
-            <line x1="12" y1="60" x2="12" y2="176"/><line x1="23" y1="60" x2="23" y2="176"/><line x1="34.5" y1="60" x2="34.5" y2="176"/><line x1="46" y1="60" x2="46" y2="176"/><line x1="57" y1="60" x2="57" y2="176"/>
-          </g>
-        </g>
-        <text x="364" y="284" text-anchor="middle" font-size="14" font-weight="700" fill="#072F30">Jaspr · 25 lb</text>
-        <g font-size="12" fill="#676986">
-          <text x="48" y="140" text-anchor="end">39"</text>
-          <text x="420" y="172">31.5"</text>
-        </g>
-      </svg>
-    </div>
+    <figure class="sizecmp">
+      <div class="sc-pic">
+        <img src="assets/size-comparison.jpg" alt="A boxy commercial air scrubber on casters next to the slimmer, shorter Jaspr air scrubber in a sunlit living room">
+        <svg class="sc-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M19 13.7 V81.3 M18 13.7 H20 M18 81.3 H20"/>
+          <path d="M80 28.8 V82 M79 28.8 H81 M79 82 H81"/>
+        </svg>
+        <span class="sc-h" style="left:19%;top:47.5%">39 in</span>
+        <span class="sc-h" style="left:80%;top:55.4%">31.5 in</span>
+        <span class="sc-tag" style="left:36%;top:91%"><b>Commercial scrubber</b>85 lb · 65–80+ dB</span>
+        <span class="sc-tag j" style="left:69%;top:91%"><b>Jaspr</b>25 lb · 33 dB</span>
+      </div>
+      <div class="sc-mob"><span><b>Commercial scrubber</b>39 in · 85 lb · 65–80+ dB</span><span class="j"><b>Jaspr</b>31.5 in · 25 lb · 33 dB</span></div>
+    </figure>
   </div>
 
   <!-- SOUND -->
