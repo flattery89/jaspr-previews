@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Cart and checkout: cards 5, 6, 7, 8, 11</title>
+
+<style>
+@font-face{font-family:"Mont-Regular";src:url("https://cdn.shopify.com/s/files/1/0279/4405/8977/files/Mont-Regular.woff?v=1686127932") format("woff");font-weight:400}
+@font-face{font-family:"Mont-SemiBold";src:url("https://cdn.shopify.com/s/files/1/0279/4405/8977/files/Mont-SemiBold.woff?v=1686127931") format("woff");font-weight:600}
+@font-face{font-family:"Mont-Bold";src:url("https://cdn.shopify.com/s/files/1/0279/4405/8977/files/Mont-Bold.woff?v=1686127932") format("woff");font-weight:700}
+
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:#ffffff;color:#072f30;font-family:"Mont-Regular",sans-serif;-webkit-font-smoothing:antialiased}
+.sr-only{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------------- preview chrome (not part of the store) ---------------- */
+.pv-bar{position:sticky;top:0;z-index:50;background:#28474a;color:#eefbfa;font:12px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+.pv-bar__top{display:flex;gap:10px;align-items:center;padding:7px 16px 0;flex-wrap:wrap}
+.pv-bar__top b{color:#ffcf2a;letter-spacing:.04em}
+.pv-tabs{display:flex;gap:6px;overflow-x:auto;padding:7px 16px 8px;scrollbar-width:none}
+.pv-tabs::-webkit-scrollbar{display:none}
+.pv-tabs a{flex:0 0 auto;color:#eefbfa;text-decoration:none;border:1px solid #50b4b4;border-radius:999px;padding:4px 10px;white-space:nowrap}
+.pv-tabs a.on{background:#50b4b4;color:#072f30;font-weight:700}
+.pv-note{padding:0 16px 8px;color:#cfe9e8;max-width:1100px}
+.pv-note .chip{display:inline-block;background:#ffcf2a;color:#072f30;border-radius:4px;padding:0 5px;font-weight:700;margin-right:4px}
+
+.view{display:none}
+body[data-view=control] .view--drawer,body[data-view=review] .view--drawer,body[data-view=founder] .view--drawer,body[data-view=addon] .view--drawer{display:block}
+body[data-view=checkout] .view--checkout{display:block}
+body[data-view=cartpage] .view--cartpage{display:block}
+
+/* ---------------- drawer stage ---------------- */
+.stage{position:relative;height:calc(100vh - var(--bar,92px));min-height:640px;overflow:hidden;background:#fff}
+.stage__page{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none}
+.stage__dim{position:absolute;inset:0;background:rgba(0,0,0,.5)}
+
+/* ---------------- Rebuy drawer, rebuilt from the live Nov 2 drawer ---------------- */
+#rebuy-cart{position:absolute;inset:0;z-index:5;display:flex;justify-content:flex-end}
+#rebuy-cart .rebuy-cart__flyout{width:460px;max-width:100%;height:100%;background:#fff;color:#072f30;display:flex;flex-direction:column;font-family:"Mont-Regular",sans-serif;box-shadow:-8px 0 24px rgba(0,0,0,.12)}
+#rebuy-cart [data-rebuy-cart-header-top]{display:flex;align-items:center;justify-content:space-between;padding:16px 24px}
+#rebuy-cart .rebuy-cart__title{margin:0;font:400 22px/30px "Mont-Bold",sans-serif;text-transform:uppercase;color:#072f30}
+#rebuy-cart .rebuy-cart__flyout-close{width:40px;height:40px;border:0;background:transparent;color:#072f30;font-size:28px;line-height:1;cursor:pointer}
+#rebuy-cart [data-rebuy-component=announcement-bar]{background:#072f30;color:#fff;text-transform:uppercase;font-size:11px;letter-spacing:.04em;text-align:center;line-height:31px}
+#rebuy-cart [data-rebuy-cart-anchor=body]{flex:1 1 auto;overflow-y:auto;padding:24px 24px 16px}
+#rebuy-cart .rebuy-cart__flyout-items{list-style:none;margin:0;padding:0}
+#rebuy-cart .jaspr-product-card{position:relative;display:flex;gap:12px;background:#e6efeb;border-radius:12px;padding:12px}
+#rebuy-cart .rebuy-cart__flyout-item-media img{width:64px;height:64px;border-radius:8px;object-fit:cover;display:block}
+#rebuy-cart .rebuy-cart__flyout-item-info{flex:1;min-width:0}
+#rebuy-cart .rebuy-cart__flyout-item-product-title{display:block;color:#072f30;font-size:16px;font-weight:600;line-height:21px;text-decoration:none;padding-right:28px}
+#rebuy-cart .rebuy-cart__flyout-item-property{font-size:12px;line-height:18px;color:#535353}
+#rebuy-cart .rebuy-cart__flyout-item-discount-line{font-size:12px;line-height:20px;color:#2f7d4f}
+#rebuy-cart .rebuy-cart__flyout-item-remove{position:absolute;top:2px;right:2px;width:44px;height:44px;border:0;background:transparent;color:#5e5a53;cursor:pointer}
+#rebuy-cart .rebuy-cart__flyout-item-remove svg{width:16px;height:18px}
+#rebuy-cart .jaspr-row{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+#rebuy-cart .rebuy-cart__flyout-item-quantity-widget{display:flex;align-items:center;justify-content:space-between;width:126px;height:46px;border:1px solid #cbd8d8;border-radius:999px;background:#f5f9f9}
+#rebuy-cart .rebuy-cart__flyout-item-quantity-widget-button{width:44px;height:44px;border:0;background:transparent;color:#072f30;font:700 18px/1 sans-serif;cursor:pointer}
+#rebuy-cart .rebuy-cart__flyout-item-quantity-widget-label{font-size:16px}
+#rebuy-cart .rebuy-cart__flyout-item-price{text-align:right}
+#rebuy-cart .rebuy-money.sale{font-size:16px;font-weight:600;line-height:22px}
+#rebuy-cart .rebuy-money.compare-at{font-size:12px;font-weight:600;text-decoration:line-through;margin-left:4px}
+#rebuy-cart .jaspr-line-savings{font-size:12px;font-weight:600;line-height:18px;color:#2f7d4f;margin-top:2px}
+#rebuy-cart .jaspr-bulk-heading{margin:16px 0 6px;font-size:12px;font-weight:600;letter-spacing:.72px;text-transform:uppercase;color:#0f2f30}
+#rebuy-cart .jaspr-bulk{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+#rebuy-cart .jaspr-bulk button{height:58px;border:1px solid #2f4a3e;background:#2f4a3e;color:#fff;border-radius:12px;font-family:inherit;cursor:pointer;padding:6px 4px;line-height:1.2}
+#rebuy-cart .jaspr-bulk-quantity{display:block;font-size:15px;font-weight:600}
+#rebuy-cart .jaspr-bulk-saving{display:block;font-size:12px}
+#rebuy-cart [data-rebuy-cart-anchor=footer]{flex:0 0 auto}
+#rebuy-cart .rebuy-cart__discount-form{display:flex;gap:16px;padding:12px 24px 16px}
+#rebuy-cart .rebuy-input{flex:1;min-width:0;height:54px;border:1px solid #2d2d2a;border-radius:999px;background:#eef3f1;padding:0 22px;font:16px "Mont-Regular",sans-serif;color:#072f30}
+#rebuy-cart .rebuy-cart__discount-form .rebuy-button{height:48px;align-self:center;min-width:88px;border:0;border-radius:999px;background:#2d2d2a;color:#fff;font:16px "Mont-Regular",sans-serif}
+#rebuy-cart .jaspr-footer-panel{background:#e6efeb;padding:16px 24px 18px}
+#rebuy-cart .rebuy-cart__flyout-subtotal{display:flex;justify-content:space-between;font-size:18px;font-weight:600;line-height:26px}
+#rebuy-cart .rebuy-cart__flyout-subtotal-compare-amount{display:none}
+#rebuy-cart .jaspr-shipping-row,#rebuy-cart .jaspr-savings-row{display:flex;justify-content:space-between;font-size:13px;line-height:20px;color:#535353}
+#rebuy-cart .jaspr-savings-row{color:#2f7d4f}
+#rebuy-cart [data-rebuy-component=cart-subtotal]{margin-bottom:12px}
+#rebuy-cart .rebuy-cart__checkout-button,#rebuy-cart .rebuy-cart__shop-pay-button{display:block;width:100%;height:48px;border-radius:8px;border:1px solid #2d2d2a;background:#2d2d2a;color:#fff;font:700 15px "Mont-Bold",sans-serif;cursor:pointer}
+#rebuy-cart .rebuy-cart__shop-pay-button{margin-top:8px;background:#5a31f4;border-color:#5a31f4;font:800 21px/1 -apple-system,Helvetica,Arial,sans-serif;letter-spacing:-.5px}
+#rebuy-cart .rebuy-cart__shop-pay-button i{font-style:normal;font-size:13px;background:#fff;color:#5a31f4;border-radius:4px;padding:2px 5px;margin-left:3px;vertical-align:3px;letter-spacing:0}
+#rebuy-cart .pv-placeholder{display:inline-block;margin-left:6px;background:#ffcf2a;color:#072f30;font:700 10px/16px -apple-system,Helvetica,Arial,sans-serif;border-radius:3px;padding:0 4px;vertical-align:1px;text-decoration:none}
+
+@media (max-width:767px){
+  /* phone: the drawer fills a full 812px phone screen below the preview bar */
+  .stage{height:812px;min-height:0}
+  .stage__page,.stage__dim{display:none}
+  #rebuy-cart .rebuy-cart__flyout{width:100%;box-shadow:none}
+  #rebuy-cart [data-rebuy-cart-header-top]{padding:14px 16px}
+  #rebuy-cart [data-rebuy-cart-anchor=body]{padding:20px 16px 12px}
+  #rebuy-cart .rebuy-cart__discount-form{padding:12px 16px 14px}
+  #rebuy-cart .jaspr-footer-panel{padding:14px 16px 16px}
+}
+
+/* ---------------- checkout view (Shopify one-page checkout look) ---------------- */
+.co{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#000;font-size:14px;line-height:1.45;background:#fff}
+.co__hdr{position:relative;height:96px;background:linear-gradient(180deg,#6d8a8e 0%,#93aaa9 55%,#b7c6c3 100%);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.co__hdr img{position:relative;height:30px;width:auto;margin-bottom:14px}
+.co__hdr small{position:absolute;left:0;right:0;bottom:8px;text-align:center;color:#fff;font-size:11px;font-weight:600}
+.co__wrap{display:grid;grid-template-columns:1fr 1fr;min-height:900px}
+.co__main{padding:32px 38px 48px;display:flex;justify-content:flex-end;border-right:1px solid #dedede}
+.co__main>div{width:100%;max-width:520px}
+.co__side{background:#f5f5f5;padding:38px}
+.co__side>div{max-width:440px}
+.co h2{font-size:21px;margin:26px 0 12px;font-weight:700}
+.co__field{border:1px solid #dedede;border-radius:5px;height:50px;padding:0 12px;display:flex;align-items:center;color:#707070;margin-bottom:12px;background:#fff}
+.co__row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.co__express{text-align:center;color:#555}
+.co__gpay{height:48px;border-radius:5px;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:500;margin:8px 0}
+.co__muted{color:#707070;font-size:13px}
+.co__ship{background:#f5f5f5;border-radius:5px;padding:14px;color:#555}
+.co__pay{height:48px;border-radius:5px;background:#1773b0;color:#fff;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:600;margin-top:16px}
+.co__line{display:flex;gap:14px;align-items:center}
+.co__thumb{position:relative;width:64px;height:64px;border-radius:8px;border:1px solid #dedede;background:#fff;flex:0 0 64px}
+.co__thumb img{width:100%;height:100%;object-fit:cover;border-radius:7px}
+.co__thumb b{position:absolute;top:-8px;right:-8px;background:#666;color:#fff;border-radius:999px;font-size:12px;min-width:20px;height:20px;display:flex;align-items:center;justify-content:center}
+.co__line .t{flex:1;font-size:14px}
+.co__line .t small{display:block;color:#707070;font-size:12px}
+.co__line .p{text-align:right}
+.co__line .p s{display:block;color:#707070;font-size:12px}
+.co__disc{display:flex;gap:10px;margin:22px 0 16px}
+.co__disc .co__field{flex:1;margin:0}
+.co__disc button{border:1px solid #dedede;background:#ededed;color:#8a8a8a;border-radius:5px;padding:0 18px;font:600 14px inherit}
+.co__tot{display:flex;justify-content:space-between;margin:8px 0;font-size:14px}
+.co__tot--big{font-size:19px;font-weight:700;margin-top:14px}
+.co__tot--big small{font-size:12px;color:#707070;font-weight:400;margin-right:6px}
+.co__rec{background:#ececec;border-radius:5px;padding:8px 10px;display:flex;justify-content:space-between;margin-top:12px;font-size:13px}
+.co__legal{font-size:12.5px;color:#333;margin-top:12px}
+.co__mobile-only{display:none}
+
+/* This block is how the Polaris <s-box background="subdued" border="base"> renders in Jaspr's
+   checkout (system font, 5px radius, grey border). The extension draws it; this is a stand-in. */
+.co-reassure{border:1px solid #d6d6d6;border-radius:5px;background:#fafafa;padding:14px;margin:0 0 16px;font-size:14px;line-height:1.45}
+.co-reassure b{display:block;margin-bottom:4px}
+.co-reassure small{display:block;color:#707070;font-size:12px;margin-top:6px}
+.co-reassure small a{color:#1773b0}
+.co__side .co-reassure{background:#fff}
+.co-flag{display:inline-block;margin-left:4px;background:#ffcf2a;color:#072f30;font-size:10px;font-weight:700;border-radius:3px;padding:0 4px;vertical-align:1px}
+
+@media (max-width:999px){
+  .co__wrap{grid-template-columns:1fr}
+  .co__side{display:none}
+  .co__main{padding:16px 16px 40px;border:0}
+  .co__mobile-only{display:block}
+  .co__sumbar{display:flex;justify-content:space-between;align-items:center;background:#f5f5f5;border-bottom:1px solid #dedede;padding:14px 16px;color:#1773b0}
+  .co__sumbar span:last-child{color:#000;font-weight:700;font-size:18px;text-align:right}
+  .co__sumbar s{display:block;color:#707070;font-size:12px;font-weight:400}
+  .co__hdr{height:72px}
+  .co__hdr img{height:24px;margin-bottom:16px}
+  .co__hdr small{font-size:9.5px;bottom:7px}
+}
+
+/* ---------------- cart page view ---------------- */
+.cp{padding:20px 16px 40px;font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;color:#072f30;max-width:1100px;margin:0 auto}
+.cp h2{font:700 20px/1.3 "Mont-Bold",sans-serif;margin:8px 0 6px}
+.cp p{margin:4px 0 12px;max-width:760px}
+.cp__pair{display:flex;gap:24px;flex-wrap:wrap}
+.cp__pair figure{margin:0;flex:0 0 auto}
+.cp__pair figcaption{font-weight:700;margin-bottom:6px}
+.cp__pair iframe{width:375px;max-width:calc(100vw - 32px);height:560px;border:1px solid #cbd8d8;border-radius:10px;background:#fff}
+.cp__drawerfix{display:flex;gap:16px;flex-wrap:wrap;margin:6px 0 24px}
+.cp__mini{border:1px solid #cbd8d8;border-radius:10px;padding:12px 14px;min-width:260px;font-family:"Mont-Regular",sans-serif}
+.cp__mini b{display:block;font:600 12px -apple-system,Helvetica,Arial,sans-serif;text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px}
+.cp__mini .sale{font-weight:600;font-size:16px}
+.cp__mini .was{font-size:12px;font-weight:600;text-decoration:line-through;margin-left:4px}
+.cp__mini .bad{color:#b42318}
+.cp__mini .saved{display:block;color:#2f7d4f;font-size:12px;font-weight:600}
+</style>
+
+<link rel="stylesheet" href="install/cards-5-6-7-drawer/theme/assets/jaspr-cart-drawer-extras.css">
+</head>
+<body data-view="control">
+
+<div class="pv-bar" id="pvbar">
+  <div class="pv-bar__top"><b>DRAFT PREVIEW · NOT LIVE</b><span>Jaspr cart drawer and checkout, cards 5, 6, 7, 8 and 11 (Nov 2, 2026)</span></div>
+  <nav class="pv-tabs" aria-label="Preview views">
+    <a href="?view=control" data-v="control">Drawer today</a>
+    <a href="?view=review" data-v="review">A · Review (card 6)</a>
+    <a href="?view=founder" data-v="founder">B · Founder line (card 5)</a>
+    <a href="?view=addon" data-v="addon">Priority add-on (card 7)</a>
+    <a href="?view=checkout" data-v="checkout">Checkout box (card 8)</a>
+    <a href="?view=cartpage" data-v="cartpage">Price + cart page fix (card 11)</a>
+  </nav>
+  <div class="pv-note" id="pvnote"></div>
+</div>
+
+
+<section class="view view--drawer" aria-label="Cart drawer">
+  <div class="stage">
+    <iframe class="stage__page" src="../pdp-variants/pdp-baseline.html" title="Product page behind the drawer" tabindex="-1" aria-hidden="true" loading="lazy"></iframe>
+    <div class="stage__dim"></div>
+
+    <div id="rebuy-cart" class="rebuy-cart is-visible has-items" role="dialog" aria-modal="true" aria-labelledby="rebuy-cart-title">
+      <div class="rebuy-cart__flyout">
+        <div data-rebuy-cart-anchor="header">
+          <div data-rebuy-cart-header-top>
+            <h2 id="rebuy-cart-title" class="rebuy-cart__title" data-rebuy-component="title-bar">Your cart</h2>
+            <button class="rebuy-cart__flyout-close" type="button" aria-label="Close Cart">&times;</button>
+          </div>
+          <div data-rebuy-component="announcement-bar">3rd party tested &amp; verified</div>
+        </div>
+
+        <div data-rebuy-cart-anchor="body">
+          <ul class="rebuy-cart__flyout-items" data-rebuy-component="cart-items">
+            <li class="rebuy-cart__flyout-item product-airscrubber">
+              <div class="jaspr-product-card">
+                <div class="rebuy-cart__flyout-item-media">
+                  <img src="https://cdn.shopify.com/s/files/1/0279/4405/8977/files/Jaspr_Alex_Clark_Web_photo_1_240x240.jpg?v=1793032386" alt="Jaspr Air Scrubber">
+                </div>
+                <div class="rebuy-cart__flyout-item-info">
+                  <a class="rebuy-cart__flyout-item-product-title" href="#" role="heading" aria-level="5">Jaspr Air Scrubber</a>
+                  <div class="rebuy-cart__flyout-item-property rebuy-cart__flyout-item-property--delivery-frequency">New Jaspr Filter Every 6 Months</div>
+                  <div class="rebuy-cart__flyout-item-discount-line">100OFF</div>
+                  <button class="rebuy-cart__flyout-item-remove" type="button" aria-label="Remove Jaspr Air Scrubber">
+                    <svg viewBox="0 0 16 18" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 4h14M6 4V2h4v2M3 4l1 13h8l1-13"/></svg>
+                  </button>
+                  <div class="jaspr-row">
+                    <div class="rebuy-cart__flyout-item-quantity-widget">
+                      <button class="rebuy-cart__flyout-item-quantity-widget-button" type="button" aria-label="Decrease quantity">&minus;</button>
+                      <span class="rebuy-cart__flyout-item-quantity-widget-label">1</span>
+                      <button class="rebuy-cart__flyout-item-quantity-widget-button" type="button" aria-label="Increase quantity">+</button>
+                    </div>
+                    <div class="rebuy-cart__flyout-item-price">
+                      <div>
+                        <span class="rebuy-money sale"><span class="sr-only">Sale price</span> <span>$1,099.00</span></span>
+                        <span class="rebuy-money compare-at"><span class="sr-only">Original price</span> <span>$1,199.00</span></span>
+                      </div>
+                      <div class="jaspr-line-savings"><span>$100.00</span> Saved</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p class="jaspr-bulk-heading">Buy more, save more</p>
+              <div class="jaspr-bulk">
+                <button type="button"><span class="jaspr-bulk-quantity">Buy 2</span><span class="jaspr-bulk-saving">save $200.00</span></button>
+                <button type="button"><span class="jaspr-bulk-quantity">Buy 3</span><span class="jaspr-bulk-saving">save $450.00</span></button>
+                <button type="button"><span class="jaspr-bulk-quantity">Buy 4</span><span class="jaspr-bulk-saving">save $800.00</span></button>
+              </div>
+            </li>
+            
+          </ul>
+        </div>
+
+        <div data-rebuy-cart-anchor="footer">
+          <div data-rebuy-component="discount-input" class="rebuy-cart__discount-container">
+            <form class="rebuy-cart__discount-form" onsubmit="return false">
+              <input class="rebuy-input" placeholder="Discount Code" aria-label="Discount code">
+              <button type="submit" class="rebuy-button">Apply</button>
+            </form>
+          </div>
+          <div class="jaspr-footer-panel">
+            <div data-rebuy-component="cart-subtotal">
+              <div class="rebuy-cart__flyout-subtotal">
+                <div class="rebuy-cart__flyout-subtotal-label"><span>Subtotal</span></div>
+                <div class="rebuy-cart__flyout-subtotal-amount"><span class="sr-only">Cart subtotal</span><span id="pv-subtotal">$1,099.00</span></div>
+              </div>
+              <div class="jaspr-shipping-row"><span>Shipping</span><span>Free</span></div>
+              <div class="jaspr-savings-row" aria-live="polite"><span>Total Savings</span><span>$100.00</span></div>
+            </div>
+            <div data-rebuy-component="checkout-area">
+              <button type="button" class="rebuy-button rebuy-cart__checkout-button">Checkout &rarr;</button>
+              <button type="button" class="rebuy-button rebuy-cart__shop-pay-button" aria-label="Checkout with Shop Pay">shop<i>Pay</i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="view view--checkout co" aria-label="Checkout">
+  <header class="co__hdr" title="Stand-in for Jaspr's forest checkout banner"><img src="../../docs/brand/assets/logo-footer.png" alt="JASPR"><small>Lifetime Warranty · Clean Air For Your Family · Free Shipping</small></header>
+  <div class="co__mobile-only co__sumbar"><span>Order summary &#8964;</span><span><s>$1,199.00</s>$1,099.00</span></div>
+  <div class="co__wrap">
+    <div class="co__main"><div>
+      <div class="co__express">Express checkout</div>
+      <div class="co__gpay">G&nbsp;Pay</div>
+      <p class="co__muted">By continuing with your payment, you agree to the future charges listed on this page and the cancellation policy.</p>
+      <h2>Contact</h2>
+      <div class="co__field">Email</div>
+      <h2>Delivery (No PO Box)</h2>
+      <div class="co__field">Country/Region: United States</div>
+      <div class="co__row"><div class="co__field">First name</div><div class="co__field">Last name</div></div>
+      <div class="co__field">Address</div>
+      <div class="co__row"><div class="co__field">City</div><div class="co__field">ZIP code</div></div>
+      <h2>Shipping method</h2>
+      <div class="co__ship">Enter your shipping address to view available shipping methods.</div>
+      <h2>Payment</h2>
+      <p class="co__muted">All transactions are secure and encrypted.</p>
+      <div class="co__field">Credit card</div>
+
+      
+      <div class="co__mobile-only">
+        <div class="co__disc"><div class="co__field">Discount code</div><button type="button">Apply</button></div>
+        <div class="co-reassure" id="co-box-m">
+          <b>30-day buy-back guarantee</b>
+          Live with it for 30 days or we buy it back at full price. Backed by our Lifetime Warranty.
+          <small>Please keep the original box: buy-back returns ship back in it. Lifetime Warranty applies while your filter subscription is active. <span class="co-flag">WORDING: JASPR TO CONFIRM</span> <a href="#">Full terms</a></small>
+        </div>
+        <div class="co__tot co__tot--big"><span>Total</span><span><small>USD</small>$1,099.00</span></div>
+        <div class="co__muted" style="text-align:right">Total savings $100.00 · taxes calculated next</div>
+        <div class="co__rec"><span>Recurring subtotal</span><span>$199.00 every 6 months</span></div>
+      </div>
+
+      <p class="co__legal">Your cart contains an automatically renewing subscription. By clicking "Pay now," you expressly and affirmatively agree that you will be automatically charged the recurring amount(s) shown in your cart (plus shipping and taxes) until the subscription(s) ends or you cancel.</p>
+      <div class="co__pay">Pay now</div>
+    </div></div>
+
+    <aside class="co__side" aria-label="Order summary"><div>
+      <div class="co__line">
+        <div class="co__thumb"><img src="https://cdn.shopify.com/s/files/1/0279/4405/8977/files/Jaspr_Alex_Clark_Web_photo_1_240x240.jpg?v=1793032386" alt=""><b>1</b></div>
+        <div class="t">Jaspr Air Scrubber<small>New Jaspr Filter Every 6 Months</small><small>100OFF (&minus;$100.00)</small></div>
+        <div class="p"><s>$1,199.00</s>$1,099.00</div>
+      </div>
+      <div class="co__disc"><div class="co__field">Discount code or gift card</div><button type="button">Apply</button></div>
+      <div class="co-reassure" id="co-box-d">
+        <b>30-day buy-back guarantee</b>
+        Live with it for 30 days or we buy it back at full price. Backed by our Lifetime Warranty.
+        <small>Please keep the original box: buy-back returns ship back in it. Lifetime Warranty applies while your filter subscription is active. <span class="co-flag">WORDING: JASPR TO CONFIRM</span> <a href="#">Full terms</a></small>
+      </div>
+      <div class="co__tot"><span>Subtotal</span><span>$1,099.00</span></div>
+      <div class="co__tot"><span>Shipping</span><span class="co__muted">Enter shipping address</span></div>
+      <div class="co__tot co__tot--big"><span>Total</span><span><small>USD</small>$1,099.00</span></div>
+      <div class="co__muted" style="text-align:right">Total savings $100.00</div>
+      <div class="co__rec"><span>Recurring subtotal</span><span>$199.00 every 6 months</span></div>
+    </div></aside>
+  </div>
+</section>
+
+
+<section class="view view--cartpage cp" aria-label="Card 11">
+  <h2>Drawer old price: already fixed on the live store</h2>
+  <p>Checked Nov 2, 2026 on jaspr.co at phone and laptop width with the scrubber, the filter plan and 100OFF in the cart. The drawer now prints the old price as money. The install folder keeps the correct template line and a safety net in case it comes back.</p>
+  <div class="cp__drawerfix">
+    <div class="cp__mini"><b>Sep 22 – Oct 4 (bug)</b><span class="sale">$1,099.00</span><span class="was bad">119900</span></div>
+    <div class="cp__mini"><b>Live Nov 2 (fixed)</b><span class="sale">$1,099.00</span><span class="was">$1,199.00</span><span class="saved">$100.00 Saved</span></div>
+  </div>
+  <h2>Full cart page on phones: still broken, fix ready</h2>
+  <p>This is the live /cart page markup with the live theme stylesheets, captured Nov 2. Left: today. Right: with the one CSS file from the install folder. The dark full-width remove bar becomes a trash icon in the quantity pill, and the third copy of the price goes away. Desktop is unchanged. The "Loading..." label is hidden text for screen readers only, so it stays as it is.</p>
+  <div class="cp__pair">
+    <figure><figcaption>Today</figcaption><iframe src="preview-parts/cart-page.html" title="Cart page today" loading="lazy"></iframe></figure>
+    <figure><figcaption>With the fix</figcaption><iframe src="preview-parts/cart-page.html?fix=1" title="Cart page with fix" loading="lazy"></iframe></figure>
+  </div>
+</section>
+
+<script>
+/* ---------- preview-only scaffolding: picks the view and fakes the cart ---------- */
+(function () {
+  var NOTES = {
+    control: 'The live Rebuy drawer as it renders today: $1,099.00 scrubber with the filter plan and 100OFF. Nothing added.',
+    review: '<span class="chip">CARD 6</span>One real Okendo review directly above Checkout. Vianka A., 5 stars, Jul 8, 2024 ("Best investment in 2024!"), first name only. Excerpt from her review. Jaspr must OK the name and quote, and confirm Okendo marks her as a verified buyer.',
+    founder: '<span class="chip">CARD 5</span>Challenger for the same slot: Mike\'s own line. Source: Navora creative pillars doc, section 3 ("Mike\'s original line"). Photo from the earlier editorial draft; Jaspr to confirm use. Test against card 6, never both at once.',
+    addon: '<span class="chip">CARD 7</span>Unchecked by default. Tick it to see the subtotal change. Price set at <b>$29.97</b>. Ships only after Jaspr confirms fulfillment will honor the tag.',
+    checkout: '<span class="chip">CARD 8</span>Shopify checkout with the reassurance box (a Checkout UI extension). Desktop: in the order summary under the discount field. Phone: above the total, just before Pay now. Guarantee wording is Jaspr\'s to confirm.',
+    cartpage: '<span class="chip">CARD 11</span>The drawer price bug is already fixed live. The full cart page on phones still needs the CSS fix shown below.'
+  };
+  var view = (location.search.match(/[?&]view=([a-z]+)/) || [])[1] || 'control';
+  if (!NOTES[view]) view = 'control';
+  document.body.setAttribute('data-view', view);
+  document.getElementById('pvnote').innerHTML = NOTES[view];
+  [].forEach.call(document.querySelectorAll('.pv-tabs a'), function (a) { if (a.getAttribute('data-v') === view) { a.classList.add('on'); a.setAttribute('aria-current', 'page'); } });
+  function sizeBar() { document.documentElement.style.setProperty('--bar', document.getElementById('pvbar').offsetHeight + 'px'); }
+  sizeBar(); window.addEventListener('resize', sizeBar);
+
+  /* What the theme snippet would print (values as in install/.../jaspr-cart-drawer-extras.liquid). */
+  window.JASPR_CART_EXTRAS = {
+    scrubberHandle: 'airscrubber',
+    trustDefault: 'off',
+    review: { stars: 5, quote: 'When I first looked at the price I gulped… It has been the best investment in my life.', name: 'Vianka', badge: 'Verified owner' },
+    founder: { quote: 'Your home needs to breathe just like you do.', name: 'Mike Feldstein', title: 'Founder of Jaspr', photo: 'assets/mike-feldstein-cart.jpg' },
+    priority: { enabled: view === 'addon', variantId: 40000000000001, handle: 'priority-processing', price: '$29.97', label: 'Priority processing: your order ships first' }
+  };
+  if (view === 'review') document.documentElement.setAttribute('data-cart-trust', 'review');
+  if (view === 'founder') document.documentElement.setAttribute('data-cart-trust', 'founder');
+
+  /* Fake Shopify cart endpoints so the real install JS can run on this page. */
+  var priorityInCart = false;
+  var realFetch = window.fetch;
+  window.fetch = function (url, opts) {
+    url = String(url);
+    if (url.indexOf('/cart/add.js') === 0) priorityInCart = true;
+    else if (url.indexOf('/cart/change.js') === 0) priorityInCart = false;
+    else if (url.indexOf('/cart.js') !== 0) return realFetch.apply(this, arguments);
+    return new Promise(function (res) {
+      setTimeout(function () {
+        var ul = document.querySelector('#rebuy-cart .rebuy-cart__flyout-items');
+        var li = ul.querySelector('.product-priority-processing');
+        if (priorityInCart && !li) { li = document.createElement('li'); li.className = 'rebuy-cart__flyout-item product-priority-processing'; li.textContent = 'Priority processing'; ul.appendChild(li); }
+        if (!priorityInCart && li) li.remove();
+        document.getElementById('pv-subtotal').textContent = priorityInCart ? '$1,128.97' : '$1,099.00';
+        res({ ok: true, json: function () { return Promise.resolve({ items: [] }); } });
+      }, 250);
+    });
+  };
+})();
+</script>
+
+<script src="install/cards-5-6-7-drawer/theme/assets/jaspr-cart-drawer-extras.js" defer></script>
+<script>
+  /* preview-only: mark the add-on price as a placeholder once the real JS has drawn it */
+  document.addEventListener('DOMContentLoaded', function () {
+    setTimeout(function () {
+      var p = document.querySelector('#rebuy-cart .jaspr-priority__price');
+      if (p && !p.nextElementSibling) { var c = document.createElement('span'); c.className = 'pv-placeholder'; c.textContent = 'PRICE TBC'; p.after(c); }
+    }, 300);
+  });
+</script>
+</body>
+</html>

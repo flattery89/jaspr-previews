@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Priority Processing Mockup</title>
+
+<style>
+@font-face{font-family:"Mont-Regular";src:url("https://cdn.shopify.com/s/files/1/0279/4405/8977/files/Mont-Regular.woff?v=1686127932") format("woff");font-weight:400}
+@font-face{font-family:"Mont-SemiBold";src:url("https://cdn.shopify.com/s/files/1/0279/4405/8977/files/Mont-SemiBold.woff?v=1686127931") format("woff");font-weight:600}
+@font-face{font-family:"Mont-Bold";src:url("https://cdn.shopify.com/s/files/1/0279/4405/8977/files/Mont-Bold.woff?v=1686127932") format("woff");font-weight:700}
+
+:root{
+  --ink:#072f30; --muted:#535353; --line:#cbd8d8; --mint:#e6efeb; --green:#2f7d4f;
+  --page:#eef3f1; --panel:#ffffff; --bar:#28474a; --gold:#ffcf2a; --teal:#50b4b4;
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--page);color:var(--ink);font-family:"Mont-Regular",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+
+/* ---------- mockup chrome (not part of the store) ---------- */
+.bar{background:var(--bar);color:#eefbfa;font:13px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;padding:12px 16px}
+.bar b{color:var(--gold);letter-spacing:.04em}
+.bar p{margin:4px 0 0;max-width:900px;color:#cfe9e8}
+.toggle{display:flex;gap:8px;flex-wrap:wrap;padding:14px 16px 0;max-width:1240px;margin:0 auto}
+.toggle button{font:600 13px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;border:1px solid var(--bar);background:#fff;color:var(--bar);border-radius:999px;padding:7px 14px;cursor:pointer}
+.toggle button.on{background:var(--bar);color:#fff}
+
+.grid{display:grid;grid-template-columns:400px 1fr 1fr;gap:20px;padding:16px;max-width:1240px;margin:0 auto;align-items:start}
+@media (max-width:1100px){.grid{grid-template-columns:1fr 1fr}.p-email{grid-column:1 / -1}}
+@media (max-width:760px){.grid{grid-template-columns:1fr}}
+.step{font:700 11px/1 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--bar);margin:0 0 8px}
+.step span{display:inline-block;background:var(--gold);color:var(--ink);border-radius:4px;padding:3px 6px;margin-right:6px}
+.cap{font:13px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#3d5557;margin:10px 2px 0}
+.card{background:var(--panel);border-radius:14px;box-shadow:0 2px 10px rgba(7,47,48,.08);overflow:hidden}
+
+/* ---------- 1. cart drawer ---------- */
+.dr__hdr{display:flex;justify-content:space-between;align-items:center;padding:16px 20px}
+.dr__hdr h2{margin:0;font:400 22px/30px "Mont-Bold",sans-serif;text-transform:uppercase}
+.dr__hdr span{font-size:26px;line-height:1}
+.dr__ann{background:var(--ink);color:#fff;text-transform:uppercase;font-size:11px;letter-spacing:.04em;text-align:center;line-height:31px}
+.dr__body{padding:20px}
+.prod{position:relative;display:flex;gap:12px;background:var(--mint);border-radius:12px;padding:12px}
+.prod img{width:64px;height:64px;border-radius:8px;object-fit:cover;display:block}
+.prod__t{font-size:16px;font-weight:600;line-height:21px;font-family:"Mont-SemiBold",sans-serif}
+.prod__s{font-size:12px;line-height:18px;color:var(--muted)}
+.prod__d{font-size:12px;line-height:20px;color:var(--green)}
+.prod__row{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.qty{display:flex;align-items:center;justify-content:space-between;width:112px;height:42px;border:1px solid var(--line);border-radius:999px;background:#f5f9f9;padding:0 14px;font-weight:700}
+.price{text-align:right;font-family:"Mont-SemiBold",sans-serif}
+.price s{font-size:12px;margin-left:4px}
+.price small{display:block;font-size:12px;color:var(--green)}
+.dr__foot{padding:4px 20px 20px}
+
+/* the real card-7 checkbox styles (jaspr-cart-drawer-extras.css), unchanged */
+.jaspr-priority{display:flex;align-items:flex-start;gap:10px;margin:0 0 12px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font-family:"Mont-Regular",sans-serif;font-size:14px;line-height:20px;cursor:pointer;min-height:44px}
+.jaspr-priority input{flex:0 0 20px;width:20px;height:20px;margin:0;accent-color:var(--ink);cursor:pointer}
+.jaspr-priority__label{font-weight:600;font-family:"Mont-SemiBold",sans-serif}
+.jaspr-priority__price{color:var(--muted);white-space:nowrap}
+.jaspr-priority:focus-within{outline:2px solid #0e7a82;outline-offset:2px}
+
+.tot{display:flex;justify-content:space-between;font-size:15px;line-height:26px}
+.tot--big{font:700 17px/30px "Mont-Bold",sans-serif}
+.tot .free{color:var(--green)}
+.btn{display:block;width:100%;height:48px;margin-top:12px;border:0;border-radius:8px;background:#2d2d2a;color:#fff;font:700 15px/48px "Mont-Bold",sans-serif;text-align:center}
+.btn--shop{background:#5a31f4;margin-top:8px;font-style:italic}
+
+/* ---------- 2. checkout summary ---------- */
+.co__hdr{background:#1f3b2d;color:#fff;padding:12px 18px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.co__hdr b{font:700 20px "Mont-Bold",sans-serif;letter-spacing:.12em}
+.co__hdr small{font-size:11px;opacity:.85}
+.co__body{padding:18px;background:#f6f7f7;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;color:#1a1a1a}
+.co__h{font-size:13px;font-weight:600;color:#555;margin:0 0 12px}
+.line{display:flex;gap:12px;align-items:center;margin-bottom:14px;font-size:14px}
+.thumb{position:relative;width:56px;height:56px;border:1px solid #ddd;border-radius:8px;background:#fff;flex:0 0 56px}
+.thumb img{width:100%;height:100%;object-fit:cover;border-radius:7px}
+.thumb b{position:absolute;top:-8px;right:-8px;background:#666;color:#fff;font-size:11px;border-radius:999px;min-width:20px;height:20px;line-height:20px;text-align:center}
+.thumb--logo{display:flex;align-items:center;justify-content:center;background:var(--ink);color:#fff;font:700 9px "Mont-Bold",sans-serif;letter-spacing:.1em}
+.line .t{flex:1}
+.line .t small{display:block;color:#707070;font-size:12px}
+.line .p{white-space:nowrap;text-align:right}
+.line .p s{color:#707070;font-size:12px;margin-right:4px}
+.line.is-new{animation:pop .35s ease}
+@keyframes pop{from{background:#fff7d1}to{background:transparent}}
+.co__tot{display:flex;justify-content:space-between;font-size:14px;line-height:26px}
+.co__tot--big{font-size:19px;font-weight:700;margin-top:6px}
+.co__tot--big small{font-size:12px;color:#707070;font-weight:400;margin-right:6px}
+.co__muted{color:#707070}
+
+/* ---------- 3. team email ---------- */
+.em__chrome{display:flex;gap:6px;padding:10px 14px;background:#e9eceb;border-bottom:1px solid #dcdfde}
+.em__chrome i{width:10px;height:10px;border-radius:50%;background:#c9cfcd;display:block}
+.em__body{padding:18px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;color:#1a1a1a;font-size:14px;line-height:1.5}
+.em__subj{font-size:18px;font-weight:700;margin:0 0 10px}
+.em__meta{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;font-size:13px;color:#555;padding-bottom:12px;border-bottom:1px solid #eee;margin-bottom:12px}
+.em__meta b{color:#1a1a1a;font-weight:600}
+.em__tag{display:inline-block;background:#fff1c2;color:#6b4e00;border:1px solid #f0d58a;border-radius:4px;font-size:12px;font-weight:600;padding:1px 6px}
+.em pre{font:13px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;margin:0;background:#fafafa;border:1px solid #eee;border-radius:8px;padding:12px}
+.em a{color:#0e7a82}
+.em__none{padding:40px 20px;text-align:center;color:#707070;font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.em__none b{display:block;color:#1a1a1a;font-size:16px;margin-bottom:4px}
+.hide{display:none!important}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <b>DRAFT MOCKUP · NOT LIVE</b> &nbsp;Priority processing add-on, $29.97 (card 7)
+  <p>Tick the box in the cart. The totals, the checkout line and the team email update together. Sample order data is made up.</p>
+</div>
+
+<div class="toggle" role="group" aria-label="Show state">
+  <button type="button" data-set="0" class="on">Box unticked (default)</button>
+  <button type="button" data-set="1">Box ticked</button>
+</div>
+
+<main class="grid">
+
+  
+  <section aria-labelledby="h1">
+    <p class="step" id="h1"><span>1</span>Cart drawer</p>
+    <div class="card">
+      <div class="dr__hdr"><h2>Your cart</h2><span aria-hidden="true">&times;</span></div>
+      <div class="dr__ann">3rd party tested &amp; verified</div>
+      <div class="dr__body">
+        <div class="prod">
+          <img src="https://cdn.shopify.com/s/files/1/0279/4405/8977/files/Jaspr_Alex_Clark_Web_photo_1_240x240.jpg?v=1793032386" alt="Jaspr Air Scrubber">
+          <div style="flex:1;min-width:0">
+            <div class="prod__t">Jaspr Air Scrubber</div>
+            <div class="prod__s">New Jaspr Filter Every 6 Months</div>
+            <div class="prod__d">100OFF</div>
+            <div class="prod__row">
+              <div class="qty"><span>&minus;</span><span>1</span><span>+</span></div>
+              <div class="price">$1,099.00<s>$1,199.00</s><small>$100.00 Saved</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dr__foot">
+        <label class="jaspr-priority" id="cartbox">
+          <input type="checkbox" class="js-prio">
+          <span><span class="jaspr-priority__label">Priority processing: your order ships first</span> <span class="jaspr-priority__price">(+$29.97)</span></span>
+        </label>
+        <div class="tot"><span>Subtotal</span><span class="js-sub">$1,099.00</span></div>
+        <div class="tot"><span>Shipping</span><span class="free">Free</span></div>
+        <div class="tot"><span>Total Savings</span><span>$100.00</span></div>
+        <div class="btn">Checkout &rarr;</div>
+        <div class="btn btn--shop">shop Pay</div>
+      </div>
+    </div>
+    <p class="cap">Unticked every time the cart opens. Shown only when the scrubber is in the cart, and removed if the scrubber is taken out.</p>
+  </section>
+
+  
+  <section aria-labelledby="h2">
+    <p class="step" id="h2"><span>2</span>Checkout order summary</p>
+    <div class="card">
+      <div class="co__hdr"><b>JASPR</b><small>Lifetime Warranty · Clean Air For Your Family · Free Shipping</small></div>
+      <div class="co__body">
+        <p class="co__h">Order summary</p>
+        <div class="line">
+          <div class="thumb"><img src="https://cdn.shopify.com/s/files/1/0279/4405/8977/files/Jaspr_Alex_Clark_Web_photo_1_240x240.jpg?v=1793032386" alt=""><b>1</b></div>
+          <div class="t">Jaspr Air Scrubber<small>New Jaspr Filter Every 6 Months</small><small>100OFF (&minus;$100.00)</small></div>
+          <div class="p"><s>$1,199.00</s>$1,099.00</div>
+        </div>
+        <div class="line js-coline hide">
+          <div class="thumb"><img src="image/priority-processing-light.png" alt=""><b>1</b></div>
+          <div class="t">Priority processing<small>Your order ships first</small></div>
+          <div class="p">$29.97</div>
+        </div>
+        <div class="co__tot"><span>Subtotal</span><span class="js-sub">$1,099.00</span></div>
+        <div class="co__tot"><span>Shipping</span><span>FREE</span></div>
+        <div class="co__tot co__tot--big"><span>Total</span><span><small>USD</small><span class="js-sub">$1,099.00</span></span></div>
+        <div class="co__muted" style="text-align:right;font-size:13px">Total savings $100.00</div>
+      </div>
+    </div>
+    <p class="cap">No box in checkout. When the cart box is ticked, Shopify lists the add-on here on its own, with its image and price, because it is a real item in the cart.</p>
+  </section>
+
+  
+  <section aria-labelledby="h3" class="p-email">
+    <p class="step" id="h3"><span>3</span>Email to the packing team</p>
+    <div class="card em">
+      <div class="em__chrome" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="em__none js-none">
+        <b>No email for this order</b>
+        Regular orders go through the normal queue. The email and the tag only happen when priority processing is on the order.
+      </div>
+      <div class="em__body js-email hide">
+        <p class="em__subj">PRIORITY: pack #10482 first</p>
+        <div class="em__meta">
+          <span>From</span><b>Shopify Flow</b>
+          <span>To</span><b>packing team inbox</b>
+          <span>Sent</span><b>Mon, Nov 2, 7:14 PM, seconds after the order</b>
+          <span>Order tag</span><span><span class="em__tag">priority-processing</span></span>
+        </div>
+<pre>Priority processing order. Pack and ship this ahead of regular orders.
+
+Order: #10482
+Placed: Nov 2, 7:14 PM
+Customer: Sample Customer
+Ship to: Austin, TX
+Fraud risk: LOW
+
+Items:
+- 1 x Jaspr Air Scrubber
+- 1 x Priority processing
+
+Open in admin: <a href="#" onclick="return false">admin.shopify.com/store/getjaspr/orders/…</a></pre>
+      </div>
+    </div>
+    <p class="cap">Sent automatically by Shopify Flow when the order is placed. Same moment, the order gets the <b>priority-processing</b> tag, so the team can also filter the order list to just these.</p>
+  </section>
+
+</main>
+
+<script>
+(function () {
+  var boxes = document.querySelectorAll('.js-prio');
+  var subs = document.querySelectorAll('.js-sub');
+  var coline = document.querySelector('.js-coline');
+  var email = document.querySelector('.js-email');
+  var none = document.querySelector('.js-none');
+  var tbtns = document.querySelectorAll('.toggle button');
+
+  function set(on) {
+    boxes.forEach(function (b) { b.checked = on; });
+    subs.forEach(function (s) { s.textContent = on ? '$1,128.97' : '$1,099.00'; });
+    coline.classList.toggle('hide', !on);
+    if (on) { coline.classList.remove('is-new'); void coline.offsetWidth; coline.classList.add('is-new'); }
+    email.classList.toggle('hide', !on);
+    none.classList.toggle('hide', on);
+    tbtns.forEach(function (t) { t.classList.toggle('on', (t.dataset.set === '1') === on); });
+  }
+
+  boxes.forEach(function (b) { b.addEventListener('change', function () { set(b.checked); }); });
+  tbtns.forEach(function (t) { t.addEventListener('click', function () { set(t.dataset.set === '1'); }); });
+  set(/[?&]on=1/.test(location.search));
+})();
+</script>
+</body>
+</html>

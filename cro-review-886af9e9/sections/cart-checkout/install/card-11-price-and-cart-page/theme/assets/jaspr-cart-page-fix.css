@@ -1,0 +1,67 @@
+/*
+  Jaspr — full cart page (/cart) phone layout fix.  Card 11, "also check".
+  Theme: Dawn 9 "Navora Partners".  Paste at the END of assets/jaspr-cart-page-fix.css
+  (new file) and load it from sections/main-cart-items.liquid (see GO-LIVE.md), or paste
+  the rules at the bottom of assets/component-cart-items.css.
+
+  What it fixes on screens under 750px wide (Dawn's "small" breakpoint):
+    1. The desktop-only "Total" column (<td class="cart-item__totals small-hide">) is being
+       shown on phones, so the price prints a third time under the remove button.
+       Dawn's .small-hide utility is overridden by the theme's flex rule; restore it.
+    2. The remove button (<cart-remove-button> > a.button.button--tertiary) inherits the
+       theme's solid dark button style and stretches across the row. Make it a 44x44
+       dark trash icon inside the right end of the quantity pill, where the theme already
+       leaves room for it (44px = minimum comfortable tap size).
+  Nothing here changes desktop (750px and up).
+  Rollback: delete this file / these rules. No markup or settings change.
+*/
+@media screen and (max-width: 749px) {
+
+  /* 1. Price shown three times -> hide the desktop-only Total cell again */
+  .cart-item .cart-item__totals.small-hide {
+    display: none !important;
+  }
+
+  /* 2a. Keep quantity + remove on one line */
+  .cart-item .cart-item__quantity-wrapper {
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* 2b. The remove control: icon button, not a full-width dark bar.
+         The theme already reserves room for it inside the quantity pill
+         (50px right padding on quantity-input, -40px left margin here), the
+         same as on desktop, so it only needs its size and colors back. */
+  .cart-item cart-remove-button {
+    flex: 0 0 auto;
+    width: auto;
+  }
+  .cart-item cart-remove-button .button,
+  .cart-item cart-remove-button .button.button--tertiary {
+    width: 44px !important;
+    min-width: 44px !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+    color: #072f30 !important;
+    border: 0 !important;
+    border-radius: 50% !important;
+    box-shadow: none !important;
+  }
+  .cart-item cart-remove-button .button::before,
+  .cart-item cart-remove-button .button::after {
+    display: none !important;          /* Dawn draws button borders/shadows with these */
+  }
+  .cart-item cart-remove-button .button .icon-remove {
+    width: 18px;
+    height: 18px;
+    color: #072f30 !important;       /* theme paints this icon white for the dark bar */
+  }
+  .cart-item cart-remove-button .button:focus-visible {
+    outline: 2px solid #0e7a82 !important;
+    outline-offset: 2px;
+  }
+}

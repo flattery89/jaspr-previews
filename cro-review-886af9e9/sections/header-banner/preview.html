@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Checkout header banner · preview</title>
+
+<style>
+@font-face{font-family:Mont;src:url("https://jaspr.co/cdn/shop/files/Mont-SemiBold.woff?v=1531965110309155067") format("woff");font-weight:600}
+@font-face{font-family:Mont;src:url("https://jaspr.co/cdn/shop/files/Mont-Bold.woff?v=15700739960841080444") format("woff");font-weight:700}
+:root{--teal:#072F30;--mint:#EEFBFA;--slate:#676986}
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:#072F30;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.ribbon{background:#B4452F;color:#fff;font:600 12px/1.4 sans-serif;letter-spacing:.04em;text-align:center;padding:6px 16px}
+.label{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 16px 8px;font:700 13px/1.3 Mont,sans-serif;letter-spacing:.06em;text-transform:uppercase}
+.label span{font:600 12px/1.3 sans-serif;letter-spacing:0;text-transform:none;color:var(--slate)}
+.vw{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--slate)}
+
+/* ---- Shopify checkout header, imitated ---- */
+.co-header{position:relative;height:64px;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center}
+@media(min-width:750px){.co-header{height:96px}}
+.co-header .bag{position:absolute;right:20px;top:50%;width:26px;height:26px;margin-top:-13px;border:2.5px solid #fff;border-radius:7px}
+.co-header .bag::before{content:"";position:absolute;left:5px;top:-9px;width:11px;height:9px;border:2.5px solid #fff;border-bottom:0;border-radius:6px 6px 0 0}
+.co-body{background:#F5F5F5;border-bottom:1px solid #DEDEDE;padding:14px 16px;display:flex;justify-content:space-between;font-size:15px}
+.co-body a{color:#1773B0;text-decoration:none}
+
+/* BEFORE: the banner with the logo and line printed into it */
+.before{background-image:url("current/checkout-banner-from-oct-phone-screenshot.png")}
+
+/* AFTER: a plain banner (placeholder until new/checkout-banner-forest-wide.jpg is generated),
+   the logo as a real element, the trust line as live text under the header */
+.after{background-image:linear-gradient(180deg,rgba(7,47,48,.35),rgba(7,47,48,.35)),url("new/checkout-banner-forest-wide.jpg"),
+  linear-gradient(100deg,#55666b 0%,#7f9196 22%,#6b7c80 45%,#8c9da1 63%,#5f7074 82%,#7a8b8f 100%)}
+.after img.logo{height:26px;width:auto;display:block}
+@media(min-width:750px){.after img.logo{height:32px}}
+.trust{background:var(--mint);color:var(--teal);text-align:center;font:600 12.5px/1.35 Mont,sans-serif;padding:9px 12px;text-wrap:balance;border-bottom:1px solid #d6efed}
+@media(max-width:749px){.ph-tag{display:none}}
+@media(min-width:750px){.trust{font-size:14px}}
+.trust i{font-style:normal;color:#0E7A82;padding:0 .45em}
+.note{max-width:900px;margin:22px auto 40px;padding:0 16px;font:14px/1.55 sans-serif;color:#28474A}
+.ph-tag{position:absolute;left:8px;top:6px;font:600 10px/1.4 sans-serif;color:#fff;background:rgba(0,0,0,.35);border-radius:10px;padding:1px 7px}
+</style>
+</head>
+<body>
+<div class="ribbon">DRAFT PREVIEW · card 10 · checkout header · nothing here is live</div>
+
+<div class="label">Before <span class="vw" id="vw1"></span></div>
+<div class="co-header before"></div>
+<div class="co-body"><a href="#">Order summary ⌄</a><b>$1,099.00</b></div>
+
+<div class="label">After <span>plain banner + real logo + trust line</span></div>
+<div class="co-header after">
+  <img class="logo" src="current/logo-white.png" alt="Jaspr">
+  <span class="bag" aria-hidden="true"></span>
+  <span class="ph-tag">banner photo placeholder</span>
+</div>
+<div class="trust">Lifetime Warranty<i>·</i>Clean Air For Your Family<i>·</i>Free Shipping</div>
+<div class="co-body"><a href="#">Order summary ⌄</a><b>$1,099.00</b></div>
+
+<p class="note">Before: the logo and the line are part of the photo, so they are cut and resized with it.
+At wide widths the top of the logo disappears; on a phone the line is tiny. After: the logo is
+the checkout's own logo setting and the line is real text, so neither can be cropped at any width.</p>
+
+<script>
+  // Preview-only: print the viewport width in the label so each screenshot is self-explanatory.
+  document.getElementById('vw1').textContent = window.innerWidth + 'px wide';
+</script>
+</body>
+</html>

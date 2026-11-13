@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en"><head>
+<meta name="robots" content="noindex, nofollow"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gallery images, remade · preview</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+<link href="https://jaspr.co/cdn/shop/t/119/assets/pdp-2-0.css?v=156189704665440689701791154806" rel="stylesheet" type="text/css" media="all">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" media="screen" href="https://jaspr.co/cdn/shop/t/119/compiled_assets/styles.css?v=112421982506956799301791154854">
+<link href="https://jaspr.co/cdn/shop/t/119/assets/base.css?v=22098387396723775561791154777" rel="stylesheet" type="text/css" media="all">
+<link href="https://jaspr.co/cdn/shop/t/119/assets/main.css?v=178783586589067758771791154802" rel="stylesheet" type="text/css" media="all">
+<link href="https://jaspr.co/cdn/shop/t/119/assets/Responsive.css?v=169675217543190719851791154812" rel="stylesheet" type="text/css" media="all">
+<link href="https://jaspr.co/cdn/shop/t/119/assets/component-list-menu.css?v=151968516119678728991791154785" rel="stylesheet" type="text/css" media="all">
+<link href="https://jaspr.co/cdn/shop/t/119/assets/component-search.css?v=184225813856820874251791154791" rel="stylesheet" type="text/css" media="all">
+<link href="https://jaspr.co/cdn/shop/t/119/assets/component-menu-drawer.css?v=87278606207294449801791154787" rel="stylesheet" type="text/css" media="all">
+<link href="https://jaspr.co/cdn/shop/t/119/assets/component-cart-notification.css?v=108833082844665799571791154782" rel="stylesheet" type="text/css" media="all">
+<link href="https://jaspr.co/cdn/shop/t/119/assets/component-cart-items.css?v=29412722223528841861791154781" rel="stylesheet" type="text/css" media="all">
+<link href="https://jaspr.co/cdn/shop/t/119/assets/section-main-product.css?v=118383996945614440741791154818" rel="stylesheet" type="text/css" media="all">
+<link href="https://jaspr.co/cdn/shop/t/119/assets/component-accordion.css?v=180964204318874863811791154780" rel="stylesheet" type="text/css" media="all">
+<link href="https://jaspr.co/cdn/shop/t/119/assets/component-price.css?v=65402837579211014041791154790" rel="stylesheet" type="text/css" media="all">
+<link href="https://jaspr.co/cdn/shop/t/119/assets/component-slider.css?v=111384418465749404671791154791" rel="stylesheet" type="text/css" media="all">
+<link href="https://jaspr.co/cdn/shop/t/119/assets/component-rating.css?v=148921537992458698331791154790" rel="stylesheet" type="text/css" media="all">
+<link href="https://jaspr.co/cdn/shop/t/119/assets/component-loading-overlay.css?v=167310470843593579841791154786" rel="stylesheet" type="text/css" media="all">
+<link href="https://jaspr.co/cdn/shop/t/119/assets/component-deferred-media.css?v=8449899997886876191791154783" rel="stylesheet" type="text/css" media="all">
+<link href="https://jaspr.co/cdn/shop/t/119/assets/component-bundle-selector.css?v=101839746322720781521791154780" rel="stylesheet" type="text/css" media="all">
+<link href="https://jaspr.co/cdn/shop/t/119/assets/component-image-with-text.css?v=99339747167077962271791154784" rel="stylesheet" type="text/css" media="all">
+<style>
+@font-face{font-family:Poppins;font-weight:400;font-style:normal;font-display:swap;src:url("https://jaspr.co/cdn/fonts/poppins/poppins_n4.0ba78fa5af9b0e1a374041b3ceaadf0a43b41362.woff2") format("woff2")}
+@font-face{font-family:Poppins;font-weight:700;font-style:normal;font-display:swap;src:url("https://jaspr.co/cdn/fonts/poppins/poppins_n7.56758dcf284489feb014a026f3727f2f20a54626.woff2") format("woff2")}
+@font-face{font-family:Assistant;font-weight:400;font-style:normal;font-display:swap;src:url("https://jaspr.co/cdn/fonts/assistant/assistant_n4.9120912a469cad1cc292572851508ca49d12e768.woff2") format("woff2")}
+:root{
+--font-body-family:Poppins,sans-serif;--font-body-style:normal;--font-body-weight:400;--font-body-weight-bold:700;
+--font-heading-family:Assistant,sans-serif;--font-heading-style:normal;--font-heading-weight:400;
+--font-body-scale:1.0;--font-heading-scale:1.0;
+--color-base-text:#072f30;--color-shadow:#072f30;--color-base-background-1:#ffffff;--color-base-background-2:#f3f3f3;
+--color-base-solid-button-labels:#121212;--color-base-outline-button-labels:#121212;--color-base-accent-1:#50b4b4;--color-base-accent-2:#334fb4;
+--payment-terms-background-color:#ffffff;--gradient-base-background-1:#ffffff;--gradient-base-background-2:#f3f3f3;
+--gradient-base-accent-1:#50b4b4;--gradient-base-accent-2:#334fb4;
+--media-padding:px;--media-border-opacity:0.05;--media-border-width:1px;--media-radius:0px;--media-shadow-opacity:0.0;
+--media-shadow-horizontal-offset:0px;--media-shadow-vertical-offset:4px;--media-shadow-blur-radius:5px;--media-shadow-visible:0;
+--page-width:140rem;--page-width-margin:0rem;
+--product-card-image-padding:0.0rem;--product-card-corner-radius:0.0rem;--product-card-text-alignment:left;--product-card-border-width:0.0rem;
+--product-card-border-opacity:0.1;--product-card-shadow-opacity:0.0;--product-card-shadow-visible:0;--product-card-shadow-horizontal-offset:0.0rem;
+--product-card-shadow-vertical-offset:0.4rem;--product-card-shadow-blur-radius:0.5rem;
+--collection-card-image-padding:0.0rem;--collection-card-corner-radius:0.0rem;--collection-card-text-alignment:left;--collection-card-border-width:0.0rem;
+--collection-card-border-opacity:0.1;--collection-card-shadow-opacity:0.0;--collection-card-shadow-visible:0;
+--collection-card-shadow-horizontal-offset:0.0rem;--collection-card-shadow-vertical-offset:0.4rem;--collection-card-shadow-blur-radius:0.5rem;
+--blog-card-image-padding:0.0rem;--blog-card-corner-radius:0.0rem;--blog-card-text-alignment:left;--blog-card-border-width:0.0rem;
+--blog-card-border-opacity:0.1;--blog-card-shadow-opacity:0.0;--blog-card-shadow-visible:0;--blog-card-shadow-horizontal-offset:0.0rem;
+--blog-card-shadow-vertical-offset:0.4rem;--blog-card-shadow-blur-radius:0.5rem;
+--badge-corner-radius:4.0rem;
+--popup-border-width:1px;--popup-border-opacity:0.1;--popup-corner-radius:0px;--popup-shadow-opacity:0.0;--popup-shadow-horizontal-offset:0px;
+--popup-shadow-vertical-offset:4px;--popup-shadow-blur-radius:5px;
+--drawer-border-width:1px;--drawer-border-opacity:0.1;--drawer-shadow-opacity:0.0;--drawer-shadow-horizontal-offset:0px;
+--drawer-shadow-vertical-offset:4px;--drawer-shadow-blur-radius:5px;
+--spacing-sections-desktop:0px;--spacing-sections-mobile:0px;
+--grid-desktop-vertical-spacing:8px;--grid-desktop-horizontal-spacing:8px;--grid-mobile-vertical-spacing:4px;--grid-mobile-horizontal-spacing:4px;
+--text-boxes-border-opacity:0.1;--text-boxes-border-width:0px;--text-boxes-radius:0px;--text-boxes-shadow-opacity:0.0;--text-boxes-shadow-visible:0;
+--text-boxes-shadow-horizontal-offset:0px;--text-boxes-shadow-vertical-offset:4px;--text-boxes-shadow-blur-radius:5px;
+--buttons-radius:40px;--buttons-radius-outset:52px;--buttons-border-width:0px;--buttons-border-opacity:0.0;--buttons-shadow-opacity:0.0;
+--buttons-shadow-visible:0;--buttons-shadow-horizontal-offset:-12px;--buttons-shadow-vertical-offset:-12px;--buttons-shadow-blur-radius:0px;
+--buttons-border-offset:0.3px;
+--inputs-radius:0px;--inputs-border-width:1px;--inputs-border-opacity:0.55;--inputs-shadow-opacity:0.0;--inputs-shadow-horizontal-offset:0px;
+--inputs-margin-offset:0px;--inputs-shadow-vertical-offset:4px;--inputs-shadow-blur-radius:5px;--inputs-radius-outset:0px;
+--variant-pills-radius:40px;--variant-pills-border-width:1px;--variant-pills-border-opacity:0.55;--variant-pills-shadow-opacity:0.0;
+--variant-pills-shadow-horizontal-offset:0px;--variant-pills-shadow-vertical-offset:4px;--variant-pills-shadow-blur-radius:5px;
+--color-foreground:var(--color-base-text);--color-background:var(--color-base-background-1);--gradient-background:var(--gradient-base-background-1);
+--color-link:var(--color-base-outline-button-labels);--alpha-link:.85;--color-button:var(--color-base-accent-1);
+--color-button-text:var(--color-base-solid-button-labels);--alpha-button-background:1;--alpha-button-border:1;
+--color-badge-background:var(--color-background);--color-badge-border:var(--color-foreground);--alpha-badge-border:.1;
+--color-card-hover:var(--color-base-text);--color-icon:rgb(var(--color-base-text));
+--duration-short:.1s;--duration-default:.2s;--duration-long:.5s;
+--header-height:87px;
+--oke-widget-spaceAbove:20px;--oke-widget-spaceBelow:20px;--oke-starRating-spaceAbove:0px;--oke-starRating-spaceBelow:0px;
+--oke-button-backgroundColor:#0E7A82;--oke-button-backgroundColorHover:#0c6b72;--oke-button-backgroundColorActive:#0E7A82;
+--oke-button-textColor:#FFFFFF;--oke-button-textColorHover:#272D45;--oke-button-textColorActive:#FFFFFF;
+--oke-button-borderColor:#DBDDE4;--oke-button-borderColorHover:#DBDDE4;--oke-button-borderColorActive:#0E7A82;
+--oke-button-borderRadius:4px;--oke-button-borderWidth:1px;--oke-button-fontWeight:700;--oke-button-fontSize:var(--oke-text-regular,14px);
+--oke-button-fontFamily:inherit;--oke-border-color:#E5E5EB;--oke-border-width:1px;--oke-text-primaryColor:#2C3E50;
+--oke-text-secondaryColor:#676986;--oke-text-small:12px;--oke-text-regular:14px;--oke-text-large:20px;--oke-text-fontFamily:inherit;
+--oke-avatar-size:48px;--oke-avatar-backgroundColor:#E5E5EB;--oke-avatar-placeholderTextColor:#2C3E50;--oke-highlightColor:#0E7A82;
+--oke-shadingColor:#F7F7F8;--oke-productImageSize:48px;--oke-attributeBar-shadingColor:#9A9DB1;--oke-attributeBar-borderColor:#9A9DB1;
+--oke-attributeBar-backgroundColor:#D3D4DD;--oke-attributeBar-markerColor:#0E7A82;--oke-filter-backgroundColor:#FFFFFF;
+--oke-filter-backgroundColorActive:#676986;--oke-filter-borderColor:#DBDDE4;--oke-filter-borderColorActive:#676986;
+--oke-filter-textColor:#2C3E50;--oke-filter-textColorActive:#FFFFFF;--oke-filter-borderRadius:100px;--oke-filter-searchHighlightColor:#9fcacd;
+--oke-mediaGrid-chevronColor:#676986;--oke-stars-foregroundColor:#FFCF2A;--oke-stars-backgroundColor:#E5E5E5;--oke-stars-borderWidth:0;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{box-sizing:border-box;font-size:calc(var(--font-body-scale)*62.5%);height:100%;scroll-behavior:smooth}
+body{display:grid;grid-template-rows:auto auto 1fr auto;grid-template-columns:100%;min-height:100%;margin:0;line-height:1.75;font-size:1.5rem;font-family:'Mont-SemiBold'!important}
+@media screen and (min-width:750px){body{font-size:1.6rem}}
+@font-face{font-family:'Mont';src:url("https://jaspr.co/cdn/shop/files/Mont-Regular.woff?v=2222434496653176201") format('woff');font-weight:400;font-style:normal}
+@font-face{font-family:'Mont';src:url("https://jaspr.co/cdn/shop/files/Mont-SemiBold.woff?v=1531965110309155067") format('woff');font-weight:600;font-style:normal}
+@font-face{font-family:'Mont';src:url("https://jaspr.co/cdn/shop/files/Mont-Bold.woff?v=15700739960841080444") format('woff');font-weight:700;font-style:normal}
+@font-face{font-family:'Mont';src:url("https://jaspr.co/cdn/shop/files/Mont-Heavy.woff?v=10263262660210236693") format('woff');font-weight:900;font-style:normal}
+@font-face{font-family:"Mont-Heavy";src:url("https://cdn.shopify.com/s/files/1/0279/4405/8977/files/Mont-Heavy.woff?v=1686127325") format("woff");font-weight:900}
+@font-face{font-family:"Mont-Bold";src:url("https://cdn.shopify.com/s/files/1/0279/4405/8977/files/Mont-Bold.woff?v=1686127932") format("woff");font-weight:700}
+@font-face{font-family:"Mont-SemiBold";src:url("https://cdn.shopify.com/s/files/1/0279/4405/8977/files/Mont-SemiBold.woff?v=1686127931") format("woff");font-weight:600}
+@font-face{font-family:"Mont-Regular";src:url("https://cdn.shopify.com/s/files/1/0279/4405/8977/files/Mont-Regular.woff?v=1686127932") format("woff");font-weight:400}
+
+.pad-mold{padding-top:0;padding-bottom:0}
+.pad-27{padding-top:27px;padding-bottom:27px}
+@media screen and (min-width:750px){.pad-27{padding-top:36px;padding-bottom:36px}}
+#shopify-section-template--21364991361121__23d5e1b0-a783-449a-ad6c-b40c88595f04 img{object-fit:contain;object-position:center}
+@media (max-width:750px){#shopify-section-template--21364991361121__76b87d67-50cb-416c-8aa7-bd894709f380 .image-with-text__content{padding-top:0}
+#shopify-section-template--21364991361121__76b87d67-50cb-416c-8aa7-bd894709f380 .multirow{padding:20px 0 0}}
+@media (min-width:750px){#shopify-section-template--21364991361121__image_with_text_3A94Yx .image-with-text__text{margin-top:30px}}
+@media only screen and (max-width:600px){#shopify-section-template--21364991361121__fbf84025-5812-4405-bc47-19b009d8bcc8 .image-with-text__content{padding:15px 20px}}
+#shopify-section-template--21364991361121__5d4c922c-4676-4212-bdbf-1f8a7be7162c .img-air-product{display:none!important}
+#shopify-section-template--21364991361121__5d4c922c-4676-4212-bdbf-1f8a7be7162c .conventional{margin-top:0}
+#shopify-section-template--21364991361121__3b9a3257-232d-4cc7-a5bd-3aea9f4ba8de .button{display:none}
+#shopify-section-template--21364991361121__3b9a3257-232d-4cc7-a5bd-3aea9f4ba8de .information{padding-top:50px;padding-bottom:50px!important}
+.information{background-color:white!important}
+@media(max-width:750px){footer .custom-footer{padding-bottom:80px}}
+.preview-ribbon{background:#B4452F;color:#fff;font:600 12px/1.4 sans-serif;letter-spacing:.04em;text-align:center;padding:6px 16px}
+.header__heading-logo-wrapper{width:150px;max-width:50vw}
+.section-header.shopify-section-group-header-group{z-index:5}
+.pillar-band{padding:34px 0 30px;background:#EEFBFA}
+.oke-w-header-content-module,.oke-w-header-content-block,.oke-w-mediaCarouselModule,.oke-mediaCarousel,.hooper,.hooper-list{min-width:0;max-width:100%}
+.oke-mediaCarousel{overflow:hidden}.hooper-track{display:flex}.hooper-track>li{flex:0 0 auto}
+.pillar-band .site-title-2{margin-bottom:10px}
+.pillar-band p{max-width:760px;margin:0 auto}
+.fill-in{background:#FFF6D6;border-radius:4px;padding:0 3px}
+.play-badge{position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:rgba(255,255,255,.92);box-shadow:0 2px 10px rgba(0,0,0,.25)}
+.play-badge::after{content:"";position:absolute;left:25px;top:19px;border-left:19px solid #072F30;border-top:13px solid transparent;border-bottom:13px solid transparent}
+.delivery-video{max-width:760px;margin:26px auto 4px}
+.delivery-video__frame{position:relative;border-radius:12px;overflow:hidden;line-height:0}
+.delivery-video__frame img{width:100%;height:auto;display:block}
+.delivery-video p{font-size:13px;line-height:1.5;color:#676986;margin:10px 0 0}
+.rt-head{padding-top:45px}@media screen and (min-width:750px){.rt-head{padding-top:60px}}
+.rt-head .rich-text__blocks{text-align:center}
+.rt-reels{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:26px 0 60px;-webkit-overflow-scrolling:touch}
+.rt-reel{position:relative;flex:0 0 62%;scroll-snap-align:start;aspect-ratio:9/16;border-radius:8px;overflow:hidden;background:linear-gradient(160deg,#d9b9b0,#b9a39d)}
+.rt-reel img{width:100%;height:100%;object-fit:cover;display:block}
+@media(min-width:750px){.rt-reel{flex:0 0 calc((100% - 36px)/4)}}
+.preview-note{font:12px/1.5 sans-serif;color:#676986;text-align:center;margin:-40px 0 40px;font-style:italic}
+.perm-tag{display:inline-block;font:700 10.5px/1.6 sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#B4452F;border:1px solid currentColor;border-radius:30px;padding:0 8px;margin-left:6px;white-space:nowrap;vertical-align:middle}
+.claim-flag{background:#FFF6D6;border-left:4px solid #E6B400;border-radius:6px;padding:10px 14px;font:13px/1.5 sans-serif;margin-top:14px;color:#4a3d00}
+
+body{display:block;background:#fff;color:#072F30;font-family:Mont,Poppins,sans-serif!important}
+.gx{max-width:1200px;margin:0 auto;padding:0 16px}
+.gx h2{font-family:Mont,sans-serif;font-weight:700;font-size:28px;letter-spacing:-.02em;margin:44px 0 6px}
+.gx .lede{font-size:15px;line-height:1.5;color:#28474A;max-width:760px;margin:0 0 20px}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.gal figure{margin:0;position:relative}.gal img{width:100%;display:block;aspect-ratio:1}
+.gal figcaption{position:absolute;left:6px;bottom:6px;font:700 11px/1.6 sans-serif;letter-spacing:.06em;text-transform:uppercase;
+  background:#FFCF2A;color:#072F30;border-radius:20px;padding:0 8px}
+.pairs{display:grid;grid-template-columns:1fr 1fr;gap:36px 28px}
+.pair h3{font-family:Mont,sans-serif;font-weight:700;font-size:20px;margin:0 0 6px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.tag{font:700 10.5px/1.7 sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#fff;border-radius:20px;padding:0 9px}
+.pair .two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.pair .two div{position:relative}.pair img{width:100%;display:block;aspect-ratio:1}
+.pair .lbl{position:absolute;left:6px;bottom:6px;font:700 11px/1.6 sans-serif;text-transform:uppercase;letter-spacing:.06em;background:#fff;color:#072F30;border-radius:20px;padding:0 8px}
+.pair .lbl.new{background:#072F30;color:#fff}
+.pair p{font-size:14px;line-height:1.5;color:#28474A;margin:8px 0 0}
+.slots{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:60px}
+.slot{border:2px dashed #50B4B4;border-radius:12px;background:#EEFBFA;aspect-ratio:16/10;display:flex;flex-direction:column;
+  justify-content:center;align-items:center;text-align:center;padding:16px;font-size:14px;line-height:1.45;color:#28474A}
+.slot b{font-family:ui-monospace,Menlo,monospace;font-size:13px;color:#072F30;margin-bottom:6px}
+@media(max-width:749px){
+  .gal{grid-template-columns:1fr;gap:6px}
+  .pairs{grid-template-columns:1fr}
+  .pair .two{grid-template-columns:1fr}       /* each image full phone width, the size a phone gallery shows it */
+  .slots{grid-template-columns:1fr}
+}
+</style>
+</head><body>
+<div class="preview-ribbon">DRAFT PREVIEW · card 13 · nothing here is live</div>
+
+<div id="shopify-section-sections--21364991656033__header" class="shopify-section shopify-section-group-header-group section-header shopify-section-header-sticky">
+<style>
+header-drawer{justify-self:start;margin-left:-1.2rem}.scrolled-past-header .header__heading-logo-wrapper{width:75%}
+@media screen and (min-width:990px){header-drawer{display:none}}
+.menu-drawer-container{display:flex}.list-menu{list-style:none;padding:0;margin:0}.list-menu--inline{display:inline-flex;flex-wrap:wrap}
+summary.list-menu__item{padding-right:2.7rem}.list-menu__item{display:flex;align-items:center;line-height:calc(1 + .3 / var(--font-body-scale))}
+.list-menu__item--link{text-decoration:none;padding-bottom:1rem;padding-top:1rem;line-height:calc(1 + .8 / var(--font-body-scale))}
+@media screen and (min-width:750px){.list-menu__item--link{padding-bottom:.5rem;padding-top:.5rem}}
+.header{padding-top:10px;padding-bottom:10px}.section-header{position:sticky;margin-bottom:0}
+@media screen and (min-width:990px){.header{padding-top:20px;padding-bottom:20px}}
+</style>
+<sticky-header data-sticky-type="reduce-logo-size" class="header-wrapper color-background-1 gradient header-wrapper--border-bottom">
+  <header class="header header--middle-left header--mobile-center page-width header--has-menu">
+    <header-drawer data-breakpoint="tablet"><details id="Details-menu-drawer-container" class="menu-drawer-container">
+      <summary class="header__icon header__icon--menu header__icon--summary link focus-inset" aria-label="Menu" role="button"><span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" class="icon icon-hamburger" fill="none" viewBox="0 0 18 16"><path d="M1 .5a.5.5 0 100 1h15.71a.5.5 0 000-1H1zM.5 8a.5.5 0 01.5-.5h15.71a.5.5 0 010 1H1A.5.5 0 01.5 8zm0 7a.5.5 0 01.5-.5h15.71a.5.5 0 010 1H1a.5.5 0 01-.5-.5z" fill="currentColor"></path></svg></span></summary>
+    </details></header-drawer>
+    <a href="#" class="header__heading-link link link--text focus-inset"><div class="header__heading-logo-wrapper">
+      <img src="https://jaspr.co/cdn/shop/files/BLACK.png?v=1778785023&amp;width=300" alt="Jaspr" width="150" height="31.78" loading="eager" class="header__heading-logo motion-reduce">
+    </div></a>
+    <nav class="header__inline-menu"><ul class="list-menu list-menu--inline" role="list">
+      <li><a href="#" class="header__menu-item list-menu__item link link--text focus-inset" aria-current="page"><span class="header__active-menu-item">Jaspr Air Scrubber</span></a></li>
+      <li><a href="#" class="header__menu-item list-menu__item link link--text focus-inset"><span>Replacement Filter</span></a></li>
+      <li><a href="#" class="header__menu-item list-menu__item link link--text focus-inset"><span>FAQs</span></a></li>
+      <li><a href="#" class="header__menu-item list-menu__item link link--text focus-inset"><span>Reviews</span></a></li>
+      <li><a href="#" class="header__menu-item list-menu__item link link--text focus-inset"><span>About Us</span></a></li>
+    </ul></nav>
+    <div class="header__icons">
+      <div class="desktop-localization-wrapper"></div>
+      <details-modal class="header__search"><details><summary class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle" aria-label="Search" role="button"><span><svg class="icon icon-search" aria-hidden="true" focusable="false" viewBox="0 0 18 19" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.03 11.68A5.784 5.784 0 112.85 3.5a5.784 5.784 0 018.18 8.18zm.26 1.12a6.78 6.78 0 11.72-.7l5.4 5.4a.5.5 0 11-.71.7l-5.41-5.4z" fill="currentColor"></path></svg></span></summary></details></details-modal>
+      <a href="#" class="header__icon header__icon--account link focus-inset small-hide"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" class="icon icon-account" fill="none" viewBox="0 0 18 19"><path fill-rule="evenodd" clip-rule="evenodd" d="M6 4.5a3 3 0 116 0 3 3 0 01-6 0zm3-4a4 4 0 100 8 4 4 0 000-8zm5.58 12.15c1.12.82 1.83 2.24 1.91 4.85H1.51c.08-2.6.79-4.03 1.9-4.85C4.66 11.75 6.5 11.5 9 11.5s4.35.26 5.58 1.15zM9 10.5c-2.5 0-4.65.24-6.17 1.35C1.27 12.98.5 14.93.5 18v.5h17V18c0-3.07-.77-5.02-2.33-6.15-1.52-1.1-3.67-1.35-6.17-1.35z" fill="currentColor"></path></svg><span class="visually-hidden">Log in</span></a>
+      <a href="#" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble"><svg class="icon icon-cart" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none"><path fill="currentColor" fill-rule="evenodd" d="M20.5 6.5a4.75 4.75 0 00-4.75 4.75v.56h-3.16l-.77 11.6a5 5 0 004.99 5.34h7.38a5 5 0 004.99-5.33l-.77-11.6h-3.16v-.57A4.75 4.75 0 0020.5 6.5zm3.75 5.31v-.56a3.75 3.75 0 10-7.5 0v.56h7.5zm-7.5 1h7.5v.56a3.75 3.75 0 11-7.5 0v-.56zm-1 0v.56a4.75 4.75 0 109.5 0v-.56h2.22l.71 10.67a4 4 0 01-3.99 4.27h-7.38a4 4 0 01-4-4.27l.72-10.67h2.22z"></path></svg><span class="visually-hidden">Cart</span></a>
+    </div>
+  </header>
+</sticky-header>
+</div>
+
+<main class="gx">
+  <h2>The gallery after the change</h2>
+  <p class="lede">The live gallery as of Nov 2, 2026, in its order, with the remade images swapped in (marked “New”). On a phone each image fills the screen width, about 345px, which is the size the text has to be readable at.</p>
+  <div class="gal"><figure><img src="https://jaspr.co/cdn/shop/files/Jaspr_Alex_Clark_Web_photo_1.jpg?v=1793032386&width=1080" alt="" loading="lazy"></figure><figure><img src="https://jaspr.co/cdn/shop/files/jaspr-scrubber-brightened_ca2d3e73-ae5b-4bcd-8caf-c98d8d549d9d.png?v=1792511174&width=1080" alt="" loading="lazy"></figure><figure><img src="new/05-size.png" alt="" loading="lazy"><figcaption>New</figcaption></figure><figure><img src="new/07-protecting.png" alt="" loading="lazy"><figcaption>New</figcaption></figure><figure><img src="new/09-mold-lab-study.png" alt="" loading="lazy"><figcaption>New</figcaption></figure><figure><img src="new/06-clean-air-you-can-feel.png" alt="" loading="lazy"><figcaption>New</figcaption></figure><figure><img src="new/08-real-time-reading.png" alt="" loading="lazy"><figcaption>New</figcaption></figure><figure><img src="https://jaspr.co/cdn/shop/files/JasprArtboardArtboard4copy_9d21c27e-dd20-4767-8bda-12925e42b30d.jpg?v=1778792953&width=1080" alt="" loading="lazy"></figure><figure><img src="new/02-lifetime-warranty.png" alt="" loading="lazy"><figcaption>New</figcaption></figure><figure><img src="https://jaspr.co/cdn/shop/files/JasprArtboardArtboard23_db54fcfb-698f-42ab-b047-7918c51b60a8.jpg?v=1778792953&width=1080" alt="" loading="lazy"></figure><figure><img src="new/04-sleep-study.png" alt="" loading="lazy"><figcaption>New · needs sign-off</figcaption></figure><figure><img src="new/01-smoke-cadr.png" alt="" loading="lazy"><figcaption>New</figcaption></figure></div>
+  <h2>Before and after</h2>
+  <p class="lede">The five images on the card, then the four borderline ones. Each remake has one headline and at most one supporting line.</p>
+  <div class="pairs"><div class="pair"><h3>Wildfire smoke<span class="tag" style="background:#0E7A82">On the card</span></h3><div class="two"><div><img src="current/03-ChatGPT_Image_Jul_19_2026_at_11_18_14_AM.png" alt="Current image" loading="lazy"><span class="lbl">Now</span></div><div><img src="new/01-smoke-cadr.png" alt="Remade image" loading="lazy"><span class="lbl new">New</span></div></div><p>Paragraph and five tiny bullets replaced by one measured number. The old headline (“Built for wildfire smoke”) breaks the fact sheet’s wildfire rule, so it is gone. Better background: smoke-living-room.jpg (prompt written).</p></div><div class="pair"><h3>Lifetime warranty<span class="tag" style="background:#0E7A82">On the card</span></h3><div class="two"><div><img src="current/08-Jaspr_ArtboardArtboard_3_copy_1.jpg" alt="Current image" loading="lazy"><span class="lbl">Now</span></div><div><img src="new/02-lifetime-warranty.png" alt="Remade image" loading="lazy"><span class="lbl new">New</span></div></div><p>Amy K.’s long review is out (it already appears in the reviews below). The condition (filter subscription) is now in the headline instead of an asterisk.</p></div><div class="pair"><h3>Allergies / cat<span class="tag" style="background:#0E7A82">On the card</span></h3><div class="two"><div><img src="current/12-JasprArtboardArtboard17copy_269f0a4e-3994-43ad-812e-b7d58b084cfd.jpg" alt="Current image" loading="lazy"><span class="lbl">Now</span></div><div><img src="new/03-pets.png" alt="Remade image" loading="lazy"><span class="lbl new">New</span></div></div><p>Lisa N.’s review is out, and so is the allergy claim (symptom claims are not allowed). Not in the live gallery as of Nov 2; ready if it comes back. Optional better background: pets-living-room.jpg.</p></div><div class="pair"><h3>Sleep study<span class="tag" style="background:#B4452F">Needs sign-off</span></h3><div class="two"><div><img src="current/10-JasprArtboardArtboard11copy_a12bbf75-bfe0-45b7-b33e-a071319d29d7.jpg" alt="Current image" loading="lazy"><span class="lbl">Now</span></div><div><img src="new/04-sleep-study.png" alt="Remade image" loading="lazy"><span class="lbl new">New</span></div></div><p>The study numbers are now the headline. NEEDS SIGN-OFF: sleep claims are on hold until the Oura study write-up is approved. Better background: sleep-bedroom.jpg (prompt written).</p></div><div class="pair"><h3>Size comparison<span class="tag" style="background:#0E7A82">On the card</span></h3><div class="two"><div><img src="current/15-JasprArtboardArtboard24_ed5061ee-5ef0-4f47-92cd-6a9dd9bcaf45.jpg" alt="Current image" loading="lazy"><span class="lbl">Now</span></div><div><img src="new/05-size.png" alt="Remade image" loading="lazy"><span class="lbl new">New</span></div></div><p>The three tiny badges become one readable one. “Endorsed by health experts” is dropped (nothing on file backs it); “3rd party lab tested” is dropped because the only lab test on file is the mold test.</p></div><div class="pair"><h3>Clean air you can feel<span class="tag" style="background:#676986">Borderline, optional</span></h3><div class="two"><div><img src="current/05-JasprArtboardArtboard8copy_b2a109f0-72f0-4fac-b263-d053eff186c7.jpg" alt="Current image" loading="lazy"><span class="lbl">Now</span></div><div><img src="new/06-clean-air-you-can-feel.png" alt="Remade image" loading="lazy"><span class="lbl new">New</span></div></div><p>Marcia M.’s review (a sleep line) is out; supporting line is the verified “plug in, no app” fact.</p></div><div class="pair"><h3>Protecting those who need it most<span class="tag" style="background:#676986">Borderline, optional</span></h3><div class="two"><div><img src="current/13-JasprArtboardArtboard9copy_5e773d7d-aad5-422e-b7a2-cda9e7362697.jpg" alt="Current image" loading="lazy"><span class="lbl">Now</span></div><div><img src="new/07-protecting.png" alt="Remade image" loading="lazy"><span class="lbl new">New</span></div></div><p>The tiny “Trusted by over 50,000 customers” becomes a readable line. It uses the review count on file (more than 1,100); swap back to 50,000 if Jaspr can back it.</p></div><div class="pair"><h3>Real-time air quality<span class="tag" style="background:#676986">Borderline, optional</span></h3><div class="two"><div><img src="current/07-JasprArtboardArtboard7copy_55c43cdc-3a68-4173-a15a-0bddbf573c00.jpg" alt="Current image" loading="lazy"><span class="lbl">Now</span></div><div><img src="new/08-real-time-reading.png" alt="Remade image" loading="lazy"><span class="lbl new">New</span></div></div><p>Same idea, larger type. The supporting line describes what the sensor does, not the reading on the screen.</p></div><div class="pair"><h3>Mold lab study<span class="tag" style="background:#676986">Borderline, optional</span></h3><div class="two"><div><img src="current/06-JasprArtboardArtboard12copy2_f52f1ec7-0d73-4fc8-a3f4-4eeff32a0d2e.jpg" alt="Current image" loading="lazy"><span class="lbl">Now</span></div><div><img src="new/09-mold-lab-study.png" alt="Remade image" loading="lazy"><span class="lbl new">New</span></div></div><p>Dish labels say “Start / End of test” (the lab report’s photo is the 120-minute dish, not 60), plus the required remediation caveat.</p></div></div>
+  <h2>Backgrounds still to generate</h2>
+  <p class="lede">The images above already work with real Jaspr photos. These three would look better with a new background; the layouts are ready to take them.</p>
+  <div class="slots"><div class="slot"><b>new/bg/smoke-living-room.jpg</b>Not generated yet. Prompt in image-prompts.json.<br>For 01-smoke-cadr.png: Living room, hazy orange sky outside, no flames, no people</div><div class="slot"><b>new/bg/sleep-bedroom.jpg</b>Not generated yet. Prompt in image-prompts.json.<br>For 04-sleep-study.png: Made bed at dusk, warm lamp, no people</div><div class="slot"><b>new/bg/pets-living-room.jpg</b>Not generated yet. Prompt in image-prompts.json.<br>For 03-pets.png: Optional: cat beside the Jaspr (a real owner photo is better)</div></div>
+</main>
+
+<div id="shopify-section-sections--21364991623265__section_footer_x4WRtA" class="shopify-section shopify-section-group-footer-group">
+<style>
+.footer{position:relative;color:#fff;background-size:cover;background-position:center;font-family:Mont-Regular,sans-serif}
+.footerContainer{max-width:1400px;margin:0 auto;padding:50px;display:flex;flex-direction:column;gap:24px}
+.footerLogoImg{max-width:200px;height:auto}
+.footerTopWrap{display:flex;flex-direction:column;gap:40px;border-top:1px solid white;border-bottom:1px solid white;padding:24px 0}
+.footerNewsletterTitle{font-size:16px;margin-bottom:4px;font-family:Mont-Regular,sans-serif}
+.footerNewsletterInput{font-size:16px;padding:4px 48px 4px 8px;border:none;border-radius:4px;color:#000}
+.footerNewsletterButton{padding:4px 16px;font-size:16px;background-color:#fff;color:#000;border:none;border-radius:4px}
+.footerTopLinks{display:flex;gap:48px;justify-content:space-between}.footerColumnWrap{display:flex;flex-direction:column}
+.footerColumnTitle{font-size:16px}.footerUl{list-style:none;margin:0;padding:0}.footerLi{font-size:14px}.footerLink{color:inherit;text-decoration:none}
+.footerBottomWrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+.footerCopyText{font-size:12px;color:#fff;margin-bottom:0!important}.footerCopyLinks{list-style:none;margin:0;padding:0;display:flex;gap:16px}
+.footerCopyLink{color:inherit;text-decoration:none;font-size:.875rem}
+@media(max-width:800px){.footerContainer{padding:30px 16px}}@media(max-width:560px){.footerTopLinks{flex-direction:column;gap:24px}}
+</style>
+<section class="footer" style="background-image:url(https://jaspr.co/cdn/shop/files/footer-bg_2048x.jpg?v=1754342674)">
+<div class="footerContainer">
+  <div class="footerLogoWrap"><img src="https://jaspr.co/cdn/shop/files/footer-logo_400x.png?v=1660653874" alt="Jaspr" class="footerLogoImg"></div>
+  <div class="footerTopWrap">
+    <div class="footerNewsletterWrap"><h4 class="footerNewsletterTitle">Sign up for exclusive Jaspr Updates </h4>
+      <form class="footerNewsletterForm" onsubmit="return false"><input type="email" placeholder="Your email address" class="footerNewsletterInput"> <button type="button" class="footerNewsletterButton">Subscribe</button></form></div>
+    <div class="footerTopLinks">
+      <div class="footerColumnWrap"><h4 class="footerColumnTitle">Shop</h4><ul class="footerUl"><li class="footerLi"><a href="#" class="footerLink">Air Scrubber</a></li><li class="footerLi"><a href="#" class="footerLink">Replacement Filters</a></li></ul></div>
+      <div class="footerColumnWrap"><h4 class="footerColumnTitle">Support</h4><ul class="footerUl"><li class="footerLi"><a href="#" class="footerLink">My Account</a></li><li class="footerLi"><a href="#" class="footerLink">FAQ</a></li><li class="footerLi"><a href="#" class="footerLink">Contact Us</a></li><li class="footerLi"><a href="#" class="footerLink">Instruction Manual</a></li><li class="footerLi"><a href="#" class="footerLink">Affiliate</a></li></ul></div>
+      <div class="footerColumnWrap"><h4 class="footerColumnTitle">Policies</h4><ul class="footerUl"><li class="footerLi"><a href="#" class="footerLink">Shipping &amp; Returns</a></li><li class="footerLi"><a href="#" class="footerLink">Refund Policy</a></li><li class="footerLi"><a href="#" class="footerLink">Privacy Policy</a></li></ul></div>
+    </div>
+  </div>
+  <div class="footerBottomWrap"><p class="footerCopyText">©2026, Jaspr. All rights reserved.</p>
+    <ul class="footerCopyLinks"><li><a href="#" class="footerCopyLink">Terms of Service</a></li><li><a href="#" class="footerCopyLink">Terms of Use</a></li></ul></div>
+</div>
+</section>
+</div>
+
+</body></html>

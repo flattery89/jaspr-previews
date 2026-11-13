@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex">
+<title>Card 15 preview: Gary Brecka partner page</title>
+
+<style>
+@font-face{font-family:'Mont';src:url("https://jaspr.co/cdn/shop/files/Mont-Regular.woff?v=2222434496653176201") format('woff');font-weight:400}
+@font-face{font-family:'Mont';src:url("https://jaspr.co/cdn/shop/files/Mont-SemiBold.woff?v=1531965110309155067") format('woff');font-weight:600}
+@font-face{font-family:'Mont';src:url("https://jaspr.co/cdn/shop/files/Mont-Bold.woff?v=15700739960841080444") format('woff');font-weight:700}
+@font-face{font-family:'Mont';src:url("https://jaspr.co/cdn/shop/files/Mont-Heavy.woff?v=10263262660210236693") format('woff');font-weight:900}
+html,body{margin:0;background:#fff}
+.pv-ribbon{background:#B4452F;color:#fff;font:600 12px/1.4 sans-serif;letter-spacing:.04em;text-align:center;padding:6px 16px}
+.pv-note{background:#FFF6D6;color:#4a3d00;font:12px/1.5 sans-serif;text-align:center;padding:6px 16px}
+.shell-head{display:flex;justify-content:center;align-items:center;height:64px;border-bottom:1px solid #e6eeee;background:#fff}
+.shell-head img{height:22px}
+.shell-foot{background:#072F30;color:#cfe3e2;text-align:center;font:13px sans-serif;padding:40px 16px 120px}
+.pv-tag{position:absolute;right:10px;top:10px;max-width:60%;background:rgba(255,246,214,.95);color:#4a3d00;font:600 11px/1.35 sans-serif;padding:6px 8px;border-radius:6px}
+.pv-perm{display:inline-block;font:700 10px/1.6 sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#B4452F!important;border:1px solid currentColor;border-radius:30px;padding:0 7px;margin-left:8px}
+</style>
+</head>
+<body>
+<div class="pv-ribbon" role="note"><b>DRAFT PREVIEW · NOT LIVE.</b> Card 15: partner landing page template, Gary Brecka version.</div>
+<div class="pv-note">Yellow = sample or placeholder that needs Jaspr or Gary's team (code GARY and $100 are samples from the card). No words are attributed to Gary until he signs off.</div>
+<header class="shell-head"><img src="https://jaspr.co/cdn/shop/files/BLACK.png?width=300" alt="Jaspr"></header>
+
+<style>/* install/assets/partner-landing.css */
+/*
+  Jaspr partner landing page (card 15). Shared stylesheet for every partner page.
+  Copied from the Culture Apothecary listener page (sections/podcast-offer/) with
+  the class prefix changed from jx- to jp-, so both can live on the store without
+  clashing. Brand: deep teal #072F30, #28474A, teal #0E7A82, #31B8BC/#50B4B4,
+  mint #EEFBFA, slate #676986, yellow #FFCF2A. Font: the theme's Mont.
+*/
+.jp{
+  --ink:#072F30; --ink-2:#28474A; --teal:#0E7A82; --teal-2:#31B8BC; --mint:#EEFBFA;
+  --sand:#F3F0E8; --line:#D6E6E5; --gold:#FFCF2A; --muted:#5C6F70;
+  --r:18px;
+  /* same tokens as the Culture Apothecary listener page, so the partner pages read as one family */
+  color:var(--ink); font-family:'Mont',system-ui,-apple-system,'Segoe UI',sans-serif;
+  font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased;
+}
+.jp *,.jp *::before,.jp *::after{box-sizing:border-box}
+.jp img{max-width:100%;display:block}
+.jp h1,.jp h2,.jp h3,.jp p{margin:0}
+.jp h1,.jp h2,.jp h3{font-weight:800;letter-spacing:-.01em;line-height:1.15;color:var(--ink)}
+.jp-wrap{max-width:1140px;margin:0 auto;padding:0 16px}
+@media (min-width:750px){.jp-wrap{padding:0 24px}}
+.jp-sec{padding:56px 0}
+@media (min-width:750px){.jp-sec{padding:84px 0}}
+.jp-eyebrow{font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
+.jp-h2{font-size:28px;margin-top:10px}
+@media (min-width:750px){.jp-h2{font-size:40px}}
+.jp-lede{color:var(--ink-2);font-size:17px;margin-top:14px;max-width:640px}
+.jp-center{text-align:center}.jp-center .jp-lede{margin-left:auto;margin-right:auto}
+
+/* buttons */
+.jp-btn{display:inline-flex;align-items:center;justify-content:center;gap:0;white-space:pre;min-height:56px;padding:0 30px;border:0;border-radius:999px;
+  background:var(--ink);color:#fff;font:700 16px/1 'Mont',sans-serif;letter-spacing:.02em;text-decoration:none;cursor:pointer;transition:transform .15s,background .15s}
+.jp-btn:hover{background:var(--teal)}
+.jp-btn:active{transform:scale(.98)}
+.jp-btn[disabled]{opacity:.6;cursor:wait}
+.jp-btn--wide{width:100%}
+.jp-btn--gold{background:var(--gold);color:var(--ink)}
+.jp-btn--gold:hover{background:#ffd84f}
+
+/* offer bar */
+.jp-bar{background:var(--ink);color:#fff;text-align:center;font-size:14px;padding:10px 16px;line-height:1.4}
+.jp-bar b{color:var(--gold)}
+.jp-bar .jp-cd{font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* hero */
+.jp-hero{background:linear-gradient(180deg,var(--mint),#fff 85%);padding:28px 0 48px}
+@media (min-width:900px){.jp-hero{padding:56px 0 72px}}
+.jp-hero__grid{display:grid;gap:28px;align-items:center}
+@media (min-width:900px){.jp-hero__grid{grid-template-columns:1.05fr 1fr;gap:56px}}
+.jp-asheard{display:inline-flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 16px 6px 6px;font-size:13px;font-weight:600;color:var(--ink-2)}
+.jp-asheard img{width:36px;height:36px;border-radius:50%;object-fit:cover}
+.jp-hero h1{font-size:34px;margin-top:18px}
+@media (min-width:750px){.jp-hero h1{font-size:52px}}
+.jp-hero h1 em{font-style:normal;color:var(--teal)}
+.jp-stars{display:flex;align-items:center;gap:8px;margin-top:16px;font-size:14px;color:var(--ink-2)}
+.jp-stars span{color:#F5A623;letter-spacing:2px;font-size:16px}
+.jp-checks{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:10px}
+.jp-checks li{display:flex;gap:10px;align-items:flex-start;font-weight:600}
+.jp-checks li::before{content:"";flex:none;width:22px;height:22px;margin-top:1px;border-radius:50%;background:var(--teal) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/14px no-repeat}
+.jp-hero__media{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:4/5;background:var(--sand)}
+.jp-hero__media picture{display:contents}
+.jp-hero__media img{width:100%;height:100%;object-fit:cover;object-position:50% 70%}
+@media (min-width:900px){.jp-hero__media{aspect-ratio:4/3}.jp-hero__media img{object-position:50% 60%}}
+.jp-badge{position:absolute;left:16px;bottom:16px;background:var(--gold);color:var(--ink);border-radius:999px;padding:10px 16px;font-weight:800;font-size:15px;box-shadow:0 6px 20px rgba(7,47,48,.18)}
+.jp-pricerow{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-top:24px}
+.jp-price{font-size:40px;font-weight:900;color:var(--ink)}
+.jp-was{font-size:20px;color:var(--muted);text-decoration:line-through}
+.jp-save{background:var(--mint);color:var(--teal);font-weight:800;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:6px 10px;border-radius:6px}
+.jp-note{font-size:13px;color:var(--muted);margin-top:10px}
+.jp-hero .jp-btn{margin-top:20px}
+@media (max-width:899px){.jp-hero .jp-btn{width:100%}}
+
+/* problem / solution */
+.jp-split{display:grid;gap:32px;align-items:center}
+@media (min-width:900px){.jp-split{grid-template-columns:1fr 1fr;gap:64px}.jp-split--flip .jp-split__media{order:2}}
+.jp-split__media{border-radius:24px;overflow:hidden;background:var(--sand)}
+.jp-split__media img{width:100%;height:100%;max-height:560px;object-fit:cover}
+.jp-points{display:grid;gap:18px;margin-top:24px}
+.jp-points div{padding-left:18px;border-left:3px solid var(--teal-2)}
+.jp-points b{display:block;font-size:17px}
+.jp-points span{color:var(--ink-2)}
+
+/* inside the filter (the "ingredients") */
+.jp-layers{display:grid;gap:14px;margin-top:28px}
+.jp-layer{display:flex;gap:16px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.jp-layer__n{flex:none;width:40px;height:40px;border-radius:12px;background:var(--mint);color:var(--teal);font-weight:900;display:flex;align-items:center;justify-content:center}
+.jp-layer b{display:block}
+.jp-layer span{color:var(--ink-2);font-size:15px}
+
+/* numbers */
+.jp-stats{display:grid;gap:14px;margin-top:36px}
+@media (min-width:750px){.jp-stats{grid-template-columns:repeat(3,1fr);gap:20px}}
+.jp-stat{background:var(--mint);border-radius:var(--r);padding:26px 22px}
+.jp-stat__n{font-size:40px;font-weight:900;color:var(--teal);line-height:1}
+.jp-stat__n small{font-size:18px;font-weight:700;margin-left:4px}
+.jp-stat b{display:block;margin-top:12px;font-size:17px}
+.jp-stat span{display:block;color:var(--ink-2);font-size:15px;margin-top:4px}
+
+/* lab */
+.jp-lab{background:var(--ink);color:#fff;border-radius:28px;padding:36px 22px;display:grid;gap:28px}
+@media (min-width:900px){.jp-lab{grid-template-columns:1fr 1.1fr;padding:56px;gap:56px;align-items:center}}
+.jp-lab h2{color:#fff}
+.jp-lab .jp-eyebrow{color:var(--teal-2)}
+.jp-lab .jp-lede{color:#cfe3e2}
+.jp-lab__bars{display:grid;gap:16px}
+.jp-lab__row{display:grid;grid-template-columns:72px 1fr 64px;gap:12px;align-items:center;font-size:14px}
+.jp-lab__track{height:14px;border-radius:999px;background:rgba(255,255,255,.12);overflow:hidden}
+.jp-lab__fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--teal-2),#7fe0e2)}
+.jp-lab__row b{text-align:right;font-size:16px}
+.jp-fine{font-size:12.5px;line-height:1.5;color:#9fbcbc;margin-top:18px}
+
+/* podcast quote */
+.jp-pod{display:grid;gap:28px;align-items:center}
+@media (min-width:900px){.jp-pod{grid-template-columns:300px 1fr;gap:56px}}
+.jp-pod__cover{border-radius:22px;overflow:hidden;box-shadow:0 18px 40px rgba(7,47,48,.18);max-width:300px}
+.jp-pod blockquote{margin:16px 0 0;font-size:24px;line-height:1.35;font-weight:700;color:var(--ink)}
+@media (min-width:750px){.jp-pod blockquote{font-size:30px}}
+.jp-pod blockquote::before{content:"\201C";color:var(--teal-2)}
+.jp-pod blockquote::after{content:"\201D";color:var(--teal-2)}
+.jp-pod cite{display:block;margin-top:14px;font-style:normal;font-weight:700;color:var(--teal);letter-spacing:.06em;text-transform:uppercase;font-size:13px}
+.jp-pod__ep{color:var(--muted);font-size:14px;margin-top:6px}
+.jp-pod__link{display:inline-block;margin-top:18px;font-weight:700;color:var(--ink);text-underline-offset:4px}
+.jp-video{max-width:960px;margin:28px auto 0;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:#000;box-shadow:0 18px 40px rgba(7,47,48,.25)}
+.jp-video iframe{display:block;width:100%;height:100%;border:0}
+.jp-video__poster{position:relative;display:block;width:100%;height:100%}
+.jp-video__poster img{width:100%;height:100%;object-fit:cover;display:block}
+.jp-video__play{position:absolute;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;background:var(--gold);color:var(--ink);display:flex;align-items:center;justify-content:center;padding-left:4px;box-shadow:0 8px 24px rgba(0,0,0,.35);transition:transform .2s}
+.jp-video__poster:hover .jp-video__play{transform:scale(1.08)}
+
+/* founder */
+.jp-founder{background:var(--sand);border-radius:28px;padding:32px 22px}
+@media (min-width:750px){.jp-founder{padding:56px}}
+.jp-founder p+p{margin-top:14px}
+.jp-founder .jp-lede{max-width:760px}
+
+/* offer card */
+.jp-offer{background:var(--mint)}
+.jp-card{max-width:980px;margin:36px auto 0;background:#fff;border-radius:28px;box-shadow:0 24px 60px rgba(7,47,48,.12);overflow:hidden;display:grid}
+@media (min-width:900px){.jp-card{grid-template-columns:1fr 1fr}}
+.jp-card__media{background:#f4f6f6;display:flex;align-items:center;justify-content:center;padding:24px;position:relative}
+.jp-card__media img{max-height:440px;width:auto}
+@media (min-width:900px){.jp-card__media{align-items:flex-start;padding:40px 24px}.jp-card__media img{position:sticky;top:96px}}
+.jp-card__body{padding:28px 22px}
+@media (min-width:750px){.jp-card__body{padding:40px}}
+.jp-card__tag{display:inline-block;background:var(--gold);font-weight:800;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:6px 10px;border-radius:6px}
+.jp-card h3{font-size:26px;margin-top:14px}
+.jp-card .jp-price{font-size:44px}
+.jp-incl{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:9px;font-size:15px}
+.jp-incl li{display:flex;gap:10px}
+.jp-incl li::before{content:"\2713";color:var(--teal);font-weight:900}
+.jp-card .jp-btn{margin-top:20px}
+.jp-applied{display:flex;gap:8px;align-items:center;justify-content:center;margin-top:12px;font-size:13px;color:var(--teal);font-weight:700}
+.jp-applied::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--teal-2);box-shadow:0 0 0 4px rgba(49,184,188,.2)}
+.jp-then{font-size:13px;color:var(--muted);margin-top:14px;text-align:center}
+.jp-trust{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:980px;margin:22px auto 0}
+@media (min-width:750px){.jp-trust{grid-template-columns:repeat(4,1fr)}}
+.jp-trust div{display:flex;gap:10px;align-items:center;font-size:13px;font-weight:700;color:var(--ink-2)}
+.jp-trust img{width:40px;height:40px;object-fit:contain}
+
+/* reviews */
+.jp-revs{display:grid;gap:16px;margin-top:36px}
+@media (min-width:750px){.jp-revs{grid-template-columns:repeat(3,1fr);gap:20px}}
+.jp-rev{border:1px solid var(--line);border-radius:var(--r);padding:22px;background:#fff;display:flex;flex-direction:column}
+.jp-rev__stars{color:#F5A623;letter-spacing:2px}
+.jp-rev h3{font-size:17px;margin-top:8px}
+.jp-rev p{color:var(--ink-2);margin-top:8px;font-size:15px;flex:1}
+.jp-rev__by{margin-top:14px;font-size:13px;font-weight:700}
+.jp-rev__by span{color:var(--teal);font-weight:600;margin-left:6px}
+
+/* faq */
+.jp-faq{max-width:820px;margin:32px auto 0}
+.jp-faq details{border-bottom:1px solid var(--line)}
+.jp-faq summary{list-style:none;cursor:pointer;padding:20px 40px 20px 0;font-weight:700;font-size:17px;position:relative}
+.jp-faq summary::-webkit-details-marker{display:none}
+.jp-faq summary::after{content:"+";position:absolute;right:4px;top:16px;font-size:24px;color:var(--teal);transition:transform .2s}
+.jp-faq details[open] summary::after{transform:rotate(45deg)}
+.jp-faq details p{padding:0 0 20px;color:var(--ink-2)}
+
+/* hero subline */
+.jp-sub{font-size:19px;color:var(--ink-2);margin-top:14px;max-width:520px}
+
+.jp-quote{margin:22px 0 0;padding:4px 0 4px 20px;border-left:3px solid var(--gold);font-size:20px;line-height:1.4;font-weight:700;color:var(--ink)}
+.jp-quote cite{display:block;margin-top:10px;font-style:normal;font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--teal)}
+.jp-quote--sm{font-size:17px}
+
+/* sticky mobile buy bar */
+.jp-sticky{position:fixed;left:0;right:0;bottom:0;z-index:50;background:#fff;border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:12px;
+  transform:translateY(110%);transition:transform .25s;box-shadow:0 -8px 24px rgba(7,47,48,.08)}
+.jp-sticky.is-on{transform:none}
+.jp-sticky__p{line-height:1.15}
+.jp-sticky__p b{font-size:20px;font-weight:900;display:block}
+.jp-sticky__p s{font-size:13px;color:var(--muted)}
+.jp-sticky .jp-btn{flex:1;min-height:48px;padding:0 16px;font-size:15px}
+@media (min-width:900px){.jp-sticky{display:none}}
+
+.jp-toast{position:fixed;left:50%;bottom:84px;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--ink);color:#fff;border-radius:12px;padding:12px 18px;font-size:14px;max-width:calc(100% - 32px);transition:.25s;z-index:60}
+.jp-toast.is-on{opacity:1;transform:translate(-50%,0)}
+
+/* partner-page additions */
+.jp-hero__media.jp-hero__media--partner{aspect-ratio:1/1}
+.jp-hero__media--partner img{object-position:50% 50%}
+.jp-split__media .jp-placeholder{min-height:260px}
+@media (min-width:900px){.jp-split__media .jp-placeholder{min-height:360px}}
+.jp-placeholder{display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;width:100%;height:100%;min-height:220px;
+  background:repeating-linear-gradient(135deg,#F3F0E8 0 14px,#EEE9DD 14px 28px);color:#5C6F70;font-size:14px;font-weight:600;line-height:1.45}
+.jp-placeholder b{display:block;color:#072F30;font-size:15px;margin-bottom:4px}
+.jp-fill{background:#FFF6D6;border-radius:4px;padding:0 4px;color:#6b5600;font-weight:700}
+.jp-signoff{display:inline-block;margin-top:12px;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#B4452F;border:1px solid currentColor;border-radius:30px;padding:2px 10px}
+.jp-disclose{font-size:12.5px;color:var(--muted);margin-top:12px}
+.jp-asheard .jp-asheard__lead{color:var(--teal);font-weight:800}
+.jp-bigquote{max-width:860px;margin:0 auto;text-align:center}
+.jp-bigquote blockquote{margin:18px 0 0;font-size:24px;line-height:1.35;font-weight:700;color:var(--ink)}
+@media (min-width:750px){.jp-bigquote blockquote{font-size:32px}}
+.jp-bigquote blockquote::before{content:"\201C";color:var(--teal-2)}.jp-bigquote blockquote::after{content:"\201D";color:var(--teal-2)}
+.jp-bigquote cite{display:block;margin-top:14px;font-style:normal;font-weight:700;color:var(--teal);letter-spacing:.06em;text-transform:uppercase;font-size:13px}
+.jp-bigquote__photo{width:84px;height:84px;border-radius:50%;object-fit:cover;margin:0 auto;border:3px solid var(--teal-2)}
+</style>
+
+<div class="jp" data-jp-root data-code="GARY" data-variant="41691992588385" data-selling-plan="6642597985" data-source="partner-gary-brecka">
+  <div data-jaspr-referral-partner="gary-brecka" hidden></div>
+
+  <div class="jp-bar" role="note">Referred by Gary Brecka: code <b>GARY</b> is already applied. <b>$100 off</b> your Jaspr.</div>
+
+  <section class="jp-hero">
+    <div class="jp-wrap jp-hero__grid">
+      <div>
+        <div class="jp-asheard"><img src="assets/gary-headshot-preview-crop.jpg" alt=""><span><span class="jp-asheard__lead">Referred by Gary Brecka</span> · The Ultimate Human</span></div>
+        <h1>Ultimate Human listeners get $100 off a Jaspr.</h1>
+        <p class="jp-sub">The steel air scrubber built by a former disaster-restoration contractor. As a listener of The Ultimate Human, your code is on your cart before you get there.</p>
+        <div class="jp-stars"><span aria-hidden="true">★★★★★</span> More than 1,100 owner reviews</div>
+        <ul class="jp-checks">
+          <li>Built by a disaster-restoration pro, in steel, not plastic</li>
+          <li>30-day buy-back at the full price you paid</li>
+          <li>Lifetime warranty with the filter subscription</li>
+        </ul>
+        <div class="jp-pricerow"><span class="jp-price">$1,099</span><span class="jp-was">$1,199</span><span class="jp-save">Code GARY applied</span></div>
+        <p class="jp-note">No need to type it. Code GARY is already on your cart.</p>
+        <button class="jp-btn" type="button" data-jp-claim>Claim my $100 off</button>
+      </div>
+      <div class="jp-hero__media jp-hero__media--partner">
+        <img src="https://jaspr.co/cdn/shop/files/Ultimate_Human_with_Gary.jpg?v=1785261261&width=1080" alt="Gary Brecka with Jaspr, from Jaspr's product page">
+        <div class="jp-badge">Gary's listeners: $100 off</div>
+        <span class="pv-tag">Stand-in: Jaspr's current product-page image. Swap for a clean photo from Gary's team.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="jp-sec" style="background:var(--mint)">
+    <div class="jp-wrap jp-center">
+      <p class="jp-eyebrow">Watch the clip</p>
+      <h2 class="jp-h2">Jaspr on The Ultimate Human with Gary Brecka</h2>
+      <div class="jp-video"><div class="jp-placeholder"><span><b>Episode clip</b>Jaspr to supply the YouTube link, start time and rights. Hidden on the store until filled in.</span></div></div>
+    </div>
+  </section>
+
+  <section class="jp-sec">
+    <div class="jp-wrap jp-bigquote">
+      <img class="jp-bigquote__photo" src="assets/gary-headshot-preview-crop.jpg" alt="Gary Brecka">
+      <p class="jp-eyebrow" style="margin-top:16px">In Gary's words</p>
+      <blockquote><span class="jp-fill">[Gary&#x27;s actual words from the episode — needs his sign-off]</span></blockquote><cite>Gary Brecka, <span class="jp-fill">[episode and timestamp]</span></cite><span class="jp-signoff">Hidden on the store until "Partner signed off on this quote" is ticked</span>
+    </div>
+  </section>
+
+  <section class="jp-sec" style="background:var(--sand)">
+    <div class="jp-wrap jp-split">
+      <div class="jp-split__media"><div class="jp-placeholder"><span><b>lifestyle-living-room.jpg</b>Lifestyle image, see image-prompts.json. Until it exists the store shows the filter-cartridge photo here.</span></div></div>
+      <div>
+        <p class="jp-eyebrow">Why it's called a scrubber</p>
+        <h2 class="jp-h2">Named after the machines restoration crews use.</h2>
+        <p class="jp-lede">Jaspr's founder, Michael Feldstein, restored about 150 homes after fires and floods before he built one for the home. It draws air in through a grate that circles the whole base and reads the air with a built-in sensor, speeding up on its own when something changes.</p>
+        <div class="jp-layers">
+          <div class="jp-layer"><div class="jp-layer__n">1</div><div><b>Pre-filter</b><span>Catches hair, lint and the big stuff first.</span></div></div>
+          <div class="jp-layer"><div class="jp-layer__n">2</div><div><b>Particle filter</b><span>Traps the fine dust, dander and pollen you can't see.</span></div></div>
+          <div class="jp-layer"><div class="jp-layer__n">3</div><div><b>1 lb of activated carbon</b><span>Takes on fragrance, cooking smells and fumes. Swapped every 6 months, in under 30 seconds.</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="jp-sec">
+    <div class="jp-wrap">
+      <div class="jp-center"><p class="jp-eyebrow">The numbers</p><h2 class="jp-h2">340 CFM at top speed. 33 dBA at its quietest.</h2></div>
+      <div class="jp-stats">
+        <div class="jp-stat"><div class="jp-stat__n">340<small>CFM</small></div><b>Smoke CADR at max speed</b><span>About 10 air changes an hour in a 250 sq ft bedroom with an 8 ft ceiling.</span></div>
+        <div class="jp-stat"><div class="jp-stat__n">33<small>dBA</small></div><b>On the lowest speed</b><span>Up to 58 dBA when it ramps up to clear the air.</span></div>
+        <div class="jp-stat"><div class="jp-stat__n">0<small>ozone</small></div><b>No ozone, no app</b><span>Plug it in and it runs. Steel housing with a matte finish.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="jp-sec" style="padding-top:0">
+    <div class="jp-wrap"><div class="jp-lab">
+      <div>
+        <p class="jp-eyebrow">Tested in a full room, not just the filter</p>
+        <h2 class="jp-h2">97.1% of airborne mold spores removed in one hour.</h2>
+        <p class="jp-lede">LMS Technologies, an independent lab, released mold spores into a 4,000 cubic foot test chamber and measured them every 5 minutes against the same room with Jaspr switched off.</p>
+      </div>
+      <div>
+        <div class="jp-lab__bars" aria-label="Mold spore removal over time">
+          <div class="jp-lab__row"><span>60 min</span><div class="jp-lab__track"><div class="jp-lab__fill" style="width:97.1%"></div></div><b>97.1%</b></div>
+          <div class="jp-lab__row"><span>90 min</span><div class="jp-lab__track"><div class="jp-lab__fill" style="width:99.7%"></div></div><b>99.7%</b></div>
+          <div class="jp-lab__row"><span>120 min</span><div class="jp-lab__track"><div class="jp-lab__fill" style="width:99.8%"></div></div><b>99.8%</b></div>
+        </div>
+        <p class="jp-fine">Aspergillus niger, 71°F, 45% humidity, February 2025. A lab chamber isn't your living room; results depend on the room, the mold and how it's measured. Air purifiers are not a substitute for mold remediation.</p>
+      </div>
+    </div></div>
+  </section>
+
+  <section class="jp-sec jp-offer" id="jp-offer">
+    <div class="jp-wrap">
+      <div class="jp-center"><p class="jp-eyebrow">Referred by Gary Brecka</p><h2 class="jp-h2">$100 off, code GARY already applied.</h2></div>
+      <div class="jp-card">
+        <div class="jp-card__media"><img src="https://cdn.shopify.com/s/files/1/0279/4405/8977/files/JasprArtboardArtboard24_ed5061ee-5ef0-4f47-92cd-6a9dd9bcaf45.jpg?v=1778792953&width=900" alt="Jaspr Air Scrubber with its filter cartridge, 31.5 inches tall"></div>
+        <div class="jp-card__body">
+          <span class="jp-card__tag">Gary's listener offer</span>
+          <h3>Jaspr Air Scrubber + filter subscription</h3>
+          <div class="jp-pricerow" style="margin-top:14px"><span class="jp-price">$1,099</span><span class="jp-was">$1,199</span><span class="jp-save">Save $100</span></div>
+          <ul class="jp-incl">
+            <li>Jaspr Air Scrubber with its first filter installed</li>
+            <li>New filter every 6 months, $199. Pause or cancel anytime</li>
+            <li>Lifetime warranty while you're on the filter plan: if it breaks, a new one ships out, shipping paid both ways</li>
+            <li>Free shipping, and a 30-day full-price buy-back</li>
+          </ul>
+          <button class="jp-btn jp-btn--gold jp-btn--wide" type="button" data-jp-claim>Claim my $100 off</button>
+          <div class="jp-applied">Code GARY applied</div>
+          <p class="jp-disclose">Gary Brecka is a Jaspr affiliate partner. Jaspr pays a commission on orders made through this page or code.</p>
+        </div>
+      </div>
+      <div class="jp-trust">
+        <div><img src="https://jaspr.co/cdn/shop/files/Warranty_3x_dc9c0e68-f9bf-47ef-ab57-60a577d02672.png?width=100" alt="">Lifetime warranty</div>
+        <div><img src="https://jaspr.co/cdn/shop/files/Money_Back_3x_49569c44-62c9-4622-a7a6-d69fc42a69f9.png?width=100" alt="">30-day buy-back</div>
+        <div><img src="https://jaspr.co/cdn/shop/files/Delivery_3x_597dcbec-4852-42fb-8907-f22ee836d39c.png?width=100" alt="">Free shipping</div>
+        <div><img src="https://jaspr.co/cdn/shop/files/Subscription_3x_6b6d77df-2a0b-47a9-8379-f1b2cd6dd441.png?width=100" alt="">Filters on autopilot</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="jp-sec">
+    <div class="jp-wrap jp-center">
+      <p class="jp-eyebrow">From owners</p>
+      <h2 class="jp-h2">More than 1,100 reviews and counting.</h2>
+      <div class="jp-revs" style="text-align:left"><div class="jp-rev"><div class="jp-rev__stars">★★★★★</div><h3>Easy peazy</h3><p>I am also a skeptic of almost every &quot;Best there every was&quot; product. I am a hard sell to say the least. I did my research, and I bought one. It was the easiest thing in the world to set up, understand and use.</p><div class="jp-rev__by">Duane H.<span>Verified owner</span><span class="pv-perm">Needs permission</span></div></div><div class="jp-rev"><div class="jp-rev__stars">★★★★★</div><h3>Loving my clean air!</h3><p>I was on the fence for ordering this but so glad I did! … It&#x27;s amazing how it speeds up during cooking and even when hairspray is used in our bath.</p><div class="jp-rev__by">Robin F.<span>Verified owner</span><span class="pv-perm">Needs permission</span></div></div><div class="jp-rev"><div class="jp-rev__stars">★★★★★</div><h3>Trying Jaspr</h3><p>Sleek and quiet. … When I cook despite using an overhead exhaust, the Jaspr immediately begins to scrub the air.</p><div class="jp-rev__by">Margaret F.<span>Verified owner</span><span class="pv-perm">Needs permission</span></div></div></div>
+    </div>
+  </section>
+
+  <section class="jp-sec" style="background:var(--mint)">
+    <div class="jp-wrap">
+      <div class="jp-center"><p class="jp-eyebrow">Questions</p><h2 class="jp-h2">Before you claim it</h2></div>
+      <div class="jp-faq">
+        <details open><summary>Do I need to type code GARY?</summary><p>No. It's attached the moment you land on this page and carries through to checkout. You'll see it on your order before you pay.</p></details>
+        <details><summary>Is Gary paid to refer Jaspr?</summary><p>Gary Brecka is a Jaspr affiliate partner. Jaspr pays a commission on orders made through this page or code.</p></details>
+        <details><summary>My Jaspr is green almost all the time. Is it working?</summary><p>Green means particle levels are low, which is where you want it most of the time. When something changes, like hairspray, cooking or a candle, it turns orange or red, speeds up, and brings the air back to green. The sensor reads particles; it can&#x27;t detect everything, so it runs and cleans either way.</p></details><details><summary>Why change the filter every 6 months?</summary><p>The carbon layer works like a parking lot for odors and fumes. Once every spot is full, it stops taking more in, even if the filter still looks clean. Six months keeps it working. A new one ships automatically for $199, and you can pause or cancel anytime.</p></details><details><summary>How many do I need?</summary><p>One in each bedroom someone sleeps in, plus one for the main living area. For a typical 4-bedroom home, that&#x27;s about five.</p></details><details><summary>What if it&#x27;s not for me?</summary><p>Send it back within 30 days and Jaspr buys it back at the full price you paid.</p></details>
+      </div>
+      <div class="jp-center" style="margin-top:32px"><button class="jp-btn" type="button" data-jp-claim>Claim my $100 off</button></div>
+    </div>
+  </section>
+
+  <div class="jp-sticky" data-jp="sticky" aria-hidden="true">
+    <div class="jp-sticky__p"><b>$1,099</b><s>$1,199</s></div>
+    <button class="jp-btn jp-btn--gold" type="button" data-jp-claim tabindex="-1">Claim $100 off</button>
+  </div>
+  <div class="jp-toast" data-jp="toast" role="status"></div>
+</div>
+
+<script>/* install/assets/partner-landing.js */
+/*
+  Jaspr partner landing page (card 15). Same behavior as the Culture Apothecary
+  listener page, made generic. Every partner-specific value comes from the
+  section's settings, printed as data- attributes on the page root:
+
+    data-code           partner discount code (attached on arrival and on Claim)
+    data-variant        Jaspr Air Scrubber variant ID
+    data-selling-plan   filter subscription selling plan ID (blank = one-time)
+    data-source         line-item property so orders show which page sold them
+
+  Only same-site Shopify routes are called (/discount/CODE, /cart/add.js).
+  Nothing runs outside the store (a preview file shows a message instead).
+*/
+(function () {
+  'use strict';
+  document.querySelectorAll('[data-jp-root]').forEach(function (root) {
+    var code = (root.getAttribute('data-code') || '').trim();
+    var variant = Number(root.getAttribute('data-variant')) || null;
+    var plan = Number(root.getAttribute('data-selling-plan')) || null;
+    var source = root.getAttribute('data-source') || 'partner-page';
+    var live = !!(window.Shopify && window.Shopify.shop);
+    var $ = function (k) { return root.querySelector('[data-jp="' + k + '"]'); };
+
+    /* toast */
+    var toastT;
+    function toast(msg) {
+      var t = $('toast'); if (!t) return;
+      t.textContent = msg; t.classList.add('is-on');
+      clearTimeout(toastT); toastT = setTimeout(function () { t.classList.remove('is-on'); }, 3500);
+    }
+
+    /* attach the code on arrival (card 14's script does the same if it is installed; doing it twice is harmless) */
+    if (live && code) fetch('/discount/' + encodeURIComponent(code), { credentials: 'same-origin' }).catch(function () {});
+
+    /* claim: add scrubber + filter plan, then re-attach the code on the way to the cart */
+    root.querySelectorAll('[data-jp-claim]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (!live) { toast('Preview only: on jaspr.co this adds a Jaspr to the cart with code ' + code + ' already applied.'); return; }
+        if (!variant) { location.href = '/cart'; return; }
+        btn.disabled = true;
+        var item = { id: variant, quantity: 1, properties: { _source: source } };
+        if (plan) item.selling_plan = plan;
+        fetch('/cart/add.js', {
+          method: 'POST', credentials: 'same-origin',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ items: [item] })
+        }).then(function (r) {
+          if (!r.ok) throw new Error('add failed');
+          location.href = code ? '/discount/' + encodeURIComponent(code) + '?redirect=/cart' : '/cart';
+        }).catch(function () {
+          btn.disabled = false;
+          toast('Something went wrong adding it to your cart. Please try again.');
+        });
+      });
+    });
+
+    /* clip: plays in place on the store; from a file on disk YouTube refuses embeds, so it opens YouTube */
+    root.querySelectorAll('[data-jp-yt]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        if (!/^https?:$/.test(location.protocol)) return;
+        e.preventDefault();
+        var f = document.createElement('iframe');
+        var start = a.getAttribute('data-jp-start');
+        f.src = 'https://www.youtube.com/embed/' + a.getAttribute('data-jp-yt') + '?autoplay=1' + (start ? '&start=' + parseInt(start, 10) : '');
+        f.title = a.getAttribute('aria-label') || 'Episode clip';
+        f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        f.referrerPolicy = 'strict-origin-when-cross-origin';
+        f.allowFullscreen = true;
+        a.replaceWith(f);
+      });
+    });
+
+    /* sticky buy bar on phones once the hero button has scrolled away, hidden again at the offer card */
+    var sticky = $('sticky'), heroBtn = root.querySelector('.jp-hero [data-jp-claim]'), offer = root.querySelector('.jp-offer');
+    if ('IntersectionObserver' in window && sticky && heroBtn && offer) {
+      var heroGone = false, offerIn = false;
+      var upd = function () { var on = heroGone && !offerIn; sticky.classList.toggle('is-on', on); sticky.setAttribute('aria-hidden', on ? 'false' : 'true'); };
+      new IntersectionObserver(function (e) { heroGone = !e[0].isIntersecting && e[0].boundingClientRect.top < 0; upd(); }).observe(heroBtn);
+      new IntersectionObserver(function (e) { offerIn = e[0].isIntersecting; upd(); }).observe(offer);
+    }
+  });
+})();
+</script>
+
+<footer class="shell-foot">Theme footer</footer>
+</body>
+</html>

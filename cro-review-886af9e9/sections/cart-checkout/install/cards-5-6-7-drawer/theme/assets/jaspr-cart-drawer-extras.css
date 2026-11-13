@@ -1,0 +1,91 @@
+/*
+  Jaspr cart drawer extras — cards 5, 6 and 7. Upload as assets/jaspr-cart-drawer-extras.css.
+  Styled to sit inside the live Rebuy drawer (Nov 2, 2026): Mont type, deep teal #072F30,
+  mint card #E6EFEB, green #2F7D4F for savings, 16px side padding on phones.
+  Everything is scoped to #rebuy-cart so nothing else on the site changes.
+*/
+
+/* ---------- Cards 5 / 6: the single block above Checkout ---------- */
+#rebuy-cart .jaspr-trust {
+  margin: 0 0 12px;
+  padding: 12px 14px;
+  background: #ffffff;
+  border: 1px solid #cbd8d8;
+  border-radius: 12px;
+  color: #072f30;
+  font-family: 'Mont-Regular', sans-serif;
+  text-align: left;
+}
+#rebuy-cart .jaspr-trust p { margin: 0; }
+#rebuy-cart .jaspr-trust__stars {
+  color: #ffcf2a;                 /* brand accent yellow */
+  font-size: 14px;
+  letter-spacing: 2px;
+  line-height: 16px;
+  margin-bottom: 4px;
+}
+#rebuy-cart .jaspr-trust__quote {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+}
+#rebuy-cart .jaspr-trust__by {
+  margin-top: 4px !important;
+  font-size: 12px;
+  line-height: 18px;
+  color: #535353;
+}
+#rebuy-cart .jaspr-trust__name { color: #072f30; font-weight: 600; }
+#rebuy-cart .jaspr-trust__badge::before { content: '\00B7'; margin: 0 6px; color: #535353; }
+#rebuy-cart .jaspr-trust--review .jaspr-trust__badge { color: #2f7d4f; }
+#rebuy-cart .jaspr-trust--review .jaspr-trust__badge::before { color: #535353; }
+
+/* founder variant: photo + quote */
+#rebuy-cart .jaspr-trust--founder {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+#rebuy-cart .jaspr-trust__photo {
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+#rebuy-cart .jaspr-trust--founder .jaspr-trust__quote { font-size: 15px; }
+
+/* ---------- Card 7: Priority processing checkbox ---------- */
+#rebuy-cart .jaspr-priority {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 0 0 12px;
+  padding: 10px 12px;
+  border: 1px solid #cbd8d8;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #072f30;
+  font-family: 'Mont-Regular', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  cursor: pointer;
+  min-height: 44px;               /* comfortable tap size */
+}
+#rebuy-cart .jaspr-priority__box {
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  accent-color: #072f30;
+  cursor: pointer;
+}
+#rebuy-cart .jaspr-priority__label { font-weight: 600; }
+#rebuy-cart .jaspr-priority__price { color: #535353; white-space: nowrap; }
+#rebuy-cart .jaspr-priority.is-busy { opacity: .6; pointer-events: none; }
+#rebuy-cart .jaspr-priority:focus-within { outline: 2px solid #0e7a82; outline-offset: 2px; }
+
+/* The add-on is shown as the checkbox, not as a second product card in the drawer.
+   (Checkout still lists it as its own line with its price, so the charge is never hidden.) */
+#rebuy-cart .rebuy-cart__flyout-item.product-priority-processing { display: none !important; }
