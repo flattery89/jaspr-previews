@@ -179,7 +179,7 @@ blockquote.quote p { font-size: 17px; line-height: 1.55; margin-bottom: 10px; }
 /* 4. Mechanism */
 .mech { display: grid; gap: 26px; }
 .mech__img { background: var(--wash); border-radius: var(--radius); overflow: hidden; }
-.mech__img img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
+.mech__img img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; }
 .layers { list-style: none; margin: 0; padding: 0; counter-reset: layer; }
 .layers li { position: relative; padding: 0 0 18px 50px; margin-bottom: 18px; border-bottom: 1px solid var(--line); counter-increment: layer; }
 .layers li:last-child { border-bottom: 0; margin-bottom: 0; }
@@ -193,7 +193,7 @@ blockquote.quote p { font-size: 17px; line-height: 1.55; margin-bottom: 10px; }
 .stat { background: var(--mint); border-radius: var(--radius); padding: 18px 16px; }
 .stat b { display: block; font-size: 28px; line-height: 1.1; letter-spacing: -0.02em; }
 .stat span { display: block; font-size: 13px; line-height: 1.4; margin-top: 6px; }
-.howmany { display: grid; gap: 22px; }
+.howmany { display: grid; gap: 22px; margin-top: 40px; }
 .rooms { list-style: none; margin: 14px 0 12px; padding: 0; display: grid; gap: 10px; }
 .rooms li { display: flex; align-items: center; gap: 12px; font-weight: 600; font-size: 15px; }
 .diagram { background: #fff; border-radius: 16px; overflow: hidden; }
@@ -242,6 +242,27 @@ blockquote.quote p { font-size: 17px; line-height: 1.55; margin-bottom: 10px; }
 .badge { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; background: var(--ink); color: #fff; border-radius: 30px; padding: 3px 9px; white-space: nowrap; }
 .buybox .btn { margin-top: 18px; }
 .fine { font-size: 12.5px; color: var(--slate); margin-top: 12px; text-align: center; line-height: 1.5; }
+@media (max-width: 979px) {
+  .opt { padding: 16px 14px 16px 46px; }
+  .opt__sub, .opt ul { font-size: 15.5px; line-height: 1.55; color: var(--ink); }
+  .opt ul li { margin-bottom: 6px; }
+  .fine { font-size: 14px; color: #4f5170; }
+  /* Mechanism: the three layers sit on the filter image so the pair fits one phone screen */
+  .mech { row-gap: 0; }
+  .mech__head { margin-bottom: 20px; }
+  .mech__img img { aspect-ratio: 1 / 1; }
+  .mech .layers {
+    position: relative; margin: -120px 10px 0; padding: 14px 14px 12px; border-radius: 14px;
+    background: rgba(255,255,255,.92); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+    box-shadow: 0 8px 24px rgba(7,47,48,.14);
+  }
+  .mech .layers li { padding: 0 0 10px 40px; margin-bottom: 10px; }
+  .mech .layers li:last-child { padding-bottom: 0; }
+  .mech .layers li::before { transform: scale(.85); transform-origin: 0 0; }
+  .mech .layers h3 { font-size: 16px; margin-bottom: 2px; }
+  .mech .layers p { font-size: 14px; line-height: 1.4; }
+  .howto__video { margin: 0 auto; }
+}
 .clarity { font-weight: 600; margin-top: 18px; text-align: center; }
 .toast {
   position: fixed; left: 50%; bottom: 20px; transform: translate(-50%, 20px); opacity: 0; pointer-events: none;
