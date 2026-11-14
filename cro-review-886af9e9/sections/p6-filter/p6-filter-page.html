@@ -44,7 +44,8 @@ h3 { font-size: 19px; letter-spacing: -0.01em; }
 p { margin: 0 0 14px; }
 a { color: var(--teal-deep); }
 .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-.section { padding: 56px 0; }
+.section { padding: 44px 0; }
+.section .wrap > :last-child, .section .wrap > div > :last-child { margin-bottom: 0; }
 .section--wash { background: var(--wash); }
 .section--mint { background: var(--mint); }
 .eyebrow {
@@ -103,7 +104,7 @@ header.site img { height: 26px; width: auto; }
 .fill { background: #FFF6D6; border-radius: 4px; padding: 0 3px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
 
 /* 1. Hero */
-.hero { padding: 32px 0 44px; }
+.hero { padding: 28px 0 36px; }
 .hero__grid { display: grid; gap: 20px; }
 .hero__head h1 { margin-bottom: 0; }
 .hero h1 { margin-bottom: 14px; }
@@ -281,8 +282,8 @@ footer.site img { height: 20px; width: auto; margin: 0 auto 10px; opacity: .8; }
 }
 @media (min-width: 980px) {
   :root { --gutter: 32px; }
-  .section { padding: 88px 0; }
-  .hero { padding: 56px 0 72px; }
+  .section { padding: 64px 0; }
+  .hero { padding: 48px 0 52px; }
   .hero__grid { grid-template-columns: 1fr 310px; grid-template-rows: auto 1fr; column-gap: 72px; row-gap: 18px; }
   .hero__head { grid-column: 1; grid-row: 1; align-self: end; }
   .hero__body { grid-column: 1; grid-row: 2; }
@@ -361,7 +362,7 @@ footer.site img { height: 20px; width: auto; margin: 0 auto 10px; opacity: .8; }
   <div class="wrap s2-grid">
     <div>
       <h2>What are you actually looking at?</h2>
-      <p class="lede" style="margin-top:16px">That gray layer is what the filter pulled out of one room's air over <span class="fill">[six months]</span>: dust, lint and fine particles that stay in the air long after the surfaces look clean. It built up a little every day as the Jaspr drew the room's air through the filter and sent it back out.</p>
+      <p class="lede" style="margin-top:16px">That gray layer is what the filter pulled out of one room's air over six months: dust, lint and fine particles that stay in the air long after the surfaces look clean. It built up a little every day as the Jaspr drew the room's air through the filter and sent it back out.</p>
     </div>
     <div class="compare">
       
@@ -370,7 +371,6 @@ footer.site img { height: 20px; width: auto; margin: 0 auto 10px; opacity: .8; }
         <span class="compare__tag compare__tag--new">New</span>
         <span class="compare__tag compare__tag--used">Used</span>
       </div>
-      <p class="caption">Photo: Jaspr. A new filter next to a used one.</p>
     </div>
   </div>
   <div class="wrap">
