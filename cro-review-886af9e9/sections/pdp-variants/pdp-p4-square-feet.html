@@ -230,6 +230,16 @@ body{display:grid;grid-template-rows:auto auto 1fr auto;grid-template-columns:10
 .calc__other{display:grid;grid-template-columns:minmax(0,1fr) 120px;gap:10px;margin-top:10px}
 .calc__other[hidden]{display:none}
 .calc__math{font-size:14px;margin:22px 0 0;opacity:.85;max-width:780px}
+.calc__room{margin:18px 0 0}
+.calc__room svg{display:block;width:100%;height:auto;max-height:340px}
+.calc__room figcaption{font-size:13px;opacity:.75;margin-top:6px}
+.calc__room .rm-wall{fill:#fff;stroke:#A9BABA;stroke-width:1.2;stroke-linejoin:round}
+.calc__room .rm-wall--side{fill:#F6FCFC}
+.calc__room .rm-floor{fill:#D9EEEC;stroke:#A9BABA;stroke-width:1.2;stroke-linejoin:round}
+.calc__room .rm-edge{fill:none;stroke:#A9BABA;stroke-width:1;stroke-dasharray:3 4}
+.calc__room .rm-dim{font-size:13px;font-weight:700;fill:#072f30}
+.calc__room .rm-pulse{fill:#50b4b4;opacity:0}
+@media(max-width:850px){.calc__room svg{max-height:260px}.calc__room .rm-dim{font-size:17px}}
 </style>
 </head>
 <body class="gradient template-jaspr-pro">
@@ -367,6 +377,8 @@ summary.list-menu__item{padding-right:2.7rem}.list-menu__item{display:flex;align
         <div><label for="calc-h">Ceiling (ft)</label><input id="calc-h" type="number" inputmode="decimal" min="1" max="40" step="0.5" value="8"></div>
       </div>
       <p class="calc__volume">Your room: <b id="calc-vol">2,000</b> cubic feet (<span id="calc-sqft">250</span> sq ft)</p>
+      <figure class="calc__room"><svg id="calc-room" viewBox="0 0 400 300" role="img" aria-label="Your room drawn to scale, with Jaspr in a corner"></svg>
+        <figcaption>Jaspr drawn to scale (31.5 in tall). Each ripple is one full change of the room’s air at fan speed 1, played 60 times faster.</figcaption></figure>
     </div>
     <div class="calc__results">
       <div class="calc__result" data-cfm="114"><div class="calc__result-head"><b>Jaspr · fan speed 1, its quietest</b><span>114 CFM · 33 dBA</span></div><div class="calc__big"><span class="calc-ach">3.4</span> <small>air changes an hour</small></div><div class="calc__bar"><i style="width:19%"></i></div><p class="calc__sub">The room’s air goes through the filter <span class="calc-min">about every 18 minutes</span>.</p></div><div class="calc__result" data-cfm="340"><div class="calc__result-head"><b>Jaspr · top speed</b><span>340 CFM · up to 58 dBA</span></div><div class="calc__big"><span class="calc-ach">10.2</span> <small>air changes an hour</small></div><div class="calc__bar"><i style="width:57%"></i></div><p class="calc__sub">The room’s air goes through the filter <span class="calc-min">about every 6 minutes</span>.</p></div>
@@ -568,6 +580,54 @@ document.addEventListener('DOMContentLoaded',function(){
     show(document.getElementById('calc-cmp-result'),cfm,ok?vol:NaN);
     if(cfm>0&&ok) text('calc-cmp-note',note+' In your room its air goes through the filter '+minutes(vol,cfm)+'.');
   }
+  // Room drawing: the room in isometric view, Jaspr (31.5 in tall, 11.5 in across) to scale in a back corner. The ripple's
+  // period is the time for one full air change at fan speed 1, sped up 60 times (one minute plays as one second).
+  var svg=document.getElementById('calc-room'), NS='http://www.w3.org/2000/svg', C30=Math.cos(Math.PI/6), S30=0.5;
+  var still=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function el(tag,attrs,parent){var e=document.createElementNS(NS,tag);for(var k in attrs)e.setAttribute(k,attrs[k]);(parent||svg).appendChild(e);return e}
+  function drawRoom(L,W,H,cfm){
+    while(svg.firstChild) svg.removeChild(svg.firstChild);
+    if(!(L>0&&W>0&&H>0)) return;
+    var VW=400,VH=300,pad=26;
+    function iso(x,y,z){return [(x-y)*C30,(x+y)*S30-z]}
+    var raw=[iso(0,0,0),iso(L,0,0),iso(L,W,0),iso(0,W,0),iso(0,0,H),iso(L,0,H),iso(0,W,H)];
+    var minX=Math.min.apply(null,raw.map(function(p){return p[0]})),maxX=Math.max.apply(null,raw.map(function(p){return p[0]}));
+    var minY=Math.min.apply(null,raw.map(function(p){return p[1]})),maxY=Math.max.apply(null,raw.map(function(p){return p[1]}));
+    var k=Math.min((VW-2*pad)/(maxX-minX),(VH-2*pad)/(maxY-minY));
+    var ox=(VW-(maxX-minX)*k)/2-minX*k, oy=(VH-(maxY-minY)*k)/2-minY*k;
+    function P(x,y,z){var q=iso(x,y,z);return [ox+q[0]*k,oy+q[1]*k]}
+    function pts(a){return a.map(function(p){return P(p[0],p[1],p[2]).map(function(n){return n.toFixed(1)}).join(',')}).join(' ')}
+    el('polygon',{'class':'rm-wall',points:pts([[0,0,0],[L,0,0],[L,0,H],[0,0,H]])});
+    el('polygon',{'class':'rm-wall rm-wall--side',points:pts([[0,0,0],[0,W,0],[0,W,H],[0,0,H]])});
+    el('polygon',{'class':'rm-floor',id:'rm-floor',points:pts([[0,0,0],[L,0,0],[L,W,0],[0,W,0]])});
+    var clip=el('clipPath',{id:'rm-clip'},el('defs',{}));
+    el('polygon',{points:pts([[0,0,0],[L,0,0],[L,W,0],[0,W,0]])},clip);
+    // Jaspr: a cylinder 11.5 in across and 31.5 in tall, standing a little off both back walls
+    var r=11.5/24, uh=31.5/12, gap=Math.min(0.6,L/6,W/6), cx=r+gap, cy=r+gap, b=P(cx,cy,0), t=P(cx,cy,uh);
+    var rx=r*Math.SQRT2*C30*k, ry=r*Math.SQRT2*S30*k;
+    if(cfm>0){
+      var reach=Math.hypot(L,W)*Math.SQRT2*C30*k*1.1, secs=Math.max(1.5,Math.min(20,L*W*H/cfm));
+      var ring=el('ellipse',{'class':'rm-pulse',cx:b[0].toFixed(1),cy:b[1].toFixed(1),rx:rx,ry:ry,'clip-path':'url(#rm-clip)'});
+      if(!still){
+        el('animate',{attributeName:'rx',from:rx,to:reach,dur:secs+'s',repeatCount:'indefinite'},ring);
+        el('animate',{attributeName:'ry',from:ry,to:reach*S30/C30,dur:secs+'s',repeatCount:'indefinite'},ring);
+        el('animate',{attributeName:'opacity',values:'.45;.12;0',dur:secs+'s',repeatCount:'indefinite'},ring);
+      }
+    }
+    el('ellipse',{cx:(b[0]+rx*.15).toFixed(1),cy:(b[1]+ry*.25).toFixed(1),rx:(rx*1.15).toFixed(1),ry:(ry*1.1).toFixed(1),fill:'#072f30',opacity:.12});
+    el('path',{d:'M'+(b[0]-rx)+','+b[1]+' L'+(t[0]-rx)+','+t[1]+' A'+rx+','+ry+' 0 0 0 '+(t[0]+rx)+','+t[1]+' L'+(b[0]+rx)+','+b[1]+' A'+rx+','+ry+' 0 0 1 '+(b[0]-rx)+','+b[1]+'Z',fill:'#fff',stroke:'#072f30','stroke-width':1.2});
+    el('ellipse',{cx:t[0],cy:t[1],rx:rx,ry:ry,fill:'#e9f2f2',stroke:'#072f30','stroke-width':1.2});
+    var d=P(cx,cy,uh*0.8); el('rect',{x:(d[0]-rx*.45).toFixed(1),y:d[1].toFixed(1),width:(rx*.9).toFixed(1),height:Math.max(1.5,ry*.5).toFixed(1),rx:1,fill:'#072f30'});
+    // Dimension labels on the near edges
+    function lab(p,txt,dx,dy,anchor){var e=el('text',{'class':'rm-dim',x:(p[0]+dx).toFixed(1),y:(p[1]+dy).toFixed(1),'text-anchor':anchor});e.textContent=txt}
+    function ft(n){return (Math.round(n*10)/10)+' ft'}
+    lab(P(L/2,W,0),ft(L),-6,18,'end');
+    lab(P(L,W/2,0),ft(W),6,18,'start');
+    lab(P(0,W,H/2),ft(H),-8,4,'end');
+  }
+  var speed1=root.querySelector('.calc__result[data-cfm]');
+  function room(){drawRoom(pos(f[0]),pos(f[1]),pos(f[2]),speed1?parseFloat(speed1.dataset.cfm):NaN)}
+  root.addEventListener('input',room); room();
   root.addEventListener('input',run); root.addEventListener('change',run); run();
 });
 </script>
