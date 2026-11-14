@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>P4 airflow section: three options</title>
+<style>
+@font-face{font-family:'Mont';src:url("https://jaspr.co/cdn/shop/files/Mont-Regular.woff?v=2222434496653176201") format('woff');font-weight:400}
+@font-face{font-family:'Mont';src:url("https://jaspr.co/cdn/shop/files/Mont-SemiBold.woff?v=1531965110309155067") format('woff');font-weight:600}
+@font-face{font-family:'Mont';src:url("https://jaspr.co/cdn/shop/files/Mont-Bold.woff?v=15700739960841080444") format('woff');font-weight:700}
+@font-face{font-family:'Mont';src:url("https://jaspr.co/cdn/shop/files/Mont-Heavy.woff?v=10263262660210236693") format('woff');font-weight:900}
+:root{--ink:#072f30;--teal:#50b4b4;--teal-d:#2f8f8f;--mint:#EEFBFA;--line:#d5e8e7}
+*{box-sizing:border-box}
+body{margin:0;background:#f4f6f6;color:var(--ink);font-family:'Mont',Arial,sans-serif;font-size:16px;line-height:1.6}
+.intro{max-width:1240px;margin:0 auto;padding:28px 16px 8px}
+.intro h1{font-size:24px;margin:0 0 6px;font-weight:700}
+.intro p{margin:0;max-width:760px;font-size:15px}
+.opts{max-width:1240px;margin:0 auto;padding:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:28px;align-items:start}
+.opt-tag{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-d);margin:0 0 4px}
+.opt-why{font-size:14px;margin:0 0 12px;min-height:66px}
+.phone{background:#fff;border-radius:28px;border:8px solid #1d2b2b;max-width:390px;margin:0 auto;overflow:hidden}
+.sec{padding:40px 20px 44px}
+.sec h2{font-size:30px;line-height:1.15;font-weight:700;margin:0 0 8px}
+.sec .lede{margin:0 0 22px;font-size:16px}
+/* Option 1: numbered cards */
+.o1 .card{background:var(--mint);border-radius:18px;padding:18px 18px 16px;margin-bottom:12px;display:grid;grid-template-columns:44px 1fr;gap:4px 12px}
+.o1 .n{grid-row:span 3;width:44px;height:44px;border-radius:50%;background:var(--teal);color:#fff;font-weight:900;font-size:20px;display:grid;place-items:center}
+.o1 h3{margin:4px 0 2px;font-size:19px;line-height:1.25;font-weight:700}
+.o1 p{margin:0;font-size:15px}
+.o1 .chip{justify-self:start;margin-top:8px;background:#fff;border-radius:999px;padding:4px 12px;font-size:13px;font-weight:600}
+/* Option 2: spec sheet decoder */
+.o2{background:var(--mint)}
+.spec{background:#fff;border-radius:16px;padding:16px 16px 10px;box-shadow:0 1px 0 var(--line);margin-bottom:22px}
+.spec-h{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.6;margin-bottom:6px}
+.row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 0;border-top:1px solid var(--line);font-size:15px}
+.row b{font-weight:700;white-space:nowrap}
+.pin{flex:none;width:26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;font-size:13px;font-weight:700;display:grid;place-items:center;margin-right:8px}
+.row span.l{display:flex;align-items:center}
+.row.hi{background:#fff6d9;margin:0 -16px;padding:10px 16px}
+.note{display:grid;grid-template-columns:26px 1fr;gap:10px;margin-bottom:16px}
+.note .pin{margin:2px 0 0}
+.note h3{margin:0 0 2px;font-size:17px;font-weight:700;line-height:1.3}
+.note p{margin:0;font-size:15px}
+.spec-foot{font-size:12px;opacity:.6;margin:6px 0 0}
+/* Option 3: swipe cards */
+.o3{background:var(--ink);color:#fff}
+.o3 h2{color:#fff}
+.o3 .lede{opacity:.85}
+.track{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -20px;padding:0 20px 6px;scrollbar-width:none}
+.track::-webkit-scrollbar{display:none}
+.sc{flex:0 0 86%;scroll-snap-align:center;background:#fff;color:var(--ink);border-radius:20px;padding:22px 20px;min-height:290px;display:flex;flex-direction:column}
+.sc .q{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-d);margin:0 0 8px}
+.sc h3{font-size:24px;line-height:1.2;margin:0 0 10px;font-weight:700}
+.sc p{margin:0;font-size:15px}
+.sc .big{margin-top:auto;padding-top:16px;font-size:15px}
+.sc .big b{display:block;font-size:34px;font-weight:900;color:var(--teal-d);line-height:1.1}
+.dots{display:flex;justify-content:center;gap:8px;margin-top:16px}
+.dots i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.35);transition:all .2s}
+.dots i.on{background:var(--teal);width:22px;border-radius:4px}
+.hint{text-align:center;font-size:13px;opacity:.7;margin-top:8px}
+</style>
+</head>
+<body>
+<div class="intro">
+  <h1>“How to read an airflow number”: three options</h1>
+  <p>Each one is shown at phone width with the same three points, rewritten shorter. Open this on your phone to see them at real size.</p>
+</div>
+<div class="opts">
+
+  <div>
+    <p class="opt-tag">Option 1 · Numbered cards</p>
+    <p class="opt-why">Each point becomes a short bold line with one sentence under it, plus Jaspr’s own number. Easiest to skim, lowest risk.</p>
+    <div class="phone"><section class="sec o1">
+      <h2>How to read an airflow number.</h2>
+      <p class="lede">Three checks before you compare any purifier.</p>
+      <div class="card"><span class="n">1</span><h3>Airflow is what cleans.</h3><p>CFM is how much air goes through the filter each minute. More air through, more of the room cleaned each hour.</p><span class="chip">Jaspr: 114 CFM at fan speed 1</span></div>
+      <div class="card"><span class="n">2</span><h3>Check the speed you’ll run.</h3><p>Spec sheets lead with top speed. You’ll live with a quieter one.</p><span class="chip">Jaspr: 33 dBA at that speed</span></div>
+      <div class="card"><span class="n">3</span><h3>Ignore the square feet.</h3><p>It’s the same airflow number run through each brand’s own assumptions. Compare the airflow instead.</p><span class="chip">Try it below with your room</span></div>
+    </section></div>
+  </div>
+
+  <div>
+    <p class="opt-tag">Option 2 · Spec sheet decoder</p>
+    <p class="opt-why">A sample spec sheet with numbered pins, then what each pin means. Teaches by showing the thing they’ll actually look at on other sites.</p>
+    <div class="phone"><section class="sec o2">
+      <h2>How to read an airflow number.</h2>
+      <p class="lede">What a typical spec sheet shows, and what to look at.</p>
+      <div class="spec">
+        <div class="spec-h">Example spec sheet</div>
+        <div class="row hi"><span class="l"><span class="pin">1</span>Airflow (CADR)</span><b>300 CFM</b></div>
+        <div class="row"><span class="l"><span class="pin">2</span>Measured at</span><b>Top speed</b></div>
+        <div class="row"><span class="l"><span class="pin">3</span>Covers up to</span><b>1,200 sq ft</b></div>
+        <p class="spec-foot">An example, not any real product.</p>
+      </div>
+      <div class="note"><span class="pin">1</span><div><h3>This is the number that cleans.</h3><p>How much air goes through the filter each minute.</p></div></div>
+      <div class="note"><span class="pin">2</span><div><h3>Ask: at what speed?</h3><p>Top speed is loud. Look for the number at the speed you’d run. Jaspr: 114 CFM at 33 dBA.</p></div></div>
+      <div class="note"><span class="pin">3</span><div><h3>Skip the square feet.</h3><p>Each brand works it out its own way. Compare airflow.</p></div></div>
+    </section></div>
+  </div>
+
+  <div>
+    <p class="opt-tag">Option 3 · Swipe cards</p>
+    <p class="opt-why">Dark band that breaks up the page, three cards you swipe through, one big number on each. Most engaging, but people may not swipe to card 3.</p>
+    <div class="phone"><section class="sec o3">
+      <h2>How to read an airflow number.</h2>
+      <p class="lede">Three things spec sheets don’t tell you up front.</p>
+      <div class="track" id="track">
+        <div class="sc"><p class="q">1 · What it means</p><h3>Airflow is what cleans.</h3><p>CFM is how much air goes through the filter each minute. More air through, more of the room cleaned each hour.</p><div class="big"><b>114 CFM</b>Jaspr at fan speed 1, its quietest</div></div>
+        <div class="sc"><p class="q">2 · The catch</p><h3>Most specs are at top speed.</h3><p>That’s the loudest setting, not the one you’ll live with. Compare at the speed you’d run.</p><div class="big"><b>33 dBA</b>Jaspr at that same speed</div></div>
+        <div class="sc"><p class="q">3 · The shortcut</p><h3>Ignore the square feet.</h3><p>It’s the airflow number run through each brand’s own assumptions. Compare the airflow, then check it for your room below.</p><div class="big"><b>↓</b>Room check, next section</div></div>
+      </div>
+      <div class="dots" id="dots"><i class="on"></i><i></i><i></i></div>
+      <p class="hint">Swipe →</p>
+    </section></div>
+  </div>
+
+</div>
+<script>
+(function(){var t=document.getElementById('track'),d=document.getElementById('dots').children;
+t.addEventListener('scroll',function(){var i=Math.round(t.scrollLeft/(t.scrollWidth-t.clientWidth||1)*(d.length-1));for(var k=0;k<d.length;k++)d[k].className=k===i?'on':''},{passive:true})})();
+</script>
+</body>
+</html>
