@@ -229,7 +229,20 @@ body{display:grid;grid-template-rows:auto auto 1fr auto;grid-template-columns:10
 .calc__src{font-size:12px;margin:8px 0 0;opacity:.7}
 .calc__other{display:grid;grid-template-columns:minmax(0,1fr) 120px;gap:10px;margin-top:10px}
 .calc__other[hidden]{display:none}
-.calc__math{font-size:18px;color:#072F30;margin:26px 0 0;max-width:none}
+.calc__math{font-size:18px;color:#072F30;margin:26px 0 0}
+.calc__math>p{margin:0}
+.calc__math details{margin-top:14px;background:#fff;border-radius:14px;padding:0 18px}
+.calc__math summary{cursor:pointer;list-style:none;font-weight:700;padding:14px 0;display:flex;justify-content:space-between;align-items:center}
+.calc__math summary::-webkit-details-marker{display:none}
+.calc__math summary:after{content:"+";font-size:24px;line-height:1;color:#50b4b4}
+.calc__math details[open] summary:after{content:"–"}
+.calc__steps{list-style:none;margin:0 0 6px;padding:0}
+.calc__steps li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid #dfeeee;font-size:16px}
+.calc__steps li b{white-space:nowrap}
+.calc__steps li span{flex:1;min-width:0}
+.calc__steps li.calc__total{font-weight:700}
+.calc__steps li.calc__total b{color:#2f8f8f;font-size:20px}
+.calc__fine{font-size:14px;opacity:.75;margin:6px 0 16px}
 .calc__room{margin:18px 0 0}
 .calc__room svg{display:block;width:100%;height:auto;max-height:340px}
 .calc__room figcaption{font-size:13px;opacity:.75;margin-top:6px}
@@ -429,7 +442,10 @@ t.addEventListener('scroll',function(){var i=Math.round(t.scrollLeft/((t.scrollW
       </div>
     </div>
   </div>
-  <p class="calc__math"><b>The math:</b> air changes per hour = airflow (CFM) × 60 ÷ room volume in cubic feet. A 250 square foot room with an 8-foot ceiling holds 2,000 cubic feet, so Jaspr’s 114 CFM at fan speed 1 changes that air about 3.4 times an hour. A 10-foot ceiling makes it about 2.7. It is a yardstick, not a guarantee: furniture, doors and where the unit sits change how well a room mixes. Rival figures are each maker’s own published numbers, read in October 2026. Makers publish different measures (smoke CADR, airflow rate), so treat the comparison as a guide.</p>
+  <div class="calc__math"><p>A guide, not a guarantee. Furniture, doors and where the unit sits all change how well a room’s air mixes.</p>
+    <details><summary>See the math</summary>
+      <ul class="calc__steps"><li><span>Room: 250 sq ft × 8 ft ceiling</span><b>2,000 cu ft</b></li><li><span>Jaspr at fan speed 1</span><b>114 CFM</b></li><li><span>Air moved in an hour: 114 × 60</span><b>6,840 cu ft</b></li><li class=calc__total><span>Air changes an hour: 6,840 ÷ 2,000</span><b>3.4</b></li></ul>
+      <p class="calc__fine">Other purifiers’ figures are each maker’s own published numbers, read October 2026. Makers measure differently (smoke CADR, airflow rate), so treat comparisons as a guide.</p></details></div>
   
   <script type="application/json" id="calc-data">{"ad35-0": {"name": "AirDoctor 3500 · top speed", "cfm": 340, "noise": null, "top": true, "metric": "Smoke CADR at top speed, as AirDoctor publishes it", "source": "AirDoctor’s AD3500 product page, read Oct 5, 2026"}, "iq-0": {"name": "IQAir HealthPro Plus · speed 1", "cfm": 40, "noise": "27 dB(A) at 3.3 ft", "top": false, "metric": "Airflow rate at that fan speed, as IQAir publishes it (not a CADR)", "source": "IQAir’s HealthPro Plus product page, read Oct 5, 2026; the 300 CFM top speed is also on IQAir’s HealthPro Series spec sheet"}, "iq-1": {"name": "IQAir HealthPro Plus · speed 2", "cfm": 75, "noise": "38 dB(A) at 3.3 ft", "top": false, "metric": "Airflow rate at that fan speed, as IQAir publishes it (not a CADR)", "source": "IQAir’s HealthPro Plus product page, read Oct 5, 2026; the 300 CFM top speed is also on IQAir’s HealthPro Series spec sheet"}, "iq-2": {"name": "IQAir HealthPro Plus · speed 3", "cfm": 130, "noise": "45 dB(A) at 3.3 ft", "top": false, "metric": "Airflow rate at that fan speed, as IQAir publishes it (not a CADR)", "source": "IQAir’s HealthPro Plus product page, read Oct 5, 2026; the 300 CFM top speed is also on IQAir’s HealthPro Series spec sheet"}, "iq-3": {"name": "IQAir HealthPro Plus · speed 4", "cfm": 170, "noise": "50 dB(A) at 3.3 ft", "top": false, "metric": "Airflow rate at that fan speed, as IQAir publishes it (not a CADR)", "source": "IQAir’s HealthPro Plus product page, read Oct 5, 2026; the 300 CFM top speed is also on IQAir’s HealthPro Series spec sheet"}, "iq-4": {"name": "IQAir HealthPro Plus · speed 5", "cfm": 200, "noise": "53 dB(A) at 3.3 ft", "top": false, "metric": "Airflow rate at that fan speed, as IQAir publishes it (not a CADR)", "source": "IQAir’s HealthPro Plus product page, read Oct 5, 2026; the 300 CFM top speed is also on IQAir’s HealthPro Series spec sheet"}, "iq-5": {"name": "IQAir HealthPro Plus · speed 6, top", "cfm": 300, "noise": "59 dB(A) at 3.3 ft", "top": true, "metric": "Airflow rate at that fan speed, as IQAir publishes it (not a CADR)", "source": "IQAir’s HealthPro Plus product page, read Oct 5, 2026; the 300 CFM top speed is also on IQAir’s HealthPro Series spec sheet"}, "wx-0": {"name": "Winix 5510 · top speed", "cfm": 253, "noise": null, "top": true, "metric": "Smoke CADR, as Winix publishes it (it does not say which speed)", "source": "Winix’s 5510 product page, read Oct 5, 2026"}, "dy-0": {"name": "Dyson Big+Quiet Formaldehyde · top setting", "cfm": 184, "noise": "56 dBA sound power", "top": true, "metric": "Primary airflow at the top setting, 50° projection (87 L/s), as Dyson publishes it (not a CADR)", "source": "Dyson’s technical specification for the BP03, version 11/23, read Oct 5, 2026; the BP04 is the same range in another colour, to confirm"}}</script>
 </div></div></div>
