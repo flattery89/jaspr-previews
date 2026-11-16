@@ -294,7 +294,7 @@ body.jb-tags .jb-pp-band__label{display:block}
 <body class="gradient template-jaspr-pro" data-default-cards="">
 <svg id="oke-star-symbols" style="display:none!important"><symbol id="oke-star-empty" style="overflow:visible;"><path fill="var(--oke-stars-backgroundColor)" d="M3.34 13.86c-.48.3-.76.1-.63-.44l1.08-4.56L.26 5.82c-.42-.36-.32-.7.24-.74l4.63-.37L6.92.39c.2-.52.55-.52.76 0l1.8 4.32 4.62.37c.56.05.67.37.24.74l-3.53 3.04 1.08 4.56c.13.54-.14.74-.63.44L7.3 11.43l-3.96 2.43z"></path></symbol><symbol id="oke-star-filled" style="overflow:visible;"><path fill="var(--oke-stars-foregroundColor)" d="M3.34 13.86c-.48.3-.76.1-.63-.44l1.08-4.56L.26 5.82c-.42-.36-.32-.7.24-.74l4.63-.37L6.92.39c.2-.52.55-.52.76 0l1.8 4.32 4.62.37c.56.05.67.37.24.74l-3.53 3.04 1.08 4.56c.13.54-.14.74-.63.44L7.3 11.43l-3.96 2.43z"></path></symbol></svg>
 <div class="preview-ribbon" role="note"><b>DRAFT PREVIEW · NOT LIVE.</b> Control: the live buy box today. Tick any card below to compare. Yellow = Jaspr to confirm.</div>
-<div class="jb-toolbar" role="group" aria-label="Preview controls"><span class="jb-toolbar__lead">Show cards:</span><label><input type="checkbox" data-card="9"> 9 &middot; Guarantee under button</label><label><input type="checkbox" data-card="16"> 16 &middot; No stock bar</label><label><input type="checkbox" data-card="3"> 3 &middot; Cost up front</label><label><input type="checkbox" data-card="12"> 12 &middot; Pay over time</label><label class="jb-toolbar__labels"><input type="checkbox" id="jb-show-tags" checked> Labels</label></div>
+<div class="jb-toolbar" role="group" aria-label="Preview controls"><span class="jb-toolbar__lead">Show cards:</span><label><input type="checkbox" data-card="9"> 9 &middot; Guarantee under button</label><label><input type="checkbox" data-card="16"> 16 &middot; No stock bar</label><label><input type="checkbox" data-card="3"> 3 &middot; Cost up front</label><label><input type="checkbox" data-card="12"> 12 &middot; Pay over time</label><label><input type="checkbox" data-card="19"> 19 &middot; Daily stock bar</label><label class="jb-toolbar__labels"><input type="checkbox" id="jb-show-tags" checked> Labels</label></div>
 
 <div id="shopify-section-sections--21364991656033__header" class="shopify-section shopify-section-group-header-group section-header shopify-section-header-sticky">
 <style>
@@ -362,7 +362,60 @@ summary.list-menu__item{padding-right:2.7rem}.list-menu__item{display:flex;align
   <button type="button" class="jb-link" data-open="jb-cost-dialog">See the full cost</button>
 </div>
 </div>
-      <div data-off="16" class="mainProductStockProgressWrapper" style="--padding-top: 0px;--padding-bottom: 16px;--mobile-padding-top: 0px;--mobile-padding-bottom: 8px;">
+      <div class="jb-mark" data-on="19" style="margin-bottom:16px"><span class="jb-tag" aria-hidden="true">Card 19 · Daily low-stock bar</span>
+<div class="jaspr-low-stock" data-jaspr-low-stock hidden>
+  <div class="jaspr-low-stock__head">
+    <span class="jaspr-low-stock__title">
+      <svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 5.5v5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="10" cy="14.2" r="1.1" fill="currentColor"/></svg>
+      Low Stock
+    </span>
+    
+    <span class="jaspr-low-stock__pct"><span data-pct></span>% Sold</span>
+    
+  </div>
+  
+  <p class="jaspr-low-stock__text">Limited inventory. Once we are sold out, next batch arrives <span data-month></span></p>
+  
+  <div class="jaspr-low-stock__track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Percent sold"><div class="jaspr-low-stock__fill"></div></div>
+</div>
+
+<style>
+  .jaspr-low-stock{border:1px solid #dcdcdc;border-radius:6px;padding:14px 12px 12px;color:#1f2a2a;font:inherit;line-height:1.4}
+  .jaspr-low-stock__head{display:flex;justify-content:space-between;align-items:center;font-weight:600;font-size:14px}
+  .jaspr-low-stock__title{display:inline-flex;align-items:center;gap:8px}
+  .jaspr-low-stock .jaspr-low-stock__text{margin:8px 0 12px !important;font-size:14px;line-height:1.45;color:#5b6363}
+  .jaspr-low-stock__track{height:8px;border-radius:4px;background:#ececec;overflow:hidden}
+  .jaspr-low-stock__fill{height:100%;width:0;background:#a7343a;border-radius:4px;transition:width .8s ease;animation:jaspr-ls-pulse 2.4s ease-in-out 1s infinite}
+  @keyframes jaspr-ls-pulse{0%,100%{opacity:1}50%{opacity:.6}}
+  @media (prefers-reduced-motion:reduce){.jaspr-low-stock__fill{animation:none}}
+</style>
+
+<script>
+  (function () {
+    // Same number for every visitor on a given day (store calendar, America/Chicago); never goes down within the month.
+    var START = 52, CAP = 79, TZ = 'America/Chicago';
+    var parts = new Intl.DateTimeFormat('en-US', { timeZone: TZ, year: 'numeric', month: 'numeric', day: 'numeric' })
+      .formatToParts(new Date()).reduce(function (o, p) { o[p.type] = +p.value; return o; }, {});
+    function step(d) {  // 0, 1 or 2 points, picked by the date
+      var h = Math.imul(parts.year * 372 + parts.month * 31 + d, 2654435761) >>> 0;
+      return Math.floor(h / 4294967296 * 3);
+    }
+    var pct = START;
+    for (var d = 2; d <= parts.day; d++) pct += step(d);
+    pct = Math.min(pct, CAP);
+    var nextMonth = new Date(parts.year, parts.month, 1).toLocaleString('en-US', { month: 'long' });
+
+    document.querySelectorAll('[data-jaspr-low-stock]').forEach(function (el) {
+      var pctEl = el.querySelector('[data-pct]');
+      if (pctEl) pctEl.textContent = pct;
+      el.querySelector('[data-month]').textContent = nextMonth;
+      el.querySelector('[role=progressbar]').setAttribute('aria-valuenow', pct);
+      el.hidden = false;
+      requestAnimationFrame(function () { el.querySelector('.jaspr-low-stock__fill').style.width = pct + '%'; });
+    });
+  })();
+</script>
+</div><div data-off="16,19" class="mainProductStockProgressWrapper" style="--padding-top: 0px;--padding-bottom: 16px;--mobile-padding-top: 0px;--mobile-padding-bottom: 8px;">
         <div class="mainProductStockProgress"><div class="stockProgressHeader"><div class="stockProgressLabelWrap">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 21C10.22 21 8.48 20.47 7 19.48 5.52 18.49 4.37 17.09 3.69 15.44 3 13.8 2.83 11.99 3.17 10.24 3.52 8.5 4.38 6.89 5.64 5.64 6.89 4.38 8.5 3.52 10.24 3.17 11.99 2.83 13.8 3 15.44 3.69 17.09 4.37 18.49 5.52 19.48 7 20.47 8.48 21 10.22 21 12 21 14.39 20.05 16.68 18.36 18.36 16.68 20.05 14.39 21 12 21ZM12 4.5C10.52 4.5 9.07 4.94 7.83 5.76 6.6 6.59 5.64 7.76 5.07 9.13 4.5 10.5 4.35 12.01 4.64 13.46 4.93 14.92 5.65 16.25 6.7 17.3 7.75 18.35 9.08 19.07 10.54 19.36 11.99 19.65 13.5 19.5 14.87 18.93 16.24 18.36 17.41 17.4 18.24 16.17 19.06 14.93 19.5 13.48 19.5 12 19.5 10.01 18.71 8.1 17.3 6.7 15.9 5.29 13.99 4.5 12 4.5Z" fill="#1F1F1F"></path><path d="M12 13C11.8 13 11.61 12.92 11.47 12.78 11.33 12.64 11.25 12.45 11.25 12.25V8.75C11.25 8.55 11.33 8.36 11.47 8.22 11.61 8.08 11.8 8 12 8 12.2 8 12.39 8.08 12.53 8.22 12.67 8.36 12.75 8.55 12.75 8.75V12.25C12.75 12.45 12.67 12.64 12.53 12.78 12.39 12.92 12.2 13 12 13ZM12 16C11.8 16 11.61 15.92 11.47 15.78 11.33 15.64 11.25 15.45 11.25 15.25V14.75C11.25 14.55 11.33 14.36 11.47 14.22 11.61 14.08 11.8 14 12 14 12.2 14 12.39 14.08 12.53 14.22 12.67 14.36 12.75 14.55 12.75 14.75V15.25C12.75 15.45 12.67 15.64 12.53 15.78 12.39 15.92 12.2 16 12 16Z" fill="#1F1F1F"></path></svg>
           <span class="stockProgressLabel">Low Stock</span></div><span class="stockProgressPercent">91% Sold</span></div>
@@ -664,7 +717,7 @@ document.addEventListener('DOMContentLoaded',function(){
   function read(){var m=location.hash.match(/cards=([\d,]*)/);return m?m[1].split(',').filter(Boolean):DEFAULT;}
   function apply(on){
     document.querySelectorAll('[data-on]').forEach(function(el){el.hidden=on.indexOf(el.getAttribute('data-on'))<0;});
-    document.querySelectorAll('[data-off]').forEach(function(el){el.hidden=on.indexOf(el.getAttribute('data-off'))>=0;});
+    document.querySelectorAll('[data-off]').forEach(function(el){el.hidden=el.getAttribute('data-off').split(',').some(function(c){return on.indexOf(c)>=0;});});
     document.querySelectorAll('.jb-toolbar input[data-card]').forEach(function(b){b.checked=on.indexOf(b.getAttribute('data-card'))>=0;});
   }
   document.querySelectorAll('.jb-toolbar input[data-card]').forEach(function(b){b.addEventListener('change',function(){
